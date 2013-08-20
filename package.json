@@ -3,6 +3,7 @@
   "private": true,
   "devDependencies": {
     "q": "~0.9.6",
-    "semver": "~2.1.0"
+    "semver": "~2.1.0",
+    "clean-css": "~1.0.12"
   }
 }

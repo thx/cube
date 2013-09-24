@@ -199,7 +199,7 @@ hr {
  * 修正 IE6-11 中没有样式的问题
  */
 mark {
-	background-color: #ff0;
+	background-color: #D2E5FF;
 	color: #000;
 }
 

@@ -1,7 +1,7 @@
 ﻿/*
-*@ Name:        Neat.css V1.0.2
+*@ Name:        Neat.css V1.0.3
 *@ Author:      一丝(yisibl) 
-*@ Update:      2013-8-19 14:33:35
+*@ Update:      2013-9-24 17:07:46
 *@ Copyright:	基于 normalize.css | MIT License 
 */
 
@@ -46,10 +46,6 @@ a{
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
 /*
 * 去掉 IE10+ 点击链接时的灰色背景
 */
@@ -82,14 +78,6 @@ a:focus {
 /* ========= 字体和基础排版 ========= */
 
 /*
- * 去除 iOS 中点击时的背景色
- */
-
-*{
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-/*
  * 1.防止 iOS 横屏字号放大，同时保证在PC上 zoom 功能正常
  * 2.使用 rem 设置字号，浏览器设置中改变字号时文字大小可以改变
  * 3.去除 iOS 中点击时的背景色
@@ -99,12 +87,13 @@ a:focus {
 html {
 	-ms-text-size-adjust: 100%; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 1 */
-	font-size: 62.5%; /* 10/16=6.25% */
+	text-size-adjust: 100%;
+	font-size: 62.5%; /* 10/16=62.5% */
 }
 
 body {
 	font-size: 14px;
-	font-size: 1.4rem; /* 2 */ /* 1*14=14rem */
+	font-size: 1.4rem; /* 2 */
 	line-height: 1.8;
 }
 
@@ -206,6 +195,7 @@ hr {
 }
 
 /*
+ *  网页标记，荧光笔
  * 修正 IE6-11 中没有样式的问题
  */
 mark {
@@ -241,6 +231,7 @@ pre {
 }
 
 /*
+ * 行内引用
  * IE6/7 不支持 quotes 属性
  * 现代浏览器去除 quotes 内容
  */

@@ -572,7 +572,7 @@ audio:not([controls]) {
  * 居中 HTML5 dialog 元素
  * Chrome 31 支持，需开启 chrome://flags/#enable-experimental-web-platform-features
  * ::backdrop 定义遮罩样式
- * Chrome 28 之前、Firefox 中 height 不支持 fit-content https://src.chromium.org/viewvc/blink?revision=148314&view=revision
+ * Chrome 28 之前、Firefox 中不支持 height:fit-content; https://src.chromium.org/viewvc/blink?revision=148314&view=revision
  * Demo: http://jsbin.com/iPACab/1
  */
 dialog{
@@ -582,17 +582,12 @@ dialog{
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 50%;
-	-webkit-transform: translatey(-50%);
-	-moz-transform: translatey(-50%);
-	-ms-transform: translatey(-50%);
-	-o-transform: translatey(-50%);
-	transform: translatey(-50%);
+	top: 0;
+	bottom: 0;
 
 	width: -moz-fit-content;
 	width: -webkit-fit-content;
 	width: fit-content;
-
 	height: -moz-fit-content;
 	height: -webkit-fit-content;
 	height: fit-content;

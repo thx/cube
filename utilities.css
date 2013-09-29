@@ -1,0 +1,100 @@
+﻿/*
+* 基础工具
+*@ Name:        utilities.css V1.0.0
+*@ Author:      一丝
+*@ Update:      2013-9-29 14:42:58;
+*@ Copyright:   MIT License 
+*/
+
+
+/*
+* 闭合浮动
+* 1. IE6-7触发 hasLayout 闭合浮动
+*/ 
+.clearfix:before,
+.clearfix:after {
+    content: ""; 
+    display: table; 
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1; /* 1 */
+}
+
+
+/*
+ *@ Name:       inline-block 通用解决方案
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 16:05:04
+ *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
+ */
+.dib {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.dib-box{
+    font-size: 0; /* 所有浏览器 */
+    *word-spacing: -1px; /* IE6/7 */
+}
+
+@media (-webkit-min-device-pixel-ratio:0) {
+    .dib-box{
+        letter-spacing: -5px;/* Safari 5 等不支持 font-size: 0 的浏览器*/
+    }
+}
+
+.dib-box .dib{
+    vertical-align: top;
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+
+/*
+ *@ Name:        自适应两端对齐解决方案
+ *@ Author:      一丝
+ *@ Update:      2013-9-29 16:05:04
+ *@ Rely：       依赖 inline-block 解决方案
+ *@ Usage:       外层加上 justify，内部需要两端对齐的元素都加上 dib,dib 与 justify 不要同时出现
+ *@ Demo:        http://jsbin.com/OsEcOMA/1/
+ */
+
+ /* 防止行高增大 */
+.justify,
+.dib-box .justify{
+    font-size:0;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-ideograph; /* IE 6-7 */
+    *zoom: 1; /* IE 6-7 触发 hasLayout 使一行也能两端对齐 */
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+    text-align-last: justify; /* IE 8+ */
+}
+
+/* 不支持 text-align-last 的浏览器用伪元素模拟 */
+.justify:after {
+    content: "";
+    display: inline-block;
+    width: 100%; /* margin-left:100% 仅 WebKit 支持 */
+}
+
+/* 子元素取消两端对齐 */
+.justify .dib { 
+    -moz-text-align-last: auto;
+    -webkit-text-align-last: auto;
+    text-align-last: auto;
+    text-justify: auto;
+    text-align: left;
+
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+}

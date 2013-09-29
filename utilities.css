@@ -9,7 +9,6 @@
 
 /*
 * 闭合浮动
-* 1. IE6-7触发 hasLayout 闭合浮动
 */ 
 .clearfix:before,
 .clearfix:after {
@@ -20,12 +19,12 @@
     clear: both;
 }
 .clearfix {
-    *zoom: 1; /* 1 */
+    *zoom: 1; /* IE6-7 触发 hasLayout */
 }
 
 
 /*
- *@ Name:       inline-block 通用解决方案
+ *@ Name:       inline-block 组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
@@ -43,7 +42,7 @@
 
 @media (-webkit-min-device-pixel-ratio:0) {
     .dib-box{
-        letter-spacing: -5px;/* Safari 5 等不支持 font-size: 0 的浏览器*/
+        letter-spacing: -5px;/* Safari 5- 等不支持 font-size: 0 的浏览器*/
     }
 }
 
@@ -56,7 +55,7 @@
 
 
 /*
- *@ Name:        自适应两端对齐解决方案
+ *@ Name:        自适应两端对齐组件
  *@ Author:      一丝
  *@ Update:      2013-9-29 16:05:04
  *@ Rely：       依赖 inline-block 解决方案
@@ -97,4 +96,183 @@
     font-size: 12px;
     letter-spacing: normal;
     word-spacing: normal;
+}
+
+/* 文字溢出显示省略号 */
+.text-hide {
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    max-width: 100%;
+    _width: 100%;
+}
+
+/* 强制不换行 */
+.nowrap {
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+/* 连续字符换行 */
+.break {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.hidden {
+    display: none;
+}
+
+/*
+ *@ Name:       自适应图文混排组件
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 19:23:27
+ *@ Usage:      line 用于不需要溢出显示的模块
+ */
+
+.line {
+    overflow: hidden;
+    *overflow: visible;
+    *zoom: 1;
+}
+
+.bfc {
+    display: table-cell;
+    *zoom: 1;
+}
+
+.bfc:after {
+    clear: both;
+    display: block;
+    visibility: visible;
+    overflow: hidden;
+    height: 0 !important;
+    line-height: 0;
+    font-size: xx-large;
+    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}
+
+/*
+ *@ Name:       CSS 三角形组件
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 16:05:04
+ *@ Usage:      
+ */
+.arrow {
+    font-size: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    display: inline-block;
+   *display:inline;
+   *zoom:1;
+    vertical-align: -2px;
+
+    border: 0 dashed transparent;
+    border-width: 6px;
+}
+.arrow-top {
+    border-bottom-style: solid;
+    border-bottom-color: #2AB2DF;
+}
+
+.arrow-bottom {
+    border-top-style: solid;
+    border-top-color: #2AB2DF;
+}
+.arrow-left {
+    border-right-style: solid;
+    border-right-color: #2AB2DF;
+}
+.arrow-right {
+    border-left-style: solid;
+    border-left-color: #2AB2DF;
+}
+
+/*
+ *@ Name:       响应式视频组件
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 16:05:04
+ *@ Usage:      不同的视频网站由于控制栏高度不同，需要JS配合添加对应的 class
+ */
+.video-fluid { position:relative; } /* 视频容器 */
+.video-fluid embed,.video-fluid div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0
+}
+.widescreen{ padding-bottom:56.25%; }/* 宽屏 16:9=56.25% */
+.narrowscreen{ padding-bottom:75%; }/* 窄屏 4:3=75% */
+
+/* 播放器控制栏的高度，更多网站按需扩展 */
+.youku{ padding-top:40px; } /* 优酷 */
+.wole{ padding-top:40px; } /* 我乐 56.com */
+.tudou{ padding-top:50px; } /* 土豆 */
+.iqiyi{ padding-top:45px; } /* 爱奇艺 */
+.youtube{ padding-top:30px; } /* Youtube */
+
+
+/*
+ *@ Name:       未知高度垂直居中组件
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 16:05:04
+ *@ Usage:      支持图片，单行或多行文字，以及图文混排
+ */
+
+/* 去除 inline-block 的空隙 */
+.vertical-box{
+    font-size: 0; 
+    *word-spacing: -1px; /* IE6、7 */
+    height: 100%;
+}
+
+@media (-webkit-min-device-pixel-ratio:0) {
+    .vertical-box{
+        letter-spacing: -5px; /* 修复 Safari 5- 的空隙 */
+    }
+}
+
+.vertical-box .vertical-center{
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+.vertical-box .vertical-hack{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+    font-size: 0;
+}
+.vertical-box .vertical-center{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    font-size:12px;
+    vertical-align: middle;/* 保证文字垂直居中 */
+    width: 100%; /* 保证连续字符也能居中 */
+    padding: 0 !important; /* 防止设置边距导致居中失效 */
+    margin: 0 !important;
+}
+
+/* 保证连续字符换行 */
+.vertical-box .vertical-content{
+    white-space: normal;
+    word-wrap: break-word; 
+}
+
+.vertical-box .vertical-img,
+.vertical-box img{
+    vertical-align: middle;
 }

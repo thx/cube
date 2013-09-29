@@ -9,6 +9,7 @@
 
 /*
 * 闭合浮动
+* Doc: http://nicolasgallagher.com/micro-clearfix-hack/
 */ 
 .clearfix:before,
 .clearfix:after {
@@ -202,8 +203,12 @@
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      不同的视频网站由于控制栏高度不同，需要JS配合添加对应的 class
  */
-.video-fluid { position:relative; } /* 视频容器 */
-.video-fluid embed,.video-fluid div{
+.fluid-video { position:relative; } /* 视频容器 */
+.fluid-video video,
+.fluid-video div,
+.fluid-video embed,
+.fluid-video object,
+.fluid-video iframe{
     position: absolute;
     width: 100%;
     height: 100%;

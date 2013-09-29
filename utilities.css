@@ -198,23 +198,25 @@
 }
 
 /*
- *@ Name:       响应式视频组件
+ *@ Name:       替换元素等比缩放组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      不同的视频网站由于控制栏高度不同，需要JS配合添加对应的 class
  */
-.fluid-video { position:relative; } /* 视频容器 */
-.fluid-video video,
-.fluid-video div,
-.fluid-video embed,
-.fluid-video object,
-.fluid-video iframe{
+.fluid-media { position:relative; } /* 容器 */
+.fluid-media video,
+.fluid-media div,
+.fluid-media embed,
+.fluid-media object,
+.fluid-media iframe{
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0
 }
+
+/* 常见的视频比例 */
 .widescreen{ padding-bottom:56.25%; }/* 宽屏 16:9=56.25% */
 .narrowscreen{ padding-bottom:75%; }/* 窄屏 4:3=75% */
 

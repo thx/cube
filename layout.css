@@ -1,27 +1,10 @@
 ﻿/*
 * 基础工具
-*@ Name:        utilities.css V1.0.0
+*@ Name:        layout.css V1.0.0
 *@ Author:      一丝
-*@ Update:      2013-9-29 14:42:58;
+*@ Update:      2013-9-30 15:39:51;
 *@ Copyright:   MIT License 
 */
-
-
-/*
-* 闭合浮动
-* Doc: http://nicolasgallagher.com/micro-clearfix-hack/
-*/ 
-.clearfix:before,
-.clearfix:after {
-    content: ""; 
-    display: table; 
-}
-.clearfix:after {
-    clear: both;
-}
-.clearfix {
-    *zoom: 1; /* IE6-7 触发 hasLayout */
-}
 
 
 /*
@@ -99,65 +82,6 @@
     word-spacing: normal;
 }
 
-/* 文字溢出显示省略号 */
-.text-hide {
-    white-space: nowrap;
-    word-wrap: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    vertical-align: top;
-    max-width: 100%;
-    _width: 100%;
-}
-
-/* 强制不换行 */
-.nowrap {
-    white-space: nowrap;
-    word-wrap: normal;
-}
-
-/* 连续字符换行 */
-.break {
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-.hidden {
-    display: none;
-}
-
-/*
- *@ Name:       自适应图文混排组件
- *@ Author:     一丝
- *@ Update:     2013-9-29 19:23:27
- *@ Usage:      line 用于不需要溢出显示的模块
- */
-
-.line {
-    overflow: hidden;
-    *overflow: visible;
-    *zoom: 1;
-}
-
-.bfc {
-    display: table-cell;
-    *zoom: 1;
-}
-
-.bfc:after {
-    clear: both;
-    display: block;
-    visibility: visible;
-    overflow: hidden;
-    height: 0 !important;
-    line-height: 0;
-    font-size: xx-large;
-    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
-}
 
 /*
  *@ Name:       CSS 三角形组件

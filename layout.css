@@ -155,55 +155,61 @@
 /*
  *@ Name:       未知高度垂直居中组件
  *@ Author:     一丝
- *@ Update:     2013-9-29 16:05:04
+ *@ Update:     2013-10-13 17:08:36
  *@ Usage:      支持图片，单行或多行文字，以及图文混排
  */
 
 /* 去除 inline-block 的空隙 */
-.vertical-box{
+.center-box{
     font-size: 0; 
     *word-spacing: -1px; /* IE6、7 */
-    height: 100%;
+    height: 100%; /* 继承父级高度 */
 }
 
+/* 修复 Safari 5- inline-block 的空隙 */
 @media (-webkit-min-device-pixel-ratio:0) {
-    .vertical-box{
-        letter-spacing: -5px; /* 修复 Safari 5- 的空隙 */
+    .center-box{
+        letter-spacing: -5px;
     }
 }
 
-.vertical-box .vertical-center{
-    letter-spacing: normal;
-    word-spacing: normal;
-}
-
-.vertical-box .vertical-hack{
+/* 使用空标签生成一个高度100%的参照元素 */
+.center-box .center-hack{
     display: inline-block;
     *display: inline;
     *zoom: 1;
-    vertical-align: middle;
+    font-size: 0;
     width: 0;
     height: 100%;
-    font-size: 0;
+    vertical-align: middle;
 }
-.vertical-box .vertical-center{
+
+.center-box .center-body{
+    letter-spacing: normal;
+    word-spacing: normal;
     display: inline-block;
     *display: inline;
     *zoom: 1;
     font-size:12px;
-    vertical-align: middle;/* 保证文字垂直居中 */
-    width: 100%; /* 保证连续字符也能居中 */
-    padding: 0 !important; /* 防止设置边距导致居中失效 */
+    vertical-align: middle; /* 保证文字垂直居中 */
+    padding: 0 !important;  /* 防止设置边距导致居中失效 */
+    margin: 0 !important;
+    width: 100%;            /* 保证连续字符也能居中 */
+    white-space: normal;    /* 保证连续字符换行 */
+    word-wrap: break-word;
+}
+
+.center-box .center-img{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 100%;
+    text-align: center; /* 图片默认水平居中 */
+    vertical-align: middle;
+    padding: 0 !important;  /* 防止设置边距导致居中失效 */
     margin: 0 !important;
 }
 
-/* 保证连续字符换行 */
-.vertical-box .vertical-content{
-    white-space: normal;
-    word-wrap: break-word; 
-}
-
-.vertical-box .vertical-img,
-.vertical-box img{
-    vertical-align: middle;
+.center-box img{
+    vertical-align: middle; /* 去除现代浏览器 img 底部空隙 */
 }

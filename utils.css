@@ -75,12 +75,13 @@
 }
 
 /* 连续字符换行 */
-.break {
+.wrap {
     white-space: normal;
 	word-wrap: break-word;
 }
 
-.hidden {
+.hidden,
+.hide {
 	display: none;
 }
 

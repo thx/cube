@@ -7,7 +7,7 @@
 * CSS3117: @font-face failed cross-origin request. Resource access is restricted.
 */
 @font-face {
-	font-family: "uxiconfont";
+	font-family: "uxiconfont" !important;
 	src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot"); /* IE9 */
 	src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
 		 url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), /* Chrome、Firefox */
@@ -21,7 +21,7 @@
  * Demo: http://jsbin.com/iWItiQe/2
 */
 .iconfont {
-	font-family: "uxiconfont";
+	font-family: "uxiconfont" !important;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: normal;

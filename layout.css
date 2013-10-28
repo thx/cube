@@ -6,38 +6,35 @@
 *@ Copyright:   MIT License 
 */
 
-
 /*
  *@ Name:       inline-block 组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
  */
-.dib {
+ .dib {
     display: inline-block;
     *display: inline;
     *zoom: 1;
 }
-
-.dib-box{
-    font-size: 0; /* 所有浏览器 */
-    *word-spacing: -1px; /* IE6/7 */
+.dib-box {
+    font-size: 0;
+    /* 所有浏览器 */
+    *word-spacing: -1px;
+    /* IE6/7 */
 }
-
 @media (-webkit-min-device-pixel-ratio:0) {
-    .dib-box{
-        letter-spacing: -5px;/* Safari 5- 等不支持 font-size: 0 的浏览器*/
+    .dib-box {
+        letter-spacing: -5px;
+        /* Safari 5- 等不支持 font-size: 0 的浏览器*/
     }
 }
-
-.dib-box .dib{
+.dib-box .dib {
     vertical-align: top;
     font-size: 12px;
     letter-spacing: normal;
     word-spacing: normal;
 }
-
-
 /*
  *@ Name:        自适应两端对齐组件
  *@ Author:      一丝
@@ -47,59 +44,55 @@
  *@ Demo:        http://jsbin.com/OsEcOMA/1/
  */
 
- /* 防止行高增大 */
-.justify,
-.dib-box .justify{
+/* 防止行高增大 */
+ .justify, .dib-box .justify {
     font-size:0;
 }
-
 .justify {
     text-align: justify;
-    text-justify: inter-ideograph; /* IE 6-7 */
-    *zoom: 1; /* IE 6-7 触发 hasLayout 使一行也能两端对齐 */
+    text-justify: inter-ideograph;
+    /* IE 6-7 */
+    *zoom: 1;
+    /* IE 6-7 触发 hasLayout 使一行也能两端对齐 */
     -moz-text-align-last: justify;
     -webkit-text-align-last: justify;
-    text-align-last: justify; /* IE 8+ */
+    text-align-last: justify;
+    /* IE 8+ */
 }
-
 /* 不支持 text-align-last 的浏览器用伪元素模拟 */
-.justify:after {
-    content: "";
+ .justify:after {
+    content:"";
     display: inline-block;
-    width: 100%; /* margin-left:100% 仅 WebKit 支持 */
+    width: 100%;
+    /* margin-left:100% 仅 WebKit 支持 */
 }
-
 /* 子元素取消两端对齐 */
-.justify .dib { 
+ .justify .dib {
     -moz-text-align-last: auto;
     -webkit-text-align-last: auto;
     text-align-last: auto;
     text-justify: auto;
     text-align: left;
-
     font-size: 12px;
     letter-spacing: normal;
     word-spacing: normal;
 }
-
-
 /*
  *@ Name:       CSS 三角形组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      
  */
-.arrow {
+ .arrow {
     font-size: 0;
     width: 0;
     height: 0;
     line-height: 0;
     overflow: hidden;
     display: inline-block;
-   *display:inline;
-   *zoom:1;
+    *display:inline;
+    *zoom:1;
     vertical-align: -2px;
-
     border: 0 dashed transparent;
     border-width: 6px;
 }
@@ -107,7 +100,6 @@
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
 }
-
 .arrow-bottom {
     border-top-style: solid;
     border-top-color: #2AB2DF;
@@ -120,65 +112,78 @@
     border-left-style: solid;
     border-left-color: #2AB2DF;
 }
-
 /* ◤ */
-.arrow-left-top {
+ .arrow-left-top {
     border-top-style: solid;
     border-top-color: #2AB2DF;
     border-left-width: 0 !important;
 }
-
 /* ◥ */
-.arrow-right-top {
+ .arrow-right-top {
     border-top-style: solid;
     border-top-color: #2AB2DF;
     border-right-width: 0 !important;
 }
-
 /* ◢ */
-.arrow-left-bottom {
+ .arrow-left-bottom {
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
     border-left-width: 0 !important;
 }
-
 /* ◣ */
-.arrow-right-bottom {
+ .arrow-right-bottom {
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
     border-right-width: 0 !important;
 }
-
 /*
  *@ Name:       替换元素等比缩放组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      不同的视频网站由于控制栏高度不同，需要JS配合添加对应的 class
  */
-.fluid-media { position:relative; } /* 容器 */
-.fluid-media video,
-.fluid-media div,
-.fluid-media embed,
-.fluid-media object,
-.fluid-media iframe{
+ .fluid-media {
+    position:relative;
+}
+/* 容器 */
+ .fluid-media video, .fluid-media div, .fluid-media embed, .fluid-media object, .fluid-media iframe {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0
 }
-
 /* 常见的视频比例 */
-.widescreen{ padding-bottom:56.25%; }/* 宽屏 16:9=56.25% */
-.narrowscreen{ padding-bottom:75%; }/* 窄屏 4:3=75% */
+ .widescreen {
+    padding-bottom:56.25%;
+}
+/* 宽屏 16:9=56.25% */
+ .narrowscreen {
+    padding-bottom:75%;
+}
+/* 窄屏 4:3=75% */
 
 /* 播放器控制栏的高度，更多网站按需扩展 */
-.youku{ padding-top:40px; } /* 优酷 */
-.wole{ padding-top:40px; } /* 我乐 56.com */
-.tudou{ padding-top:50px; } /* 土豆 */
-.iqiyi{ padding-top:45px; } /* 爱奇艺 */
-.youtube{ padding-top:30px; } /* Youtube */
-
+ .youku {
+    padding-top:40px;
+}
+/* 优酷 */
+ .wole {
+    padding-top:40px;
+}
+/* 我乐 56.com */
+ .tudou {
+    padding-top:50px;
+}
+/* 土豆 */
+ .iqiyi {
+    padding-top:45px;
+}
+/* 爱奇艺 */
+ .youtube {
+    padding-top:30px;
+}
+/* Youtube */
 
 /*
  *@ Name:       未知高度垂直居中组件
@@ -188,21 +193,21 @@
  */
 
 /* 去除 inline-block 的空隙 */
-.center-box{
-    font-size: 0; 
-    *word-spacing: -1px; /* IE6、7 */
-    height: 100%; /* 继承父级高度 */
+ .center-box {
+    font-size: 0;
+    *word-spacing: -1px;
+    /* IE6、7 */
+    height: 100%;
+    /* 继承父级高度 */
 }
-
 /* 修复 Safari 5- inline-block 的空隙 */
-@media (-webkit-min-device-pixel-ratio:0) {
-    .center-box{
+ @media (-webkit-min-device-pixel-ratio:0) {
+    .center-box {
         letter-spacing: -5px;
     }
 }
-
 /* 使用空标签生成一个高度100%的参照元素 */
-.center-box .center-hack{
+ .center-box .center-hack {
     display: inline-block;
     *display: inline;
     *zoom: 1;
@@ -211,33 +216,37 @@
     height: 100%;
     vertical-align: middle;
 }
-
-.center-box .center-body{
+.center-box .center-body {
     letter-spacing: normal;
     word-spacing: normal;
     display: inline-block;
     *display: inline;
     *zoom: 1;
     font-size:12px;
-    vertical-align: middle; /* 保证文字垂直居中 */
-    padding: 0 !important;  /* 防止设置边距导致居中失效 */
+    vertical-align: middle;
+    /* 保证文字垂直居中 */
+    padding: 0 !important;
+    /* 防止设置边距导致居中失效 */
     margin: 0 !important;
-    width: 100%;            /* 保证连续字符也能居中 */
-    white-space: normal;    /* 保证连续字符换行 */
+    width: 100%;
+    /* 保证连续字符也能居中 */
+    white-space: normal;
+    /* 保证连续字符换行 */
     word-wrap: break-word;
 }
-
-.center-box .center-img{
+.center-box .center-img {
     display: inline-block;
     *display: inline;
     *zoom: 1;
     width: 100%;
-    text-align: center; /* 图片默认水平居中 */
+    text-align: center;
+    /* 图片默认水平居中 */
     vertical-align: middle;
-    padding: 0 !important;  /* 防止设置边距导致居中失效 */
+    padding: 0 !important;
+    /* 防止设置边距导致居中失效 */
     margin: 0 !important;
 }
-
-.center-box img{
-    vertical-align: middle; /* 去除现代浏览器 img 底部空隙 */
+.center-box img {
+    vertical-align: middle;
+    /* 去除现代浏览器 img 底部空隙 */
 }

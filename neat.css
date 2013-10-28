@@ -53,7 +53,6 @@ a{
 a:active {
 	background-color: transparent;
 }
-
 /*
  * 去掉点击时的焦点框，同时保证使用键盘可以显示焦点框
  */
@@ -491,8 +490,8 @@ input {
  * 修正 Firefox 19+ Placeholder 设置了opacity 的问题
  */
 input::-moz-placeholder, textarea::-moz-placeholder {
- color: darkGray !important;
- opacity: 1 !important;
+ color: darkGray;
+ opacity: 1;
 }
 
 /*

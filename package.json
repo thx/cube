@@ -2,8 +2,8 @@
   "name": "cube",
   "private": true,
   "devDependencies": {
-    "q": "~0.9.6",
     "semver": "~2.1.0",
-    "clean-css": "~1.0.12"
+    "grunt": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.6.2"
   }
 }

@@ -53,7 +53,6 @@ a{
 a:active {
 	background-color: transparent;
 }
-
 /*
  * 去掉点击时的焦点框，同时保证使用键盘可以显示焦点框
  */
@@ -199,7 +198,7 @@ hr {
  * 修正 IE6-11 中没有样式的问题
  */
 mark {
-	background-color: #ff0;
+	background-color: #D2E5FF;
 	color: #000;
 }
 
@@ -491,8 +490,8 @@ input {
  * 修正 Firefox 19+ Placeholder 设置了opacity 的问题
  */
 input::-moz-placeholder, textarea::-moz-placeholder {
- color: darkGray !important;
- opacity: 1 !important;
+ color: darkGray;
+ opacity: 1;
 }
 
 /*
@@ -566,4 +565,38 @@ audio:not([controls]) {
  */
 [draggable] {
 	cursor: move;
+}
+
+/*
+ * 居中 HTML5 dialog 元素
+ * Chrome 31 支持，需开启 chrome://flags/#enable-experimental-web-platform-features
+ * ::backdrop 定义遮罩样式
+ * Chrome 28 之前、Firefox 中不支持 height:fit-content; https://src.chromium.org/viewvc/blink?revision=148314&view=revision
+ * Demo: http://jsbin.com/iPACab/1
+ */
+dialog{
+	border:1px solid;
+	padding:1em;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+
+	width: -moz-fit-content;
+	width: -webkit-fit-content;
+	width: fit-content;
+	height: -moz-fit-content;
+	height: -webkit-fit-content;
+	height: fit-content;
+}
+
+dialog::backdrop{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, .3);
 }

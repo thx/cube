@@ -1,11 +1,11 @@
 {
-	"folders":
-	[
-		{
-			"path": ".",
+    "folders":
+    [
+        {
+            "path": ".",
             "folder_exlcude_patterns": ["node_modules"]
-		}
-	],
+        }
+    ],
     "settings": {
         "translate_tabs_to_spaces": true,
         "trim_trailing_white_space_on_save": true

@@ -43,36 +43,3 @@ Bootstrap，Normalize，CSS Reset 等）都不会考虑针对中文排版做优�
 ## Utils.css
 
 工具样式。
-
-## Snippets
-
-示例样式：
-
-```css
-/** Retina 背景图片解决方案
- * @author:
- * @version:
- */
-.retina {
-    background-image: -webkit-image-set(url() 1x, url() 2x);
-    /* Retina Safari 6+,Chrome 21+ */
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 2/1),
-/* Opera */
- only screen and (min--moz-device-pixel-ratio: 2),
-/* Firefox 16 之前 */
- only screen and (-webkit-min-device-pixel-ratio: 2),
-/* WebKit */
- only screen and (min-resolution: 192dpi),
-/* 不支持dppx的浏览器 */
- only screen and (min-resolution: 2dppx)
-/* 标准 */
- {
-    .retina {
-        background-image:url();
-        /* Retina */
-        background-size: 20px 50px;
-    }
-}
-```

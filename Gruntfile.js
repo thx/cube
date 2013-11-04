@@ -1,3 +1,7 @@
+var marked = require('marked')
+var cheerio = require('cheerio')
+
+
 module.exports = function(grunt) {
 
   var PORT = 5566
@@ -37,9 +41,10 @@ module.exports = function(grunt) {
     }
   })
 
+  grunt.file.defaultEncoding = 'utf8'
+
   grunt.loadNpmTasks('grunt-contrib-cssmin')
   grunt.loadNpmTasks('grunt-contrib-concat')
-  grunt.loadNpmTasks('grunt-contrib-connect')
 
   // 将源文件复制到 build 目录下，这么做似乎听土鳖的，高大上一些的做法：
   //
@@ -47,12 +52,13 @@ module.exports = function(grunt) {
   // 2. CDN 上不提供源文件，有压缩版就够了
   //
   // 暂时先这样吧。
-  grunt.registerTask('copy2build', function() {
+  grunt.registerTask('copySrc', function() {
     grunt.file.expand('src/*.css').forEach(function(module) {
       grunt.file.copy(module, module.replace('src', 'build'))
       grunt.log.writeln('Copyed ' + module + ' to build directory.')
     })
   })
-  grunt.registerTask('default', ['copy2build', 'concat', 'cssmin'])
-  grunt.registerTask('serve', ['connect:server:keepalive'])
+
+  grunt.registerTask('build', ['copySrc', 'concat', 'cssmin'])
+  grunt.registerTask('default', ['build'])
 }

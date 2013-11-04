@@ -1,3 +1,4 @@
+
 /* ==========================================================================
    基础工具
    *@ Name:        utils.css V1.0.0
@@ -10,32 +11,38 @@
 * @Author: 一丝 
 * @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
 */
- .clearfix:before, .clearfix:after {
-    content:"";
+
+.clearfix:before, .clearfix:after {
+    content: "";
     display: table;
 }
+
 .clearfix:after {
     clear: both;
 }
+
 .clearfix {
-    *zoom: 1;
-    /* IE6-7 触发 hasLayout */
+    *zoom: 1; /* IE6-7 触发 hasLayout */
 }
+
 /*
  *@ Name:       自适应图文混排组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 19:23:27
  *@ Usage:      line 用于不需要溢出显示的模块
  */
- .clearall {
+
+.clearall {
     overflow: hidden;
     _overflow: visible;
     *zoom: 1;
 }
+
 .clearcell {
     display: table-cell;
     *zoom: 1;
 }
+
 .clearcell:after {
     clear: both;
     display: block;
@@ -44,28 +51,32 @@
     height: 0 !important;
     line-height: 0;
     font-size: xx-large;
-    content:" x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
 }
+
 /* 强制不换行 */
- .nowrap {
+.nowrap{
     white-space: nowrap;
     word-wrap: normal;
 }
+
 /* 连续字符换行 */
- .wrap {
+.wrap{
     white-space: normal;
     word-wrap: break-word;
 }
+
 .hidden, .hide {
     display: none;
 }
+
 /* 文字溢出显示省略号 */
- .ellipsis {
+.ellipsis
+{
     white-space: nowrap;
     word-wrap: normal;
     overflow: hidden;
-    -o-text-overflow: ellipsis;
-    /* Opera 9-10.6 */
+    -o-text-overflow: ellipsis; /* Opera 9-10.6 */
     text-overflow: ellipsis;
     display: inline-block;
     *display: inline;
@@ -74,6 +85,7 @@
     max-width: 100%;
     _width: 100%;
 }
+
 /* 图片替换
    ========================================================================== */
 
@@ -81,69 +93,41 @@
 * 1.text-indent:-999em 存在性能问题：
 *   http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 */
- .text-hide {
-    text-indent: 100%;
-    /* 1 */
+.text-hide {
+    text-indent: 100%; /* 1 */
     white-space: nowrap;
     overflow: hidden;
 }
+
 /** 裁剪方式隐藏元素 
 * 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
 * 2. VoiceOver 无法读出宽高为 0 的元素
 */
- .clip-hide {
-    position: absolute !important;
-    /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    /* 1 */
+.clip-hide {
+    position: absolute !important; /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); /* 1 */
     padding: 0 !important;
     border: 0 none!important;
-    height: 1px !important;
-    /* 2 */
+    height: 1px !important; /* 2 */
     width: 1px !important;
     overflow: hidden;
 }
+
 /* 定位方式隐藏内容 */
- .ir {
+.ir {
     position: relative;
     z-index: -1;
     overflow: hidden;
 }
+
 .ir-bg {
     position: relative;
     z-index: 1;
 }
+
 /** 禁用中文输入法
 * @require: 在需要禁用的地方添加: .ime-disabled
 */
- .ime-disabled {
-    ime-mode: disabled!important;
-}
-.ime-inactive {
-    ime-mode: inactive!important;
-}
-/** Retina 背景图片解决方案
-* @author:  
-* @version: 
-*/
- .retina {
-    background-image: -webkit-image-set(url() 1x, url() 2x);
-    /* Retina Safari 6+,Chrome 21+ */
-}
-@media only screen and (-o-min-device-pixel-ratio: 2/1),
-/* Opera */
- only screen and (min--moz-device-pixel-ratio: 2),
-/* Firefox 16 之前 */
- only screen and (-webkit-min-device-pixel-ratio: 2),
-/* WebKit */
- only screen and (min-resolution: 192dpi),
-/* 不支持dppx的浏览器 */
- only screen and (min-resolution: 2dppx)
-/* 标准 */
- {
-    .retina {
-        background-image:url();
-        /* Retina */
-        background-size: 20px 50px;
-    }
-}
+.ime-disabled { ime-mode: disabled!important; }
+
+.ime-inactive { ime-mode: inactive!important; }

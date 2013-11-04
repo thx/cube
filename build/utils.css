@@ -3,11 +3,11 @@
    *@ Name:        utils.css V1.0.0
    *@ Author:      一丝
    *@ Update:      2013-9-30 15:39:57;
-   *@ Copyright:   MIT License
+   *@ Copyright:   MIT License 
    ========================================================================== */
 
 /** 闭合浮动
-* @Author: 一丝
+* @Author: 一丝 
 * @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
 */
  .clearfix:before, .clearfix:after {
@@ -87,7 +87,7 @@
     white-space: nowrap;
     overflow: hidden;
 }
-/** 裁剪方式隐藏元素
+/** 裁剪方式隐藏元素 
 * 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
 * 2. VoiceOver 无法读出宽高为 0 的元素
 */
@@ -116,15 +116,15 @@
 /** 禁用中文输入法
 * @require: 在需要禁用的地方添加: .ime-disabled
 */
-.ime-disabled {
+ .ime-disabled {
     ime-mode: disabled!important;
 }
 .ime-inactive {
     ime-mode: inactive!important;
 }
 /** Retina 背景图片解决方案
-* @author:
-* @version:
+* @author:  
+* @version: 
 */
  .retina {
     background-image: -webkit-image-set(url() 1x, url() 2x);

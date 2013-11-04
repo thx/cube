@@ -1,13 +1,10 @@
 module.exports = function(grunt) {
 
+  var PORT = 5566
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     cssmin: {
-      combine: {
-        files: {
-          'build/cube.css': ['*.css', 'type.css/type.css']
-        }
-      },
       minify: {
         expand: true,
         cwd: 'build',
@@ -15,10 +12,34 @@ module.exports = function(grunt) {
         dest: 'build',
         ext: '-min.css'
       }
+    },
+    concat: {
+      options: {
+        separater: '\n'
+      },
+      dist: {
+        src: [
+          'src/neat.css', 'src/type.css', 'src/layout.css', 'src/iconfont.css',
+          'src/utils.css'
+          // 展开需要合并的样式模块，确保模块的合并顺序
+        ],
+        dest: 'build/cube.css'
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: PORT,
+          base: '.',
+          hostname: '*'
+        }
+      }
     }
   })
 
   grunt.loadNpmTasks('grunt-contrib-cssmin')
+  grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-connect')
 
   // 将源文件复制到 build 目录下，这么做似乎听土鳖的，高大上一些的做法：
   //
@@ -27,10 +48,11 @@ module.exports = function(grunt) {
   //
   // 暂时先这样吧。
   grunt.registerTask('copy2build', function() {
-    grunt.file.expand('*.css').forEach(function(module) {
-      grunt.file.copy(module, 'build/' + module)
+    grunt.file.expand('src/*.css').forEach(function(module) {
+      grunt.file.copy(module, module.replace('src', 'build'))
       grunt.log.writeln('Copyed ' + module + ' to build directory.')
     })
   })
-  grunt.registerTask('default', ['copy2build', 'cssmin'])
+  grunt.registerTask('default', ['copy2build', 'concat', 'cssmin'])
+  grunt.registerTask('serve', ['connect:server:keepalive'])
 }

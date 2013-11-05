@@ -228,9 +228,9 @@ samp {
  */
 
 pre {
-	white-space: pre;
-	white-space: pre-wrap;
-	word-wrap: break-word;
+	white-space: pre; /* CSS 2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE 5+ */
 }
 
 /*

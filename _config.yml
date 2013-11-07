@@ -1,3 +1,4 @@
 baseurl: /cube
 pygments: true
 lsi: false
+exclude: [CONTRIBUTING.md, cube.sublime-*, node_modules, Gruntfile.js, package.json]

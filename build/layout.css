@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 /*
 * 基础布局
 * @ Name:        layout.css V1.0.0
@@ -13,8 +13,7 @@
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
  */
-
-
+ 
 .dib {
     display: inline-block;
     *display: inline;
@@ -121,28 +120,28 @@
     border-left-color: #2AB2DF;
 }
 
-/* ◤ */
+/* ◤左上角 */
 .arrow-left-top {
     border-top-style: solid;
     border-top-color: #2AB2DF;
     border-left-width: 0 !important;
 }
 
-/* ◥ */
+/* ◥右上角 */
 .arrow-right-top {
     border-top-style: solid;
     border-top-color: #2AB2DF;
     border-right-width: 0 !important;
 }
 
-/* ◣ */
+/* ◣左下角 */
 .arrow-left-bottom {
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
     border-left-width: 0 !important;
 }
 
-/* ◢ */
+/* ◢右下角 */
 .arrow-right-bottom {
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
@@ -161,8 +160,8 @@
 }
 
 /* 容器 */
-.fluid-media video,
 .fluid-media div,
+.fluid-media video,
 .fluid-media embed,
 .fluid-media object,
 .fluid-media iframe {

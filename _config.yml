@@ -1,4 +1,5 @@
 baseurl: /cube
 pygments: true
 lsi: false
+markdown: maruku
 exclude: [CONTRIBUTING.md, cube.sublime-*, node_modules, Gruntfile.js, package.json]

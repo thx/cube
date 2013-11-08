@@ -99,13 +99,14 @@ body {
 
 /*
  * 所有 font-family 小写，存在空格的字体名加单引号
- * @default-font: 'helvetica neue', tahoma, simsun, \5B8B\4F53, sans-serif;
- * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, 'microsoft yahei', \5FAE\8F6F\96C5\9ED1, 'wenquanyi micro hei', sans-serif;
+ * @default-font: 'helvetica neue', tahoma, \5B8B\4F53, sans-serif;
+ * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, 'wenquanyi micro hei', sans-serif;
  * @code-font: monaco, menlo, consolas, monospace;
  */
 
 /*
  * 中文优先使用冬青黑体简体(OS X)、微软雅黑(Windows)和文泉驿微米黑(Linux)
+ * 西文使用 tahoma
  * 1. 防止元素中「font-family」不能继承
  * 2. 西文字体和 OS X 字体写在前面
  * 3. Opera 12.1 之前版本不支持中文字体的英文名称
@@ -118,7 +119,7 @@ input, /* 1 */
 select, /* 1 */
 textarea  /* 1 */
 {
-	font-family: 'helvetica neue', 'hiragino sans gb', stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53, sans-serif;
+	font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
 }
 
 /*
@@ -126,6 +127,9 @@ textarea  /* 1 */
  * 1. 统一 IE 6/7 中字体大小
  * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
  */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+} 
 h1 {
 	font-size: 36px;
 	font-size: 3.6rem;
@@ -224,9 +228,9 @@ samp {
  */
 
 pre {
-	white-space: pre;
-	white-space: pre-wrap;
-	word-wrap: break-word;
+	white-space: pre; /* CSS 2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE 5+ */
 }
 
 /*
@@ -576,7 +580,7 @@ audio:not([controls]) {
  */
 dialog{
 	border:1px solid;
-	padding:1em;
+	padding:0;
 	margin: auto;
 	position: absolute;
 	left: 0;

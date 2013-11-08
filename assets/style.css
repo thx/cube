@@ -170,3 +170,12 @@
 .sidebar li:nth-child(6) .dot, .nav li:nth-child(6) .dot {
     background-color: #C6D313;
 }
+
+.github-ribbon img {
+    position: fixed;
+    _position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    border: 0;
+}

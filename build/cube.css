@@ -604,211 +604,6 @@ dialog::backdrop{
 	right: 0;
 	background-color: rgba(0, 0, 0, .3);
 }
-/*
-*@ Name:        type.css V1.0.1
-*@ Author:      一丝(yisibl) 
-*@ Update:      2013-9-24 16:55:04
-*@ Copyright:	MIT License 
-*/
-body{
-    font-size: 14px;
-    line-height: 1.8;
-}
-.type a {
-    color:#3187DB;
-}
-.type a:hover,
-.type ins:hover {
-    color:#333;
-}
-
-.type a:hover,
-.type ins:hover {
-    text-decoration: none;
-    border-bottom: 1px solid;
-}
-
-acronym, abbr {
-    border-bottom: 1px dotted;
-}
-
-/*
- * 保留 i 标签斜体 
-*/
-i{
-    font-style: italic;
-}
-/* 
- *重置中文斜体
- *cite 书籍或杂志的标题
- *
- */
-cite, em, var, address, dfn {
-    font-style: inherit;
-}
-
-cite{
-    border-bottom: 3px double;
-}
-
-/*
- *专名号和em
-*/
-u,em{
-    text-decoration: none;
-    padding-bottom: 1px;
-    margin-left: 2px;
-}
-
-u{
-    border-bottom: 1px solid;
-}
-
-em{
-    border-bottom: 1px dotted;
-}
-
-
-/*
- * 图片figure，figcaption
-*/
-.type figure{
-    text-align: center;
-}
-
-
-/*
-* 中文小于 12px 可读性很差
-* 1. 统一 IE 6/7 中字体大小
-* 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
-*/
-.type p {
-    margin-top: 18px;
-    margin-bottom: 18px;
-    line-height: 1.8;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-weight:normal;
-    font-style:normal;
-}
-
-/*
- * 中文小于 12px 可读性很差
- * 1. 统一 IE 6/7 中字体大小
- * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
- */
-h1 {
-    font-size: 36px;
-    font-size: 3.6rem;
-}
-
-h2 {
-    font-size: 30px;
-    font-size: 3rem;
-}
-
-h3 {
-    font-size: 22px;
-    font-size: 2.2rem;
-}
-
-h4 {
-    font-size: 18px;
-    font-size: 1.8rem;
-}
-
-h5 {
-    font-size: 14px;
-    font-size: 1.4rem;
-}
-
-h6 {
-    font-size: 12px;
-    font-size: 1.2rem;
-}
-
-
-.type blockquote {
-    margin: 32px 28px;
-    padding-left: 14px;
-    border-left:3px solid #CCC;
-    line-height: 1.7;
-}
-
-
-/*
-* 列表项
-* 1. 
-* 2. 
-*/
-.type ul {
-    list-style-type: disc;
-    padding-left:30px;
-    margin-top: 14px;
-    margin-bottom: 14px;
-}
-.type ul ul, .type ul ol ul {
-    list-style-type:square;
-}
-.type ol {
-    list-style:decimal;
-    padding-left:30px;
-    margin-top: 14px;
-    margin-bottom: 14px;
-}
-.type ol ol ul, .type ol ul ul, .type ul ul ul {
-    list-style-type: circle;
-}
-.type dt {
-    font-weight:bold;
-    margin-top: 14px;
-}
-/*
-* 表格
-* 1. 
-* 2. 
-*/
-th {
-    font-weight:inherit;
-}
-
-.type th, .type td {
-    border:1px solid #CCC;
-    padding: 5px 10px;
-}
-.type table tr:nth-child(odd) td {
-    background-color: #f5f5f5;
-}
-
-/* 代码 */
-.type code {
-    margin: 0 2px;
-    padding: 0 4px;
-    border: 1px solid #DDD;
-    background-color: #F8F8F8;
-    border-radius: 3px;
-}
-
-.type pre{
-    background-color: #F8F8F8;
-    border: 1px solid #DDD;
-    font-size: 12px;
-    line-height: 18px;
-    overflow: auto;
-    padding: 6px 10px;
-    border-radius: 3px;
-}
-
-hr{
-    border:0 none;
-    border-bottom: 1px solid #999;
-    margin-top: 14px;
-    margin-bottom: 14px;
-}
-
-
-
-
 ﻿
 /*
 * 基础布局
@@ -1074,6 +869,146 @@ hr{
 .center-box img {
     vertical-align: middle; /* 去除现代浏览器 img 底部空隙 */
 }
+/* ==========================================================================
+   基础工具
+   *@ Name:        utils.css V1.0.0
+   *@ Author:      一丝
+   *@ Update:      2013-9-30 15:39:57;
+   *@ Copyright:   MIT License 
+   ========================================================================== */
+
+/** 闭合浮动
+* @Author: 一丝 
+* @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /* IE6-7 触发 hasLayout */
+}
+
+/*
+ *@ Name:       自适应图文混排组件
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 19:23:27
+ *@ Usage:      line 用于不需要溢出显示的模块
+ */
+
+.clearall {
+    overflow: hidden;
+    _overflow: visible;
+    *zoom: 1;
+}
+
+.clearcell {
+    display: table-cell;
+    *zoom: 1;
+}
+
+.clearcell:after {
+    clear: both;
+    display: block;
+    visibility: visible;
+    overflow: hidden;
+    height: 0 !important;
+    line-height: 0;
+    font-size: xx-large;
+    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}
+
+/* 强制不换行 */
+.nowrap {
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+/* 连续字符换行 */
+.wrap {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.hidden, .hide {
+    display: none;
+}
+
+/** 文字溢出显示省略号
+* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902 
+*/
+
+.ellipsis {
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    -o-text-overflow: ellipsis; /* Opera 9-10.6 */
+    text-overflow: ellipsis;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    max-width: 100%;
+    _width: 100%;
+
+    text-align: left; /* 1 */
+}
+
+
+/* --------------------------------------------------------------------------
+   图片替换
+   -------------------------------------------------------------------------- */
+
+/** 隐藏文字
+* 1.text-indent:-999em 存在性能问题：
+*   http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+*/
+.text-hide {
+    text-indent: 100%; /* 1 */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/**
+ * 裁剪方式隐藏元素
+ * 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
+ * 2. VoiceOver 无法读出宽高为 0 的元素
+ */
+.clip-hide {
+    position: absolute !important; /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); /* 1 */
+    padding: 0 !important;
+    border: 0 none!important;
+    height: 1px !important; /* 2 */
+    width: 1px !important;
+    overflow: hidden;
+}
+
+/* img replace，通过定位方式隐藏内容 */
+.ir {
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.ir-bg {
+    position: relative;
+    z-index: 1;
+}
+
+/** 禁用中文输入法
+* @require: 在需要禁用的地方添加: .ime-disabled
+*/
+.ime-disabled { ime-mode: disabled!important; }
+
+.ime-inactive { ime-mode: inactive!important; }
 /*
 *@ Name:        iconfont.css V1.0.0
 *@ Author:      一丝(yisibl) 
@@ -1391,143 +1326,3 @@ hr{
     height: 23px;
     line-height: 23px;
 }
-/* ==========================================================================
-   基础工具
-   *@ Name:        utils.css V1.0.0
-   *@ Author:      一丝
-   *@ Update:      2013-9-30 15:39:57;
-   *@ Copyright:   MIT License 
-   ========================================================================== */
-
-/** 闭合浮动
-* @Author: 一丝 
-* @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
-*/
-
-.clearfix:before,
-.clearfix:after {
-    content: "";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1; /* IE6-7 触发 hasLayout */
-}
-
-/*
- *@ Name:       自适应图文混排组件
- *@ Author:     一丝
- *@ Update:     2013-9-29 19:23:27
- *@ Usage:      line 用于不需要溢出显示的模块
- */
-
-.clearall {
-    overflow: hidden;
-    _overflow: visible;
-    *zoom: 1;
-}
-
-.clearcell {
-    display: table-cell;
-    *zoom: 1;
-}
-
-.clearcell:after {
-    clear: both;
-    display: block;
-    visibility: visible;
-    overflow: hidden;
-    height: 0 !important;
-    line-height: 0;
-    font-size: xx-large;
-    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
-}
-
-/* 强制不换行 */
-.nowrap {
-    white-space: nowrap;
-    word-wrap: normal;
-}
-
-/* 连续字符换行 */
-.wrap {
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-.hidden, .hide {
-    display: none;
-}
-
-/** 文字溢出显示省略号
-* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902 
-*/
-
-.ellipsis {
-    white-space: nowrap;
-    word-wrap: normal;
-    overflow: hidden;
-    -o-text-overflow: ellipsis; /* Opera 9-10.6 */
-    text-overflow: ellipsis;
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    vertical-align: top;
-    max-width: 100%;
-    _width: 100%;
-
-    text-align: left; /* 1 */
-}
-
-
-/* --------------------------------------------------------------------------
-   图片替换
-   -------------------------------------------------------------------------- */
-
-/** 隐藏文字
-* 1.text-indent:-999em 存在性能问题：
-*   http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
-*/
-.text-hide {
-    text-indent: 100%; /* 1 */
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-/**
- * 裁剪方式隐藏元素
- * 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
- * 2. VoiceOver 无法读出宽高为 0 的元素
- */
-.clip-hide {
-    position: absolute !important; /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px); /* 1 */
-    padding: 0 !important;
-    border: 0 none!important;
-    height: 1px !important; /* 2 */
-    width: 1px !important;
-    overflow: hidden;
-}
-
-/* img replace，通过定位方式隐藏内容 */
-.ir {
-    position: relative;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.ir-bg {
-    position: relative;
-    z-index: 1;
-}
-
-/** 禁用中文输入法
-* @require: 在需要禁用的地方添加: .ime-disabled
-*/
-.ime-disabled { ime-mode: disabled!important; }
-
-.ime-inactive { ime-mode: inactive!important; }

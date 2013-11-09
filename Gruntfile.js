@@ -21,9 +21,10 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-          'src/neat.css', 'src/type.css', 'src/layout.css', 'src/iconfont.css',
-          'src/button.css', 'src/utils.css'
+          'src/neat.css', 'src/layout.css', 'src/utils.css',
+          'src/iconfont.css', 'src/button.css'
           // 展开需要合并的样式模块，确保模块的合并顺序
+          // type.css 是相对独立的，不合并到 cube.css
         ],
         dest: 'build/cube.css'
       }
@@ -84,7 +85,7 @@ module.exports = function(grunt) {
           args: ['checkout', '-B', 'daily/' + pkg.version]
         }, function(err, res, code) {
 
-        }
+        })
       }
     })
   })

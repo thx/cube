@@ -171,11 +171,18 @@
     background-color: #C6D313;
 }
 
-.github-ribbon img {
-    position: fixed;
-    _position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10001;
-    border: 0;
+.cube-modules .dib {
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
 }
+.cube-modules .dib:hover {
+    border-bottom: none;
+}
+.cube-modules .caption {
+    font-size: 14px;
+    color: #999;
+}
+ .cube-modules .iconfont {
+    font-size: 30px;
+ }

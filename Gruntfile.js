@@ -1,8 +1,6 @@
-var marked = require('marked')
-var cheerio = require('cheerio')
-
-
 module.exports = function(grunt) {
+  var semver = require('semver')
+
 
   var PORT = 5566
 
@@ -52,11 +50,47 @@ module.exports = function(grunt) {
   // 2. CDN 上不提供源文件，有压缩版就够了
   //
   // 暂时先这样吧。
-  grunt.registerTask('copySrc', function() {
-    grunt.file.expand('src/*.css').forEach(function(module) {
+  grunt.registerTask('copySrc', 'copy files from src to build', function() {
+    grunt.file.expand('src/{cube,neat,type}.css').forEach(function(module) {
       grunt.file.copy(module, module.replace('src', 'build'))
       grunt.log.writeln('Copyed ' + module + ' to build directory.')
     })
+  })
+
+  grunt.registerTask('deploy', 'deploy via gitlab', function(env) {
+    var done = this.async()
+
+    grunt.util.spawn({
+      cmd: 'git',
+      args: ['tag', '-l', 'publish/*']
+    }, function(err, res, code) {
+      if (code !== 0) return grunt.fail.fatal(err, code)
+
+      var pkg = grunt.config('pkg')
+      var versions = ('' + res).split(/\r|\n/)
+        .map(function(tag) { return tag.replace('publish/', '') })
+        .sort(semver.rcompare)
+
+      if (semver.lte(pkg.version, versions[0])) {
+        pkg.version = semver.inc(versions[0], 'patch')
+        grunt.file.write('package.json', JSON.stringify(pkg, null, '  '))
+        grunt.log.writeln('Updated to ' + pkg.version)
+      }
+
+      env = env || 'daily'
+      if (env === 'daily') {
+        grunt.util.spawn({
+          cmd: 'git',
+          args: ['checkout', '-B', 'daily/' + pkg.version]
+        }, function(err, res, code) {
+
+        }
+      }
+    })
+  })
+
+  grunt.registerTask('gitlab', 'init gitlab repo of cube', function() {
+
   })
 
   grunt.registerTask('build', ['copySrc', 'concat', 'cssmin'])

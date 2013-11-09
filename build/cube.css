@@ -99,13 +99,14 @@ body {
 
 /*
  * 所有 font-family 小写，存在空格的字体名加单引号
- * @default-font: 'helvetica neue', tahoma, simsun, \5B8B\4F53, sans-serif;
- * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, 'microsoft yahei', \5FAE\8F6F\96C5\9ED1, 'wenquanyi micro hei', sans-serif;
+ * @default-font: 'helvetica neue', tahoma, \5B8B\4F53, sans-serif;
+ * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, 'wenquanyi micro hei', sans-serif;
  * @code-font: monaco, menlo, consolas, monospace;
  */
 
 /*
  * 中文优先使用冬青黑体简体(OS X)、微软雅黑(Windows)和文泉驿微米黑(Linux)
+ * 西文使用 tahoma
  * 1. 防止元素中「font-family」不能继承
  * 2. 西文字体和 OS X 字体写在前面
  * 3. Opera 12.1 之前版本不支持中文字体的英文名称
@@ -118,7 +119,7 @@ input, /* 1 */
 select, /* 1 */
 textarea  /* 1 */
 {
-	font-family: 'helvetica neue', 'hiragino sans gb', stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53, sans-serif;
+	font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
 }
 
 /*
@@ -126,6 +127,9 @@ textarea  /* 1 */
  * 1. 统一 IE 6/7 中字体大小
  * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
  */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+} 
 h1 {
 	font-size: 36px;
 	font-size: 3.6rem;
@@ -224,9 +228,9 @@ samp {
  */
 
 pre {
-	white-space: pre;
-	white-space: pre-wrap;
-	word-wrap: break-word;
+	white-space: pre; /* CSS 2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE 5+ */
 }
 
 /*
@@ -576,7 +580,7 @@ audio:not([controls]) {
  */
 dialog{
 	border:1px solid;
-	padding:1em;
+	padding:0;
 	margin: auto;
 	position: absolute;
 	left: 0;
@@ -805,12 +809,13 @@ hr{
 
 
 
+﻿
 /*
 * 基础布局
-*@ Name:        layout.css V1.0.0
-*@ Author:      一丝
-*@ Update:      2013-9-30 15:39:51;
-*@ Copyright:   MIT License 
+* @ Name:        layout.css V1.0.0
+* @ Author:      一丝
+* @ Update:      2013-9-30 15:39:51;
+* @ Copyright:   MIT License 
 */
 
 /*
@@ -819,29 +824,31 @@ hr{
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
  */
- .dib {
+ 
+.dib {
     display: inline-block;
     *display: inline;
     *zoom: 1;
 }
+
 .dib-box {
-    font-size: 0;
-    /* 所有浏览器 */
-    *word-spacing: -1px;
-    /* IE6/7 */
+    font-size: 0; /* 所有浏览器 */
+    *word-spacing: -1px; /* IE6/7 */
 }
+
 @media (-webkit-min-device-pixel-ratio:0) {
-    .dib-box {
-        letter-spacing: -5px;
-        /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+.dib-box {
+    letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
     }
 }
+
 .dib-box .dib {
     vertical-align: top;
     font-size: 12px;
     letter-spacing: normal;
     word-spacing: normal;
 }
+
 /*
  *@ Name:        自适应两端对齐组件
  *@ Author:      一丝
@@ -852,29 +859,28 @@ hr{
  */
 
 /* 防止行高增大 */
- .justify, .dib-box .justify {
-    font-size:0;
+.justify, .dib-box .justify {
+    font-size: 0;
 }
+
 .justify {
     text-align: justify;
-    text-justify: inter-ideograph;
-    /* IE 6-7 */
-    *zoom: 1;
-    /* IE 6-7 触发 hasLayout 使一行也能两端对齐 */
+    text-justify: inter-ideograph; /* IE 6-7 */
+    *zoom: 1; /* IE 6-7 触发 hasLayout 使一行也能两端对齐 */
     -moz-text-align-last: justify;
     -webkit-text-align-last: justify;
-    text-align-last: justify;
-    /* IE 8+ */
+    text-align-last: justify;/* IE 8+ */
 }
+
 /* 不支持 text-align-last 的浏览器用伪元素模拟 */
- .justify:after {
-    content:"";
+.justify:after {
+    content: "";
     display: inline-block;
-    width: 100%;
-    /* margin-left:100% 仅 WebKit 支持 */
+    width: 100%; /* margin-left:100% 仅 WebKit 支持 */
 }
+
 /* 子元素取消两端对齐 */
- .justify .dib {
+.justify .dib {
     -moz-text-align-last: auto;
     -webkit-text-align-last: auto;
     text-align-last: auto;
@@ -884,13 +890,14 @@ hr{
     letter-spacing: normal;
     word-spacing: normal;
 }
+
 /*
  *@ Name:       CSS 三角形组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      
  */
- .arrow {
+.arrow {
     font-size: 0;
     width: 0;
     height: 0;
@@ -903,94 +910,108 @@ hr{
     border: 0 dashed transparent;
     border-width: 6px;
 }
+
 .arrow-top {
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
 }
+
 .arrow-bottom {
     border-top-style: solid;
     border-top-color: #2AB2DF;
 }
+
 .arrow-left {
     border-right-style: solid;
     border-right-color: #2AB2DF;
 }
+
 .arrow-right {
     border-left-style: solid;
     border-left-color: #2AB2DF;
 }
-/* ◤ */
- .arrow-left-top {
+
+/* ◤左上角 */
+.arrow-left-top {
     border-top-style: solid;
     border-top-color: #2AB2DF;
     border-left-width: 0 !important;
 }
-/* ◥ */
- .arrow-right-top {
+
+/* ◥右上角 */
+.arrow-right-top {
     border-top-style: solid;
     border-top-color: #2AB2DF;
     border-right-width: 0 !important;
 }
-/* ◣ */
- .arrow-left-bottom {
+
+/* ◣左下角 */
+.arrow-left-bottom {
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
     border-left-width: 0 !important;
 }
-/* ◢ */
- .arrow-right-bottom {
+
+/* ◢右下角 */
+.arrow-right-bottom {
     border-bottom-style: solid;
     border-bottom-color: #2AB2DF;
     border-right-width: 0 !important;
 }
+
 /*
  *@ Name:       替换元素等比缩放组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      不同的视频网站由于控制栏高度不同，需要JS配合添加对应的 class
  */
- .fluid-media {
-    position:relative;
+
+.fluid-media {
+    position: relative;
 }
+
 /* 容器 */
- .fluid-media video, .fluid-media div, .fluid-media embed, .fluid-media object, .fluid-media iframe {
+.fluid-media div,
+.fluid-media video,
+.fluid-media embed,
+.fluid-media object,
+.fluid-media iframe {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0
 }
+
 /* 常见的视频比例 */
- .widescreen {
-    padding-bottom:56.25%;
+.widescreen {
+    padding-bottom: 56.25%; /* 宽屏 16:9=56.25% */
 }
-/* 宽屏 16:9=56.25% */
- .narrowscreen {
-    padding-bottom:75%;
+
+.narrowscreen {
+    padding-bottom: 75%; /* 窄屏 4:3=75% */
 }
-/* 窄屏 4:3=75% */
 
 /* 播放器控制栏的高度，更多网站按需扩展 */
- .youku {
-    padding-top:40px;
+.youku {
+    padding-top: 40px; /* 优酷 */
 }
-/* 优酷 */
- .wole {
-    padding-top:40px;
+
+.wole {
+    padding-top: 40px; /* 我乐 56.com */
 }
-/* 我乐 56.com */
- .tudou {
-    padding-top:50px;
+
+.tudou {
+    padding-top: 50px; /* 土豆 */
 }
-/* 土豆 */
- .iqiyi {
-    padding-top:45px;
+
+.iqiyi {
+    padding-top: 45px; /* 爱奇艺 */
 }
-/* 爱奇艺 */
- .youtube {
-    padding-top:30px;
+
+.youtube {
+    padding-top: 30px; /* Youtube */
 }
-/* Youtube */
 
 /*
  *@ Name:       未知高度垂直居中组件
@@ -1000,21 +1021,21 @@ hr{
  */
 
 /* 去除 inline-block 的空隙 */
- .center-box {
+.center-box {
     font-size: 0;
-    *word-spacing: -1px;
-    /* IE6、7 */
-    height: 100%;
-    /* 继承父级高度 */
+    *word-spacing: -1px; /* IE6、7 */
+    height: 100%; /* 继承父级高度 */
 }
+
 /* 修复 Safari 5- inline-block 的空隙 */
  @media (-webkit-min-device-pixel-ratio:0) {
-    .center-box {
-        letter-spacing: -5px;
+.center-box {
+    letter-spacing: -5px;
     }
 }
+
 /* 使用空标签生成一个高度100%的参照元素 */
- .center-box .center-hack {
+.center-box .center-hack {
     display: inline-block;
     *display: inline;
     *zoom: 1;
@@ -1023,41 +1044,36 @@ hr{
     height: 100%;
     vertical-align: middle;
 }
+
 .center-box .center-body {
     letter-spacing: normal;
     word-spacing: normal;
     display: inline-block;
     *display: inline;
     *zoom: 1;
-    font-size:12px;
-    vertical-align: middle;
-    /* 保证文字垂直居中 */
-    padding: 0 !important;
-    /* 防止设置边距导致居中失效 */
+    font-size: 12px;
+    vertical-align: middle; /* 保证文字垂直居中 */
+    padding: 0 !important; /* 防止设置边距导致居中失效 */
     margin: 0 !important;
-    width: 100%;
-    /* 保证连续字符也能居中 */
-    white-space: normal;
-    /* 保证连续字符换行 */
+    width: 100%; /* 保证连续字符也能居中 */
+    white-space: normal; /* 保证连续字符换行 */
     word-wrap: break-word;
 }
+
 .center-box .center-img {
     display: inline-block;
     *display: inline;
     *zoom: 1;
     width: 100%;
-    text-align: center;
-    /* 图片默认水平居中 */
+    text-align: center; /* 图片默认水平居中 */
     vertical-align: middle;
-    padding: 0 !important;
-    /* 防止设置边距导致居中失效 */
+    padding: 0 !important; /* 防止设置边距导致居中失效 */
     margin: 0 !important;
 }
-.center-box img {
-    vertical-align: middle;
-    /* 去除现代浏览器 img 底部空隙 */
-}
 
+.center-box img {
+    vertical-align: middle; /* 去除现代浏览器 img 底部空隙 */
+}
 /*
 *@ Name:        iconfont.css V1.0.0
 *@ Author:      一丝(yisibl) 
@@ -1089,6 +1105,292 @@ hr{
 	-moz-osx-font-smoothing: grayscale; /* 2 */
 }
 
+.btn {
+    display: inline-block;
+    border: 1px solid #ddd;
+    *border: 0 none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    *margin-right: .3em;
+    margin-bottom: 0;
+    padding: 0 10px;
+    *padding: 1px 10px;
+    width: auto;
+    height: 21px;
+    line-height: 21px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom-color: #bbb;
+    background-color: #f4f4f4;
+    background-image: -moz-linear-gradient(top, #f8f8f8, #eeeeee);
+    background-image: -ms-linear-gradient(top, #f8f8f8, #eeeeee);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eeeeee));
+    background-image: -webkit-linear-gradient(top, #f8f8f8, #eeeeee);
+    background-image: -o-linear-gradient(top, #f8f8f8, #eeeeee);
+    background-image: linear-gradient(top, #f8f8f8, #eeeeee);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#eeeeee', GradientType=0);
+}
+
+.btn,
+.btn:hover,
+.btn:visited {
+    color: #333!important;
+}
+
+.btn:hover {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: #ededed;
+    background-image: -moz-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: -ms-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: -o-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#e6e6e6', GradientType=0);
+}
+
+.btn:active {
+    background-color: #ebebeb;
+    background-image: -moz-linear-gradient(top, #e6e6e6, #f2f2f2);
+    background-image: -ms-linear-gradient(top, #e6e6e6, #f2f2f2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e6e6e6), to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top, #e6e6e6, #f2f2f2);
+    background-image: -o-linear-gradient(top, #e6e6e6, #f2f2f2);
+    background-image: linear-gradient(top, #e6e6e6, #f2f2f2);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e6e6', endColorstr='#f2f2f2', GradientType=0);
+}
+
+.btn .iconfont {
+    font-size: 12px!important;
+    font-weight: normal;
+}
+
+/*group btn*/
+.btn-group .btn {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-left-width: 0;
+}
+
+.btn-group .btn:first-child {
+    border-left-width: 1px;
+    -webkit-border-radius: 2px 0 0 2px;
+    -moz-border-radius: 2px 0 0 2px;
+    border-radius: 2px 0 0 2px;
+}
+
+.btn-group .btn:last-child {
+    -webkit-border-radius: 0 2px 2px 0;
+    -moz-border-radius: 0 2px 2px 0;
+    border-radius: 0 2px 2px 0;
+}
+
+.btn-red {
+    border-color: transparent;
+    border-bottom-color: #c21b1b;
+    background-color: #ff3636;
+    background-image: -moz-linear-gradient(top, #ff4444, #ff2222);
+    background-image: -ms-linear-gradient(top, #ff4444, #ff2222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff4444), to(#ff2222));
+    background-image: -webkit-linear-gradient(top, #ff4444, #ff2222);
+    background-image: -o-linear-gradient(top, #ff4444, #ff2222);
+    background-image: linear-gradient(top, #ff4444, #ff2222);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4444', endColorstr='#ff2222', GradientType=0);
+}
+
+.btn-red,
+.btn-red:hover,
+.btn-red:visited {
+    color: #FFF!important;
+}
+
+.btn-red:hover {
+    background-color: #e41b1b;
+    background-image: -moz-linear-gradient(top, #ee2020, #d51314);
+    background-image: -ms-linear-gradient(top, #ee2020, #d51314);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee2020), to(#d51314));
+    background-image: -webkit-linear-gradient(top, #ee2020, #d51314);
+    background-image: -o-linear-gradient(top, #ee2020, #d51314);
+    background-image: linear-gradient(top, #ee2020, #d51314);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee2020', endColorstr='#d51314', GradientType=0);
+}
+
+.btn-red:active {
+    background-color: #df1819;
+    background-image: -moz-linear-gradient(top, #d51314, #ee2020);
+    background-image: -ms-linear-gradient(top, #d51314, #ee2020);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d51314), to(#ee2020));
+    background-image: -webkit-linear-gradient(top, #d51314, #ee2020);
+    background-image: -o-linear-gradient(top, #d51314, #ee2020);
+    background-image: linear-gradient(top, #d51314, #ee2020);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d51314', endColorstr='#ee2020', GradientType=0);
+}
+
+.btn-orange {
+    border-color: transparent;
+    border-bottom-color: #cf370c;
+    background-color: #ff4e00;
+    background-image: -moz-linear-gradient(top, #ff5500, #ff4400);
+    background-image: -ms-linear-gradient(top, #ff5500, #ff4400);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff5500), to(#ff4400));
+    background-image: -webkit-linear-gradient(top, #ff5500, #ff4400);
+    background-image: -o-linear-gradient(top, #ff5500, #ff4400);
+    background-image: linear-gradient(top, #ff5500, #ff4400);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5500', endColorstr='#ff4400', GradientType=0);
+}
+
+.btn-orange,
+.btn-orange:hover,
+.btn-orange:visited {
+    color: #FFF!important;
+}
+
+.btn-orange:hover {
+    background-color: #ef4000;
+    background-image: -moz-linear-gradient(top, #ff4400, #d73900);
+    background-image: -ms-linear-gradient(top, #ff4400, #d73900);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff4400), to(#d73900));
+    background-image: -webkit-linear-gradient(top, #ff4400, #d73900);
+    background-image: -o-linear-gradient(top, #ff4400, #d73900);
+    background-image: linear-gradient(top, #ff4400, #d73900);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4400', endColorstr='#d73900', GradientType=0);
+}
+
+.btn-orange:active {
+    background-color: #e73d00;
+    background-image: -moz-linear-gradient(top, #d73900, #ff4400);
+    background-image: -ms-linear-gradient(top, #d73900, #ff4400);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d73900), to(#ff4400));
+    background-image: -webkit-linear-gradient(top, #d73900, #ff4400);
+    background-image: -o-linear-gradient(top, #d73900, #ff4400);
+    background-image: linear-gradient(top, #d73900, #ff4400);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d73900', endColorstr='#ff4400', GradientType=0);
+}
+
+.btn-blue {
+    border-color: transparent;
+    border-bottom-color: #0960ab;
+    background-color: #4288c5;
+    background-image: -moz-linear-gradient(top, #488fcd, #3a7db8);
+    background-image: -ms-linear-gradient(top, #488fcd, #3a7db8);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#488fcd), to(#3a7db8));
+    background-image: -webkit-linear-gradient(top, #488fcd, #3a7db8);
+    background-image: -o-linear-gradient(top, #488fcd, #3a7db8);
+    background-image: linear-gradient(top, #488fcd, #3a7db8);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#488fcd', endColorstr='#3a7db8', GradientType=0);
+}
+
+.btn-blue,
+.btn-blue:hover,
+.btn-blue:visited {
+    color: #FFF!important;
+}
+
+.btn-blue:hover {
+    background-color: #3579b5;
+    background-image: -moz-linear-gradient(top, #4087c6, #25659c);
+    background-image: -ms-linear-gradient(top, #4087c6, #25659c);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4087c6), to(#25659c));
+    background-image: -webkit-linear-gradient(top, #4087c6, #25659c);
+    background-image: -o-linear-gradient(top, #4087c6, #25659c);
+    background-image: linear-gradient(top, #4087c6, #25659c);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4087c6', endColorstr='#25659c', GradientType=0);
+}
+
+.btn-blue:active {
+    background-color: #3073ad;
+    background-image: -moz-linear-gradient(top, #25659c, #4087c6);
+    background-image: -ms-linear-gradient(top, #25659c, #4087c6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#25659c), to(#4087c6));
+    background-image: -webkit-linear-gradient(top, #25659c, #4087c6);
+    background-image: -o-linear-gradient(top, #25659c, #4087c6);
+    background-image: linear-gradient(top, #25659c, #4087c6);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#25659c', endColorstr='#4087c6', GradientType=0);
+}
+
+.btn-disabled {
+    border: 1px solid #e0e0e0;
+    border-bottom-color: #ccc;
+    cursor: default;
+}
+
+.btn-disabled,
+.btn-disabled:hover,
+.btn-disabled:visited {
+    color: #ccc !important;
+    background-color: #ededed;
+    background-image: -moz-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: -ms-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: -o-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-image: linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#e6e6e6', GradientType=0);
+}
+
+.btn-size45,
+.btn-xlarge {
+    padding: 0 20px;
+    height: 43px;
+    line-height: 43px;
+    font-size: 18px;
+}
+
+.btn-size45 .iconfont,
+.btn-xlarge .iconfont {
+    font-size: 18px!important;
+}
+
+.btn-size40,
+.btn-large {
+    padding: 0 20px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+}
+
+.btn-size40 .iconfont,
+.btn-large .iconfont {
+    font-size: 14px!important;
+}
+
+.btn-size30,
+.btn-medium {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 20px;
+}
+
+.btn-size28,
+.btn-small {
+    height: 26px;
+    line-height: 26px;
+    padding: 0 20px;
+}
+
+.btn-size25,
+.btn-xsmall {
+    height: 23px;
+    line-height: 23px;
+}
 /* ==========================================================================
    基础工具
    *@ Name:        utils.css V1.0.0
@@ -1101,32 +1403,39 @@ hr{
 * @Author: 一丝 
 * @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
 */
- .clearfix:before, .clearfix:after {
-    content:"";
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
     display: table;
 }
+
 .clearfix:after {
     clear: both;
 }
+
 .clearfix {
-    *zoom: 1;
-    /* IE6-7 触发 hasLayout */
+    *zoom: 1; /* IE6-7 触发 hasLayout */
 }
+
 /*
  *@ Name:       自适应图文混排组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 19:23:27
  *@ Usage:      line 用于不需要溢出显示的模块
  */
- .clearall {
+
+.clearall {
     overflow: hidden;
     _overflow: visible;
     *zoom: 1;
 }
+
 .clearcell {
     display: table-cell;
     *zoom: 1;
 }
+
 .clearcell:after {
     clear: both;
     display: block;
@@ -1135,28 +1444,34 @@ hr{
     height: 0 !important;
     line-height: 0;
     font-size: xx-large;
-    content:" x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
 }
+
 /* 强制不换行 */
- .nowrap {
+.nowrap {
     white-space: nowrap;
     word-wrap: normal;
 }
+
 /* 连续字符换行 */
- .wrap {
+.wrap {
     white-space: normal;
     word-wrap: break-word;
 }
+
 .hidden, .hide {
     display: none;
 }
-/* 文字溢出显示省略号 */
- .ellipsis {
+
+/** 文字溢出显示省略号
+* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902 
+*/
+
+.ellipsis {
     white-space: nowrap;
     word-wrap: normal;
     overflow: hidden;
-    -o-text-overflow: ellipsis;
-    /* Opera 9-10.6 */
+    -o-text-overflow: ellipsis; /* Opera 9-10.6 */
     text-overflow: ellipsis;
     display: inline-block;
     *display: inline;
@@ -1164,77 +1479,55 @@ hr{
     vertical-align: top;
     max-width: 100%;
     _width: 100%;
+
+    text-align: left; /* 1 */
 }
-/* 图片替换
-   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   图片替换
+   -------------------------------------------------------------------------- */
 
 /** 隐藏文字
 * 1.text-indent:-999em 存在性能问题：
 *   http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 */
- .text-hide {
-    text-indent: 100%;
-    /* 1 */
+.text-hide {
+    text-indent: 100%; /* 1 */
     white-space: nowrap;
     overflow: hidden;
 }
-/** 裁剪方式隐藏元素 
-* 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
-* 2. VoiceOver 无法读出宽高为 0 的元素
-*/
- .clip-hide {
-    position: absolute !important;
-    /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    /* 1 */
+
+/**
+ * 裁剪方式隐藏元素
+ * 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
+ * 2. VoiceOver 无法读出宽高为 0 的元素
+ */
+.clip-hide {
+    position: absolute !important; /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); /* 1 */
     padding: 0 !important;
     border: 0 none!important;
-    height: 1px !important;
-    /* 2 */
+    height: 1px !important; /* 2 */
     width: 1px !important;
     overflow: hidden;
 }
-/* 定位方式隐藏内容 */
- .ir {
+
+/* img replace，通过定位方式隐藏内容 */
+.ir {
     position: relative;
     z-index: -1;
     overflow: hidden;
 }
+
 .ir-bg {
     position: relative;
     z-index: 1;
 }
+
 /** 禁用中文输入法
 * @require: 在需要禁用的地方添加: .ime-disabled
 */
- .ime-disabled {
-    ime-mode: disabled!important;
-}
-.ime-inactive {
-    ime-mode: inactive!important;
-}
-/** Retina 背景图片解决方案
-* @author:  
-* @version: 
-*/
- .retina {
-    background-image: -webkit-image-set(url() 1x, url() 2x);
-    /* Retina Safari 6+,Chrome 21+ */
-}
-@media only screen and (-o-min-device-pixel-ratio: 2/1),
-/* Opera */
- only screen and (min--moz-device-pixel-ratio: 2),
-/* Firefox 16 之前 */
- only screen and (-webkit-min-device-pixel-ratio: 2),
-/* WebKit */
- only screen and (min-resolution: 192dpi),
-/* 不支持dppx的浏览器 */
- only screen and (min-resolution: 2dppx)
-/* 标准 */
- {
-    .retina {
-        background-image:url();
-        /* Retina */
-        background-size: 20px 50px;
-    }
-}
+.ime-disabled { ime-mode: disabled!important; }
+
+.ime-inactive { ime-mode: inactive!important; }

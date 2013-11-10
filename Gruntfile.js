@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   var semver = require('semver')
   var async = require('async')
+  var spawn = require('child_process').spawn
 
   var PORT = 5566
 
@@ -63,7 +64,8 @@ module.exports = function(grunt) {
 
     grunt.util.spawn({
       cmd: 'git',
-      args: ['tag', '-l', 'publish/*']
+      args: [ 'tag', '-l', 'publish/*' ],
+      opts: { stdio: 'pipe'}
     }, function(err, res, code) {
       if (code !== 0) return grunt.fail.fatal(err, code)
 
@@ -80,7 +82,12 @@ module.exports = function(grunt) {
 
       env = env === 'prod' ? env : 'daily'
       if (env === 'daily') {
-        pushDaily(pkg.version, done)
+        async.series([
+          function(callback) {
+            pushDaily(pkg.version, callback)
+          },
+          restoreBranch
+        ], done)
       }
       else {
         async.series([
@@ -89,7 +96,8 @@ module.exports = function(grunt) {
           },
           function(callback) {
             publish(pkg.version, callback)
-          }
+          },
+          restoreBranch
         ], done)
       }
     })
@@ -99,7 +107,8 @@ module.exports = function(grunt) {
         function checkoutBranch(callback) {
           grunt.util.spawn({
             cmd: 'git',
-            args: ['checkout', '-B', 'daily/' + version]
+            args: [ 'checkout', '-B', 'daily/' + version ],
+            opts: { stdio: 'pipe'}
           }, function(err, res, code) {
             if (code !== 0)
               callback(err)
@@ -110,7 +119,8 @@ module.exports = function(grunt) {
         function pushBranch(callback) {
           grunt.util.spawn({
             cmd: 'git',
-            args: ['push', 'gitlab', 'daily/' + version]
+            args: [ 'push', 'gitlab', 'daily/' + version ],
+            opts: { stdio: 'pipe'}
           }, function(err, res, code) {
             if (code !== 0)
               callback(err)
@@ -133,7 +143,8 @@ module.exports = function(grunt) {
         function addTag(callback) {
           grunt.util.spawn({
             cmd: 'git',
-            args: ['tag', 'publish/' + version]
+            args: [ 'tag', 'publish/' + version ],
+            opts: { stdio: 'pipe'}
           }, function(err, res, code) {
             if (code !== 0)
               callback(err)
@@ -144,7 +155,8 @@ module.exports = function(grunt) {
         function pushTag(callback) {
           grunt.util.spawn({
             cmd: 'git',
-            args: ['push', 'gitlab', 'publish/' + version]
+            args: [ 'push', 'gitlab', 'publish/' + version ],
+            opts: { stdio: 'pipe'}
           }, function(err, res, code) {
             if (code !== 0)
               callback(err)
@@ -160,6 +172,14 @@ module.exports = function(grunt) {
 
         if (fn) fn(err, code)
       })
+    }
+
+    function restoreBranch(fn) {
+      grunt.util.spawn({
+        cmd: 'git',
+        args: [ 'checkout', 'gh-pages' ],
+        opts: { stdio: 'pipe'}
+      }, fn)
     }
   })
 

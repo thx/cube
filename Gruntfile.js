@@ -191,6 +191,7 @@ module.exports = function(grunt) {
   })
 
   grunt.registerTask('build', ['copySrc', 'concat', 'cssmin'])
-  grunt.registerTask('deploy', ['addGitlab', 'pushGitlab'])
+  grunt.registerTask('deploy', ['addGitlab', 'pushGitlab:prod'])
+  grunt.registerTask('daily', ['addGitlab', 'pushGitlab:daily'])
   grunt.registerTask('default', ['build'])
 }

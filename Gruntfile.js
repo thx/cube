@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
   var semver = require('semver')
   var async = require('async')
-  var spawn = require('child_process').spawn
 
   var PORT = 5566
 
@@ -23,7 +22,7 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'src/neat.css', 'src/layout.css', 'src/utils.css',
-          'src/iconfont.css'
+          'src/iconfont.css', 'src/button.css'
           // 展开需要合并的样式模块，确保模块的合并顺序
           // type.css 是相对独立的，不合并到 cube.css
         ],
@@ -211,6 +210,7 @@ module.exports = function(grunt) {
   })
 
   grunt.registerTask('build', ['copySrc', 'concat', 'cssmin'])
-  grunt.registerTask('deploy', ['addGitlab', 'pushGitlab'])
+  grunt.registerTask('daily', ['addGitlab', 'pushGitlab:daily'])
+  grunt.registerTask('deploy', ['addGitlab', 'pushGitlab:prod'])
   grunt.registerTask('default', ['build'])
 }

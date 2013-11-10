@@ -179,6 +179,11 @@
 .cube-modules .dib:hover {
     border-bottom: none;
 }
+.cube-modules .iconfont,
+.cube-modules .name,
+.cube-modules .caption {
+    display: block;
+}
 .cube-modules .caption {
     font-size: 14px;
     color: #999;

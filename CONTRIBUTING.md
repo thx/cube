@@ -34,7 +34,6 @@ _site 目录中的内容。
 
 启动后，访问 <http://127.0.0.1:4000> 即可。
 
-<<<<<<< HEAD
 ### 发布
 
 发布至日常环境：
@@ -51,10 +50,6 @@ $ grunt deploy
 
 日常与线上环境的访问地址请看 <http://thx.github.io/cube/doc>。
 
-###
-
-=======
->>>>>>> origin/gh-pages
 ## CSS 书写规范
 
 参照：[CSS 创作指南](https://github.com/yisibl/css-creating)

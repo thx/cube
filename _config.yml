@@ -4,5 +4,4 @@ lsi: false
 markdown: redcarpet
 exclude: [CONTRIBUTING.md, cube.sublime-*, node_modules, Gruntfile.js, package.json]
 
-maruku:
-  fenced_code_blocks: true
+version: 1.0.7

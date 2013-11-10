@@ -74,8 +74,13 @@ module.exports = function(grunt) {
         .sort(semver.rcompare)
 
       if (semver.lte(pkg.version, versions[0])) {
+        var yml = grunt.file.read('_config.yml')
         pkg.version = semver.inc(versions[0], 'patch')
         grunt.file.write('package.json', JSON.stringify(pkg, null, '  '))
+        grunt.file.write(
+          '_config.yml',
+          yml.replace(/version: +\d\.\d.\d/, 'version: ' + pkg.version)
+        )
         grunt.log.writeln('Updated to ' + pkg.version)
       }
 

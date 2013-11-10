@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   var semver = require('semver')
-
+  var async = require('async')
 
   var PORT = 5566
 
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
     })
   })
 
-  grunt.registerTask('deploy', 'deploy via gitlab', function(env) {
+  grunt.registerTask('pushGitlab', 'push to gitlab', function(env) {
     var done = this.async()
 
     grunt.util.spawn({
@@ -78,22 +78,119 @@ module.exports = function(grunt) {
         grunt.log.writeln('Updated to ' + pkg.version)
       }
 
-      env = env || 'daily'
+      env = env === 'prod' ? env : 'daily'
       if (env === 'daily') {
+        pushDaily(pkg.version, done)
+      }
+      else {
+        async.series([
+          function(callback) {
+            pushDaily(pkg.version, callback)
+          },
+          function(callback) {
+            publish(pkg.version, callback)
+          }
+        ], done)
+      }
+    })
+
+    function pushDaily(version, fn) {
+      async.series([
+        function checkoutBranch(callback) {
+          grunt.util.spawn({
+            cmd: 'git',
+            args: ['checkout', '-B', 'daily/' + version]
+          }, function(err, res, code) {
+            if (code !== 0)
+              callback(err)
+            else
+              callback(null, code)
+          })
+        },
+        function pushBranch(callback) {
+          grunt.util.spawn({
+            cmd: 'git',
+            args: ['push', 'gitlab', 'daily/' + version]
+          }, function(err, res, code) {
+            if (code !== 0)
+              callback(err)
+            else
+              callback(null, code)
+          })
+        }
+      ], function(err, code) {
+        if (err)
+          grunt.fail.fatal(err)
+        else
+          grunt.log.writeln('成功发布 ' + version + ' 至 daily 环境')
+
+        if (fn) fn(err, code)
+      })
+    }
+
+    function publish(version, fn) {
+      async.series([
+        function addTag(callback) {
+          grunt.util.spawn({
+            cmd: 'git',
+            args: ['tag', 'publish/' + version]
+          }, function(err, res, code) {
+            if (code !== 0)
+              callback(err)
+            else
+              callback(null, code)
+          })
+        },
+        function pushTag(callback) {
+          grunt.util.spawn({
+            cmd: 'git',
+            args: ['push', 'gitlab', 'publish/' + version]
+          }, function(err, res, code) {
+            if (code !== 0)
+              callback(err)
+            else
+              callback(null, code)
+          })
+        }
+      ], function(err, code) {
+        if (err)
+          grunt.fail.fatal(err)
+        else
+          grunt.log.writeln('成功发布 ' + version + ' 至线上环境')
+
+        if (fn) fn(err, code)
+      })
+    }
+  })
+
+  grunt.registerTask('addGitlab', 'init gitlab repo of cube', function() {
+    var done = this.async()
+
+    grunt.util.spawn({
+      cmd: 'git',
+      args: ['remote']
+    }, function(err, res, code) {
+      if (err) return grunt.fail.fatal(err)
+
+      if (/\bgitlab\b/.test(res.stdout)) {
+        grunt.log.writeln('成功添加 gitlab remote')
+        done()
+      }
+      else {
         grunt.util.spawn({
           cmd: 'git',
-          args: ['checkout', '-B', 'daily/' + pkg.version]
+          args: ['remote', 'add', 'gitlab', 'git@gitlab.alibaba-inc.com:thx/cube.git']
         }, function(err, res, code) {
+          if (err) return grunt.fail.fatal(err)
 
+          grunt.log.writeln('成功添加 gitlab remote')
+          done()
         })
       }
     })
   })
 
-  grunt.registerTask('gitlab', 'init gitlab repo of cube', function() {
-
-  })
-
   grunt.registerTask('build', ['copySrc', 'concat', 'cssmin'])
+  grunt.registerTask('deploy', ['addGitlab', 'pushGitlab'])
   grunt.registerTask('default', ['build'])
 }

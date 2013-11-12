@@ -3,11 +3,11 @@
    *@ Name:        utils.css V1.0.0
    *@ Author:      一丝
    *@ Update:      2013-9-30 15:39:57;
-   *@ Copyright:   MIT License 
+   *@ Copyright:   MIT License
    ========================================================================== */
 
 /** 闭合浮动
-* @Author: 一丝 
+* @Author: 一丝
 * @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
 */
 
@@ -71,7 +71,7 @@
 }
 
 /** 文字溢出显示省略号
-* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902 
+* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
 */
 
 .ellipsis {

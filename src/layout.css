@@ -4,7 +4,7 @@
 * @ Name:        layout.css V1.0.0
 * @ Author:      一丝
 * @ Update:      2013-9-30 15:39:51;
-* @ Copyright:   MIT License 
+* @ Copyright:   MIT License
 */
 
 /*
@@ -13,7 +13,7 @@
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
  */
- 
+
 .dib {
     display: inline-block;
     *display: inline;
@@ -84,7 +84,7 @@
  *@ Name:       CSS 三角形组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
- *@ Usage:      
+ *@ Usage:
  */
 .arrow {
     font-size: 0;

@@ -69,10 +69,23 @@ KISSY.use('node', function(S) {
             result.append('<div class="inline-log"></div>')
             result.append('<a class="button blue">Edit</a>')
 
-            result.one('.button').on('click', function(){
-                result.animate({top:'100%'},'fast', function(){
-                    result.one('iframe').remove()
-                    result.one('.inline-log').empty()
+            result.one('.button').on('click', function() {
+                result.animate({
+                    top: {
+                        value: "100%",
+                        easing: function () {
+                            return 0.2;
+                        }
+                    }
+                }, {
+                    duration: 0.3
+                },function() {
+                    if (result.one('iframe')) {
+                        result.all('iframe').remove()
+                    }
+                    if (result.one('.inline-log')) {
+                        result.one('.inline-log').html('')
+                    }
                 })
             })
 
@@ -106,14 +119,14 @@ KISSY.use('node', function(S) {
             // Monitor clicks on the span tabs
             toolbar.delegate('click', 'span', function(e, simulated){
 
-                toolbar.one('span').removeClass('active')
+                toolbar.all('span').removeClass('active')
 
                 var tab = $(e.currentTarget)
 
-                aceEditor.setSession(tab.attr('data-session'))
+                aceEditor.setSession(tab.data('data-session'))
                 aceEditor.resize();
 
-                tab.addClass('active').attr('data-editor')
+                tab.addClass('active').data('data-editor')
 
                 if (!simulated) {
                     aceEditor.focus()
@@ -135,13 +148,13 @@ KISSY.use('node', function(S) {
 
                 var code = {}
 
-                toolbar.all('span').each(function(tab){
+                toolbar.all('span').each(function(tab) {
                     var tab = $(tab)
 
-                    code[S.trim(tab.text())] = tab.attr('data-session')
+                    code[S.trim(tab.text())] = tab.data('data-session').getValue()
                 })
 
-                var html = buildPageMarkup(code, editor.attr('data-includes'))
+                var html = buildPageMarkup(code, editor.data('data-includes'))
 
                 // Create the iframe
                 var iframe = document.createElement('iframe')
@@ -159,9 +172,17 @@ KISSY.use('node', function(S) {
                 iframe.contentWindow.document.write(html)
                 iframe.contentWindow.document.close()
 
-                result.animate({top:0}, 'fast')
-
-            }).appendTo(editor)
+                result.animate({
+                    top: {
+                        value: "0px",
+                        easing: function () {
+                            return 0.2;
+                        }
+                    }
+                }, {
+                    duration: 0.5
+                })
+            })
 
             if(editor.attr('data-autorun')){
                 setTimeout(function(){
@@ -183,14 +204,14 @@ KISSY.use('node', function(S) {
                     // Create the tabs
                     var tab = $('<span>' + type + '</span>')
 
-                    tab.attr('data-session', createEditSession(pre.text(), language))
-                    tab.attr('data-original-content', pre.text())
+                    tab.data('data-session', createEditSession(pre.text(), language))
+                    tab.data('data-original-content', pre.text())
 
                     tab.appendTo(toolbar)
                 })
 
                 // Simulate a click on the first tab
-                S.Event.fire(toolbar.one('span'),'trigger')
+                S.Event.fire(toolbar.one('span'), 'click')
             }
 
             function createEditSession(text, mode){

@@ -13,7 +13,7 @@ Ruby Gem。
 下遇到乱码的解决办法。
 
 Mac 自带 Ruby，直接 `sudo gem install github-pages` 即可。如果你知道 RVM、rbenv 等，
-应该不需要我该诉你怎么装 Ruby Gem 啦。
+应该不需要我告诉你怎么装 Ruby Gem 啦。
 
 Github Pages 的秘密在于 jekyll，是个静态站点生成工具。
 

@@ -13,14 +13,14 @@ layout: default
 让元素以 inline-block 呈现在文档流中，加上 `dib` 的 class 即可：
 
 ```html
-<span class="dib span3">Hey, Mockjs 太强大了。</span>
-<div class="dib span7">Specified, Computed, Used, and Resolved Value.</div>
+<span class="dib span3">他出一對雞，我出一個鵝，閑快活。。</span>
+<div class="dib span7">南畝耕，東山臥，世態人情經歷多。閑將往事思量過。賢的是他，愚的是我，爭什麽。</div>
 ```
 
 将输出：
 
-<span class="dib span2">Hey, Mockjs 太强大了。</span>
-<div class="dib span3"><strong>Specified, Computed, Used, and Resolved Value.</strong></div>
+<span class="dib span3">他出一對雞，我出一個鵝，閑快活。。</span>
+<div class="dib span7">南畝耕，東山臥，世態人情經歷多。閑將往事思量過。賢的是他，愚的是我，爭什麽。</div>
 
 提到 inline-block 就让人想到浮动与浮动清除，当我们想以 inline-block 来替代浮动时，又会头疼空隙问题， 幸运的是，Cube 帮你
 做到了这些，只需要在上面的 `dib` 的元素外套一层 `dib-box` 即可：
@@ -53,11 +53,13 @@ layout: default
       <span class="dib">e!</span>
     </div>
   </div>
-  <div class="box-num dib">¥ xX485.00</div>
+  <div class="box-num dib">¥ xX破曹的檣櫓一時絕，鏖兵的江水猶然熱，好教我情慘切！二十年流不盡的英雄血！</div>
 </div>
 ```
 
-将输出：<div class="box-row box-row-large dib-box">
+将输出：
+
+<div class="box-row box-row-large dib-box">
   <div class="box-title dib">
     <div class="justify">
       <span class="dib">C</span>
@@ -66,7 +68,7 @@ layout: default
       <span class="dib">e!</span>
     </div>
   </div>
-  <div class="box-num dib">¥ xX485.00</div>
+  <div class="box-num dib">¥ xX破曹的檣櫓一時絕，鏖兵的江水猶然熱，好教我情慘切！二十年流不盡的英雄血！</div>
 </div>
 
 更多示例，[请移步](http://jsbin.com/OsEcOMA/1)
@@ -238,7 +240,7 @@ Cube 提供了丰富的三角形效果, 如：
     <img width="100%" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
   </div>
   <div class="center-body">
-    <p>这里若不加 center-body, 会被重置为 font-size: 0 导致字不显示。</p>
+    <p>适意行，安心坐，渴时饮饥时餐醉时歌，困来时就向莎茵卧。日月长，天地阔，闲快活！。</p>
   </div>
 </div>
 

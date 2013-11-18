@@ -28,3 +28,4 @@ KISSY.use('node', function(S) {
             S.getScript('http://static.duoshuo.com/embed.js')
     })
 })
+

@@ -1,24 +1,4 @@
 {% raw %}
-<ul>
-{{#each tree}}
-  <li><a href="#{{id}}" class="j-entry level1">{{text}}</a>
-    <ul>
-    {{#each children}}
-      <li><a href="#{{id}}" class="j-entry level2">{{text}}</a>
-        {{#if children.length !== 0}}
-        <ul>
-        {{#each children}}
-          <li><a href="#{{id}}" class="j-entry level3">{{text}}</a>
-        {{/each}}
-        </ul>
-        {{/if}}
-      </li>
-    {{/each}}
-    </ul>
-  </li>
-{{/each}}
-</ul>
-=======
 {{#each tree}}
   <ul>
   {{#each children}}

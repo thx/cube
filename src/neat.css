@@ -22,7 +22,7 @@ ul, ol, /*li, 默认没边距 */
 h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
 form, fieldset, legend, input, textarea,
 p, blockquote, figure, hr, menu, dir,
-thead, tbody, tfoot /* th,td 默认没边距 */
+thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
 {
 	margin:0;
 	padding:0;
@@ -92,7 +92,6 @@ html {
 
 body {
 	font-size: 14px;
-	font-size: 1.4rem; /* 2 */
 	line-height: 1.8;
 }
 
@@ -132,32 +131,32 @@ h1, h2, h3, h4, h5, h6 {
 } 
 h1 {
 	font-size: 36px;
-	font-size: 3.6rem;
+	/*font-size: 3.6rem;*/
 }
 
 h2 {
 	font-size: 30px;
-	font-size: 3rem;
+	/*font-size: 3rem;*/
 }
 
 h3 {
 	font-size: 22px;
-	font-size: 2.2rem;
+	/*font-size: 2.2rem;*/
 }
 
 h4 {
 	font-size: 18px;
-	font-size: 1.8rem;
+	/*font-size: 1.8rem;*/
 }
 
 h5 {
 	font-size: 14px;
-	font-size: 1.4rem;
+	/*font-size: 1.4rem;*/
 }
 
 h6 {
 	font-size: 12px;
-	font-size: 1.2rem;
+	/*font-size: 1.2rem;*/
 }
 
 /*

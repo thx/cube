@@ -1,0 +1,132 @@
+---
+layout: default
+title: utils.css 基础工具类
+---
+
+## Utils
+
+针对网站中如高度坍塌、文本截断、隐藏等常见处理方法，我们将其提取出来进行抽象，就有了 Cube 的基础工具类，使用之前，请引入：
+
+{% include cubeUsage.html %}
+
+### 闭合浮动
+
+对浮动元素加上 clearfix 即可：
+
+```html
+<div class="clearfix">
+  <div style="float:left">哈哈，我浮动到左边了</div>
+  <div style="float:right">哈哈，我浮动到右边了</div>
+</div>
+```
+
+将输出：
+
+<div class="clearfix">
+  <div style="float:left">哈哈，我浮动到左边了</div>
+  <div style="float:right">哈哈，我浮动到右边了</div>
+</div>
+
+
+### 自适应图文混排组件
+
+```html
+<div class="clearall">
+  <img width="400" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
+  我玩的是梁园月，饮的是东京酒，赏的是洛阳花，攀的是章台柳，美妙意境来自 cyj.me。
+</div>
+```
+
+将输出：
+
+<div class="clearall">
+  <img width="400" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
+  我玩的是梁园月，饮的是东京酒，赏的是洛阳花，攀的是章台柳，美妙意境来自 cyj.me。
+</div>
+
+### 强制不换行
+
+```html
+<div class="nowrap">你便是落了我牙，歪了我口，瘸了我腿，折了我手，天赐与我这几般儿歹症候，我不换行！</div>
+```
+
+将输出：
+
+<div class="nowrap">你便是落了我牙，歪了我口，瘸了我腿，折了我手，天赐与我这几般儿歹症候，等我一万年，我也不换行！</div>
+
+### 连续字符换行
+
+```html
+<div class="wrap">我也会围棋，会蹴踘，会打围，会插科，会歌舞，会吹弹，会咽作，会吟诗，会双陆，会 xxx0000ooo 连续字符换行。</div>
+```
+
+将输出：
+
+<div class="wrap">我也会围棋，会蹴踘，会打围，会插科，会歌舞，会吹弹，会咽作，会吟诗，会双陆，会 xxx0000ooo 连续字符换行。</div>
+
+
+### 文字溢出显示省略号
+
+默认是字体左对齐，如果需要其他对齐方式，需要覆盖一下。
+
+```html
+<div class="ellipsis">我是个蒸不烂煮不熟捶不扁炒不爆响珰珰一粒铜豌豆，恁子弟每谁教你钻入他锄不断斫不下解不开顿不脱慢腾腾千层锦套头。</div>
+```
+
+将输出：
+
+<div class="ellipsis">我是个蒸不烂煮不熟捶不扁炒不爆响珰珰一粒铜豌豆，恁子弟每谁教你钻入他锄不断斫不下解不开顿不脱慢腾腾千层锦套头。</div>
+
+### 隐藏
+
+#### 隐藏元素
+
+```html
+<div class="hidden">三魂归地府</div>
+<div class="hide">七魄丧冥幽</div>
+```
+
+#### 隐藏文字
+
+```html
+<div class="text-hide">天那，那其间才不向烟花路儿上走。</div>
+```
+
+#### 定位方式隐藏内容
+
+```html
+<div class="ir">天那，那其间才不向烟花路儿上走。</div>
+```
+
+#### 裁剪方式隐藏元素
+
+应该避免这种用法，原因如下：
+
+- IE6-8 有严重漏洞
+- VoiceOver 无法读出宽高为 0 的元素
+
+```html
+<div class="clip-hide">天那，那其间才不向烟花路儿上走。</div>
+```
+
+### 禁用中文输入法
+
+在需要禁用的地方添加: .ime-disabled 即可。
+
+```html
+<input class="ime-disabled" type="text" placeholder="禁用中文输入">
+```
+
+将输出：
+
+<input class="ime-disabled" type="text" placeholder="禁用中文输入">
+
+### 启用中文输入法
+
+```html
+<input class="ime-inactive" type="text" placeholder="开启中文输入">
+```
+
+将输出：
+
+<input class="ime-inactive" type="text" placeholder="开启中文输入">

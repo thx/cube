@@ -13,6 +13,7 @@ Ruby Gem。
 下遇到乱码的解决办法。
 
 Mac 自带 Ruby，直接 `sudo gem install github-pages` 即可。如果你知道 RVM、rbenv 等，
+
 应该不需要我该诉你怎么装 Ruby Gem 啦。
 
 Github Pages 的秘密在于 jekyll，是个静态站点生成工具。
@@ -33,6 +34,22 @@ _site 目录中的内容。
 `--watch` 参数用来开启目录监测，当有文件改动时，自动重新生成 _site。
 
 启动后，访问 <http://127.0.0.1:4000> 即可。
+
+### 发布
+
+发布至日常环境：
+
+```bash
+$ grunt daily
+```
+
+发布至线上：
+
+```bash
+$ grunt deploy
+```
+
+日常与线上环境的访问地址请看 <http://thx.github.io/cube/doc>。
 
 ## CSS 书写规范
 

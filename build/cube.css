@@ -604,14 +604,14 @@ dialog::backdrop{
 	right: 0;
 	background-color: rgba(0, 0, 0, .3);
 }
-﻿
+
 /*
-* 基础布局
-* @ Name:        layout.css V1.0.0
-* @ Author:      一丝
-* @ Update:      2013-9-30 15:39:51;
-* @ Copyright:   MIT License 
-*/
+ * 基础布局
+ * @ Name:        layout.css V1.0.0
+ * @ Author:      一丝
+ * @ Update:      2013-9-30 15:39:51;
+ * @ Copyright:   MIT License
+ */
 
 /*
  *@ Name:       inline-block 组件
@@ -619,7 +619,7 @@ dialog::backdrop{
  *@ Update:     2013-9-29 16:05:04
  *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
  */
- 
+
 .dib {
     display: inline-block;
     *display: inline;
@@ -690,7 +690,7 @@ dialog::backdrop{
  *@ Name:       CSS 三角形组件
  *@ Author:     一丝
  *@ Update:     2013-9-29 16:05:04
- *@ Usage:      
+ *@ Usage:
  */
 .arrow {
     font-size: 0;
@@ -869,16 +869,17 @@ dialog::backdrop{
 .center-box img {
     vertical-align: middle; /* 去除现代浏览器 img 底部空隙 */
 }
+
 /* ==========================================================================
    基础工具
    *@ Name:        utils.css V1.0.0
    *@ Author:      一丝
    *@ Update:      2013-9-30 15:39:57;
-   *@ Copyright:   MIT License 
+   *@ Copyright:   MIT License
    ========================================================================== */
 
 /** 闭合浮动
-* @Author: 一丝 
+* @Author: 一丝
 * @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
 */
 
@@ -942,7 +943,7 @@ dialog::backdrop{
 }
 
 /** 文字溢出显示省略号
-* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902 
+* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
 */
 
 .ellipsis {
@@ -1011,9 +1012,9 @@ dialog::backdrop{
 .ime-inactive { ime-mode: inactive!important; }
 /*
 *@ Name:        iconfont.css V1.0.0
-*@ Author:      一丝(yisibl) 
+*@ Author:      一丝(yisibl)
 *@ Update:      2013-9-29 14:42:58;
-*@ Copyright:	MIT License 
+*@ Copyright:	MIT License
 * 注意：使用font-face需要 CSS 线上地址和引用的 font 线上地址同域，否则 IE9 会有 CSS3117 问题
 * CSS3117: @font-face failed cross-origin request. Resource access is restricted.
 */

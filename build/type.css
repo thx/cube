@@ -1,8 +1,8 @@
 /*
 *@ Name:        type.css V1.0.1
-*@ Author:      一丝(yisibl) 
+*@ Author:      一丝(yisibl)
 *@ Update:      2013-9-24 16:55:04
-*@ Copyright:	MIT License 
+*@ Copyright:	MIT License
 */
 body{
     font-size: 14px;
@@ -27,12 +27,12 @@ acronym, abbr {
 }
 
 /*
- * 保留 i 标签斜体 
+ * 保留 i 标签斜体
 */
 i{
     font-style: italic;
 }
-/* 
+/*
  *重置中文斜体
  *cite 书籍或杂志的标题
  *
@@ -132,8 +132,8 @@ h6 {
 
 /*
 * 列表项
-* 1. 
-* 2. 
+* 1.
+* 2.
 */
 .type ul {
     list-style-type: disc;
@@ -159,8 +159,8 @@ h6 {
 }
 /*
 * 表格
-* 1. 
-* 2. 
+* 1.
+* 2.
 */
 th {
     font-weight:inherit;

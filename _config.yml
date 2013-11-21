@@ -1,5 +1,8 @@
 baseurl: /cube
 pygments: true
 lsi: false
-markdown: maruku
+markdown: redcarpet
 exclude: [CONTRIBUTING.md, cube.sublime-*, node_modules, Gruntfile.js, package.json]
+
+version: 1.0.9
+

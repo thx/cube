@@ -100,6 +100,7 @@
     background-color: #262E3C;
     height: 60px;
     line-height: 60px;
+    overflow: hidden;
 }
 .navbar h1 {
     font-weight: normal;
@@ -119,6 +120,11 @@
     width: 190px;
     background-color: #222;
     text-align: center;
+}
+
+.navbar .logo-icon{
+    font-size: 38px;
+    margin-right: 10px;
 }
 .nav {
     overflow: hidden;
@@ -200,9 +206,7 @@
 .cube-modules .iconfont {
     font-size: 30px;
 }
-.type code {
-    border: none;
-}
+
 /*{{
 * 暂无栅格化，为了写 demo, 我先加了如下几行宽度样式
 */

@@ -48,7 +48,7 @@ cite{
 /*
  *专名号和em
 */
-u,em{
+u, em{
     text-decoration: none;
     padding-bottom: 1px;
     margin-left: 2px;
@@ -191,6 +191,15 @@ th {
     overflow: auto;
     padding: 6px 10px;
     border-radius: 3px;
+}
+
+/* pre 下面的 code 重置 */
+.type pre code{
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    background: none;
+    border-radius: 0;
 }
 
 hr{

@@ -1,16 +1,18 @@
-/*
+/**
 *@ Name:        type.css V1.0.1
-*@ Author:      一丝(yisibl)
-*@ Update:      2013-9-24 16:55:04
+*@ Author:      一丝
+*@ Update:      2013-11-22 16:30:07;
 *@ Copyright:	MIT License
 */
-body{
+body {
     font-size: 14px;
     line-height: 1.8;
 }
+
 .type a {
     color:#3187DB;
 }
+
 .type a:hover,
 .type ins:hover {
     color:#333;
@@ -22,56 +24,59 @@ body{
     border-bottom: 1px solid;
 }
 
-acronym, abbr {
+acronym,
+abbr {
     border-bottom: 1px dotted;
 }
 
-/*
+/**
  * 保留 i 标签斜体
 */
-i{
+i {
     font-style: italic;
 }
-/*
+
+/**
  *重置中文斜体
  *cite 书籍或杂志的标题
  *
  */
+
 cite, em, var, address, dfn {
     font-style: inherit;
 }
 
-cite{
+cite {
     border-bottom: 3px double;
 }
 
-/*
+/**
  *专名号和em
 */
-u, em{
+u, em {
     text-decoration: none;
     padding-bottom: 1px;
     margin-left: 2px;
 }
 
-u{
+u {
     border-bottom: 1px solid;
 }
 
-em{
+em {
     border-bottom: 1px dotted;
 }
 
 
-/*
+/**
  * 图片figure，figcaption
 */
-.type figure{
+.type figure {
     text-align: center;
 }
 
 
-/*
+/**
 * 中文小于 12px 可读性很差
 * 1. 统一 IE 6/7 中字体大小
 * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
@@ -81,100 +86,105 @@ em{
     margin-bottom: 18px;
     line-height: 1.8;
 }
+
 h1, h2, h3, h4, h5, h6 {
-    font-weight:normal;
-    font-style:normal;
+    font-weight: normal;
+    font-style: normal;
 }
 
-/*
+/**
  * 中文小于 12px 可读性很差
  * 1. 统一 IE 6/7 中字体大小
  * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
  */
 h1 {
     font-size: 36px;
-    font-size: 3.6rem;
 }
 
 h2 {
     font-size: 30px;
-    font-size: 3rem;
 }
 
 h3 {
     font-size: 22px;
-    font-size: 2.2rem;
 }
 
 h4 {
     font-size: 18px;
-    font-size: 1.8rem;
 }
 
 h5 {
     font-size: 14px;
-    font-size: 1.4rem;
 }
 
 h6 {
     font-size: 12px;
-    font-size: 1.2rem;
 }
 
 
 .type blockquote {
     margin: 32px 28px;
     padding-left: 14px;
-    border-left:3px solid #CCC;
+    border-left: 3px solid #CCC;
     line-height: 1.7;
 }
 
 
-/*
+/**
 * 列表项
 * 1.
 * 2.
 */
 .type ul {
     list-style-type: disc;
-    padding-left:30px;
+    padding-left: 30px;
     margin-top: 14px;
     margin-bottom: 14px;
 }
-.type ul ul, .type ul ol ul {
-    list-style-type:square;
+
+.type ul ul,
+.type ul ol ul {
+    list-style-type: square;
 }
+
 .type ol {
-    list-style:decimal;
-    padding-left:30px;
+    list-style: decimal;
+    padding-left: 30px;
     margin-top: 14px;
     margin-bottom: 14px;
 }
-.type ol ol ul, .type ol ul ul, .type ul ul ul {
+
+.type ol ol ul,
+.type ol ul ul,
+.type ul ul ul {
     list-style-type: circle;
 }
+
 .type dt {
-    font-weight:bold;
+    font-weight: bold;
     margin-top: 14px;
 }
-/*
+
+/**
 * 表格
 * 1.
 * 2.
 */
 th {
-    font-weight:inherit;
+    font-weight: inherit;
 }
 
-.type th, .type td {
-    border:1px solid #CCC;
+.type th,
+.type td {
+    border: 1px solid #CCC;
     padding: 5px 10px;
 }
+
 .type table tr:nth-child(odd) td {
     background-color: #f5f5f5;
 }
 
-/* 代码 */
+/** 代码 */
 .type code {
     margin: 0 2px;
     padding: 0 4px;
@@ -183,7 +193,7 @@ th {
     border-radius: 3px;
 }
 
-.type pre{
+.type pre {
     background-color: #F8F8F8;
     border: 1px solid #DDD;
     font-size: 12px;
@@ -193,8 +203,8 @@ th {
     border-radius: 3px;
 }
 
-/* pre 下面的 code 重置 */
-.type pre code{
+/** pre 下面的 code 重置 */
+.type pre code {
     margin: 0;
     padding: 0;
     border: 0 none;
@@ -202,8 +212,8 @@ th {
     border-radius: 0;
 }
 
-hr{
-    border:0 none;
+hr {
+    border: 0 none;
     border-bottom: 1px solid #999;
     margin-top: 14px;
     margin-bottom: 14px;

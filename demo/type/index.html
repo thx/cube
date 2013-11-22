@@ -1,0 +1,205 @@
+---
+layout: default
+title: Type.css 演示
+---
+
+<div id="">
+  <h2>Type.css 为中文排版而生</h2>
+  <p>国外现有的 <abbr title="Cascading Style Sheets">CSS</abbr> 解决方案（例如：Bootstrap，Normalize，CSS Reset 等）都不会考虑针对中文排版做优化，Type.css 就是为了解决这个问题而生，以 neat.css 为基础，让普通使用者无需考虑排版细节，快速应用到博客、文章等大面积中文排版的地方。</p>
+  <h2>中文排版有如下几个难点：</h2>
+  <ol>
+    <li>网页中可用简体中文字体较少，字体字号的选择尤为重要</li>
+    <li>不同浏览器及操作系统的渲染差异</li>
+    <li>特定 HTML 标签在中文排版中的用法，例如<u>专名号</u><code><a href="#u">&lt;u&gt;</a></code></li>
+  </ol>
+  <h2>Type.css 做了如下优化</h2>
+  <ol>
+    <li>
+      默认字号设为14px，更加便于阅读
+    </li>
+    <li>
+      字体根据不同的操作系统和浏览器做最佳适配：
+      <ul>
+        <li>Windows Vista 及其以上版本使用「微软雅黑」</li>
+        <li>OS X 10.6 及其以上版本使用「冬青黑体简体中文（Hiragino Sans GB）」</li>
+        <li>OS X 10.6 以下及 iOS 使用系统默认的「华文黑体」</li>
+        <li>Linux 使用「文泉驿微米黑（Wenquanyi Micro Hei）」</li>
+      </ul>
+    </li>
+    <li>针对特定的 HTML 标签做优化，见示例</li>
+  </ol>
+</div>
+<hr>
+<div class="demo">
+  <h2 id="heading">标题 Heading</h2>
+  <h1>标题一 ··············· &lt;h1&gt;</h1>
+  <h2>标题二 ··············· &lt;h2&gt;</h2>
+  <h3>标题三 ··············· &lt;h3&gt;</h3>
+  <h4>标题四 ··············· &lt;h4&gt;</h4>
+  <h5>标题五 ··············· &lt;h5&gt;</h5>
+  <h6>标题六 ··············· &lt;h6&gt;</h6>
+  <h2 id="blockquote">区块引用 blockquote</h2>
+  <blockquote>
+    人应该保持一颗空空如也的新鲜的心去做每一件事，即使做过一万次的事情也像第一次一样兴奋而好奇。涤净对于过去的留恋和对未来的幻想，深沉的活在具体的每一个时刻里，才能最逼近生命的真相。
+  </blockquote>
+  <div class="column">
+    <h2 id="lists">列表</h2>
+    <div class="col3">
+      <h3 id="ordered-list">有序列表 ordered-list</h3>
+      <ol>
+        <li>列表项</li>
+        <li>列表项</li>
+        <li>
+          列表项
+          <ol>
+            <li>列表项 level 2</li>
+            <li>
+              列表项 level 2
+              <ol>
+                <li>列表项 level 3</li>
+                <li>列表项 level 3</li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+
+    <div class="col3">
+      <h3 id="unordered-list">无序列表 unordered-list</h3>
+      <ul>
+        <li>列表项 01</li>
+        <li>列表项 02</li>
+        <li>
+          列表项 03
+          <ul>
+            <li>列表项 level 2</li>
+            <li>
+              列表项 level 2
+              <ul>
+                <li>列表项 level 3</li>
+                <li>列表项 level 3</li>
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col3">
+      <h3 id="definition-list">定义列表 definition</h3>
+      <dl>
+        <dt>Definition 列表 标题</dt>
+        <dd>Definition 列表 数据</dd>
+        <dt>Definition 列表 标题</dt>
+        <dd>Definition 列表 数据</dd>
+        <dt>Definition 列表 标题</dt>
+        <dd>Definition 列表 数据</dd>
+      </dl>
+    </div>
+  </div>
+
+
+  <h3 id="mix-list">混合列表</h3>
+  <ul>
+    <li>
+      第一层无序列表
+      <ol>
+        <li>
+          第二层有序列表
+          <ul>
+            <li>第三层无序列表</li>
+            <li>第三层无序列表
+              <ul>
+                <li>第四层无序列表</li>
+                <li>第四层无序列表</li>
+                <li>第四层无序列表</li>
+
+                <ul>
+                  <li>第五层无序列表</li>
+                  <li>第五层无序列表</li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>第二层有序列表</li>
+      </ol>
+    </li>
+    <li>第一层无序列表
+      <ul>
+        <li>第二层无序列表</li>
+        <li>第二层无序列表</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 id="table">表格 table</h2>
+  <table>
+    <caption>表格标题caption</caption>
+    <thead>
+      <tr>
+        <th>表头th 1</th>
+        <th>表头th 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>单元格td 1</td>
+        <td>单元格td 1</td>
+      </tr>
+      <tr>
+        <td>单元格td 2</td>
+        <td>单元格td 2</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>表格 footer</td>
+        <td>表格 footer</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <h2>行内元素</h2>
+  <h3>链接</h3>
+  <p>
+    <a href="###">链接</a>默认去掉下划线，hover 时候用<code>border-bottom</code>模拟下划线，防止文字底部粘连。
+  </p>
+  <h3>强调</h3>
+  <p><b>强调</b>可以使用<code>&lt;strong&gt;</code>、<code>&lt;b&gt;</code>或<code>&lt;em&gt;</code>标签，<code>&lt;strong&gt;</code>表示语义与样式双重强调，后两者<em>表示样式</em>上的强调。<code>&lt;b&gt;</code>标签是加粗的样式，<code>&lt;em&gt;</code>标签则有虚线下划线，相邻的<code>&lt;em&gt;</code>之间会有<em>1px</em><em>的间隔</em>。
+  </p>
+  <h3 id="img">图片</h3>
+  <p>图片和描述文字默认居中</p>
+  <figure>
+    <img src="http://placehold.it/350x150" alt="这是一个占位图片">
+    <figcaption>
+      图片描述文字
+    </figcaption>
+  </figure>
+  <h3 id="u">专名号</h3>
+  <p>专名号，又称私名号，用于标明人名、地名、朝代名、种族名、国名、机构名等，中文横排时下划线在底部，竖排时则在左边。相邻的专名之间应该有空隙。例如：<u>万里长城</u>位于<u>中国</u><u>北京</u>。</p>
+  <h3>其他标签</h3>
+  <ul>
+    <li>&lt;abbr&gt;缩写<abbr title="title">abbreviation</abbr></li>
+    <li>&lt;b&gt;<b>offset text typically styled in bold</b></li>
+    <li>&lt;cite&gt;<cite>cited title of a work</cite></li>
+    <li>&lt;code&gt;<code>code fragment</code></li>
+    <li>&lt;del&gt;<del>deleted text</del></li>
+    <li>&lt;dfn&gt;<dfn title="title">defining instance</dfn></li>
+    <li>&lt;i&gt;<i>italic 仅保留一个斜体标签</i></li>
+    <li>&lt;ins&gt;<ins>inserted text</ins></li>
+    <li>&lt;kbd&gt;<kbd>user input</kbd></li>
+    <li>&lt;mark&gt;<mark>标记 marked (highlighted) text</mark></li>
+    <li>&lt;em&gt;<em>emphatic stress</em></li>
+    <li>&lt;samp&gt;<samp>sample output</samp></li>
+    <li>&lt;small&gt;旁注 <small>small print</small></li>
+    <li>&lt;strong&gt;<strong>strong importance</strong></li>
+    <li>&lt;sup&gt;上标<sup>superscript</sup></li>
+    <li>&lt;sub&gt;下标<sub>subscript</sub></li>
+    <li>&lt;var&gt;<var>variable or placeholder text</var></li>
+    <li>&lt;address&gt;<address>contact information</address></li>
+    <li>&lt;pre&gt;<pre>预格式化标签 preformatted text</pre></li>
+  </ul>
+</div>

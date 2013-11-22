@@ -147,9 +147,9 @@
 /**
  * 隐藏<select>元素的下拉箭头
  * 1. 隐藏 WebKit 中的下拉箭头
- * 2. Firefox 存在bug，该属性不生效，
+ * 2. Firefox 存在bug，该属性不完全生效，
       https://bugzilla.mozilla.org/show_bug.cgi?id=649849
- * 3. Firefox for Android text-indent 需要设置大于 5px   
+ * 3. 实验数值，Firefox for Android text-indent 需要设置大于 5px   
  * @doc: https://gist.github.com/joaocunha/6273016
  * @demo: http://jsbin.com/EdiZuvO/1/edit
 */

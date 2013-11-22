@@ -1,0 +1,251 @@
+#page {
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+#footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+    border-top: 1px solid #E5E5E5;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+}
+#main {
+    overflow: hidden;
+    margin-top: 60px;
+}
+#content {
+    float: left;
+    margin-left: 220px;
+    width: 42em;
+}
+#sidebar {
+    float: left;
+    width: 170px;
+    padding:20px 10px;
+    position: fixed;
+    top:60px;
+    bottom: 0;
+    overflow-y: auto;
+    background-color: rgba(88, 88, 88, .12);
+}
+.column {
+    overflow: hidden;
+    margin-right: -3%;
+}
+.col3 {
+    width: 30%;
+    float: left;
+    margin-right: 3%;
+}
+#checkbox {
+    display: none;
+}
+.checklabel {
+    position: fixed;
+    z-index: 9999;
+    top:60px;
+    width: 990px;
+    height: 0;
+    line-height: 0;
+    text-align: right;
+}
+.checklabel:hover {
+    color: #C5712E;
+}
+.checklabel:after {
+    content:"显示格子";
+    display: inline-block;
+    width: 5em;
+    height: 36px;
+    line-height: 36px;
+    margin-right: -6em;
+    text-align: center;
+    background-color: #DDD;
+}
+#main{
+
+}
+#checkbox:checked ~ #main {
+    background-image: url(http://baselinecss.com/css/background-grid/images/baseline+column.png);
+    background-repeat: repeat;
+}
+#checkbox:checked ~ .checklabel:after {
+    content:"隐藏格子";
+}
+/* 导航 */
+ .container {
+    width:990px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.container:before, .container:after {
+    display: table;
+    content:" ";
+}
+.container:after {
+    clear: both;
+}
+.navbar {
+    position:fixed;
+    z-index:9999;
+    top:0;
+    width:100%;
+    background-color: #262E3C;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+}
+.navbar h1 {
+    font-weight: normal;
+    font-size: 36px;
+    border-radius: 5px 5px 0 0;
+}
+.navbar h1 a {
+    display: block;
+    color:#DDD;
+    text-shadow: 1px 1px 0 #000;
+}
+.navbar h1 a:hover {
+    color:#FFF;
+}
+.logo {
+    float: left;
+    width: 190px;
+    background-color: #222;
+    text-align: center;
+}
+
+.navbar .icon-logo{
+    font-size: 38px;
+    margin-right: 10px;
+}
+.nav {
+    overflow: hidden;
+}
+.nav li {
+    float: left;
+}
+.nav a {
+    color:#FFF;
+    margin:0 15px;
+    font-size: 16px;
+    padding:0 8px;
+    display: block;
+    position: relative;
+}
+.nav a:hover {
+    text-decoration: none;
+}
+.nav a .dot {
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    left: 0;
+    height:2px;
+    width: 100%;
+    background-color: #00A4EB;
+    -webkit-transition: all .22s ease;
+    -moz-transition: all .22s ease;
+    -ms-transition: all .22s ease;
+    -o-transition: all .22s ease;
+    transition: all .22s ease;
+}
+.nav a:hover .dot {
+    height: 46%;
+    /*bottom:0;*/
+}
+.sidebar li:nth-child(2) .dot, .nav li:nth-child(2) .dot {
+    background-color: #5FB800;
+}
+.sidebar li:nth-child(3) .dot, .nav li:nth-child(3) .dot {
+    background-color: #FF8406;
+}
+.sidebar li:nth-child(4) .dot, .nav li:nth-child(4) .dot {
+    background-color: #6C58C0;
+}
+.sidebar li:nth-child(5) .dot, .nav li:nth-child(5) .dot {
+    background-color: #E05032;
+}
+.sidebar li:nth-child(6) .dot, .nav li:nth-child(6) .dot {
+    background-color: #C6D313;
+}
+
+.github-ribbon img {
+    position: fixed;
+    _position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    border: 0;
+}
+
+.cube-modules .dib {
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+}
+.cube-modules .dib:hover {
+    border-bottom: none;
+}
+.cube-modules .iconfont,
+.cube-modules .name,
+.cube-modules .caption {
+    display: block;
+}
+.cube-modules .caption {
+    font-size: 14px;
+    color: #999;
+}
+.cube-modules .iconfont {
+    font-size: 30px;
+}
+
+/*{{
+* 暂无栅格化，为了写 demo, 我先加了如下几行宽度样式
+*/
+.span12 {
+    width: 1170px;
+}
+.span11 {
+    width: 1070px;
+}
+.span10 {
+    width: 970px;
+}
+.span9 {
+    width: 870px;
+}
+.span8 {
+    width: 770px;
+}
+.span7 {
+    width: 670px;
+}
+.span6 {
+    width: 570px;
+}
+.span5 {
+    width: 470px;
+}
+.span4 {
+    width: 370px;
+}
+.span3 {
+    width: 270px;
+}
+.span2 {
+    width: 170px;
+}
+.span1 {
+    width: 70px;
+}
+/*
+*
+}}*/

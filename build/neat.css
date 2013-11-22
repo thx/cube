@@ -1,7 +1,7 @@
 ﻿/*
-*@ Name:        Neat.css V1.0.2
+*@ Name:        Neat.css V1.0.3
 *@ Author:      一丝(yisibl) 
-*@ Update:      2013-8-19 14:33:35
+*@ Update:      2013-9-24 17:07:46
 *@ Copyright:	基于 normalize.css | MIT License 
 */
 
@@ -22,7 +22,7 @@ ul, ol, /*li, 默认没边距 */
 h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
 form, fieldset, legend, input, textarea,
 p, blockquote, figure, hr, menu, dir,
-thead, tbody, tfoot /* th,td 默认没边距 */
+thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
 {
 	margin:0;
 	padding:0;
@@ -46,10 +46,6 @@ a{
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
 /*
 * 去掉 IE10+ 点击链接时的灰色背景
 */
@@ -57,7 +53,6 @@ a:hover {
 a:active {
 	background-color: transparent;
 }
-
 /*
  * 去掉点击时的焦点框，同时保证使用键盘可以显示焦点框
  */
@@ -82,14 +77,6 @@ a:focus {
 /* ========= 字体和基础排版 ========= */
 
 /*
- * 去除 iOS 中点击时的背景色
- */
-
-*{
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-/*
  * 1.防止 iOS 横屏字号放大，同时保证在PC上 zoom 功能正常
  * 2.使用 rem 设置字号，浏览器设置中改变字号时文字大小可以改变
  * 3.去除 iOS 中点击时的背景色
@@ -99,25 +86,26 @@ a:focus {
 html {
 	-ms-text-size-adjust: 100%; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 1 */
-	font-size: 62.5%; /* 10/16=6.25% */
+	text-size-adjust: 100%;
+	font-size: 62.5%; /* 10/16=62.5% */
 }
 
 body {
 	font-size: 14px;
-	font-size: 1.4rem; /* 2 */ /* 1*14=14rem */
 	line-height: 1.8;
 }
 
 
 /*
  * 所有 font-family 小写，存在空格的字体名加单引号
- * @default-font: 'helvetica neue', tahoma, simsun, \5B8B\4F53, sans-serif;
- * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, 'microsoft yahei', \5FAE\8F6F\96C5\9ED1, 'wenquanyi micro hei', sans-serif;
+ * @default-font: 'helvetica neue', tahoma, \5B8B\4F53, sans-serif;
+ * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, 'wenquanyi micro hei', sans-serif;
  * @code-font: monaco, menlo, consolas, monospace;
  */
 
 /*
  * 中文优先使用冬青黑体简体(OS X)、微软雅黑(Windows)和文泉驿微米黑(Linux)
+ * 西文使用 tahoma
  * 1. 防止元素中「font-family」不能继承
  * 2. 西文字体和 OS X 字体写在前面
  * 3. Opera 12.1 之前版本不支持中文字体的英文名称
@@ -130,7 +118,7 @@ input, /* 1 */
 select, /* 1 */
 textarea  /* 1 */
 {
-	font-family: 'helvetica neue', 'hiragino sans gb', stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53, sans-serif;
+	font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
 }
 
 /*
@@ -138,34 +126,37 @@ textarea  /* 1 */
  * 1. 统一 IE 6/7 中字体大小
  * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
  */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+} 
 h1 {
 	font-size: 36px;
-	font-size: 3.6rem;
+	/*font-size: 3.6rem;*/
 }
 
 h2 {
 	font-size: 30px;
-	font-size: 3rem;
+	/*font-size: 3rem;*/
 }
 
 h3 {
 	font-size: 22px;
-	font-size: 2.2rem;
+	/*font-size: 2.2rem;*/
 }
 
 h4 {
 	font-size: 18px;
-	font-size: 1.8rem;
+	/*font-size: 1.8rem;*/
 }
 
 h5 {
 	font-size: 14px;
-	font-size: 1.4rem;
+	/*font-size: 1.4rem;*/
 }
 
 h6 {
 	font-size: 12px;
-	font-size: 1.2rem;
+	/*font-size: 1.2rem;*/
 }
 
 /*
@@ -206,10 +197,11 @@ hr {
 }
 
 /*
+ *  网页标记，荧光笔
  * 修正 IE6-11 中没有样式的问题
  */
 mark {
-	background-color: #ff0;
+	background-color: #D2E5FF;
 	color: #000;
 }
 
@@ -235,12 +227,13 @@ samp {
  */
 
 pre {
-	white-space: pre;
-	white-space: pre-wrap;
-	word-wrap: break-word;
+	white-space: pre; /* CSS 2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE 5+ */
 }
 
 /*
+ * 行内引用
  * IE6/7 不支持 quotes 属性
  * 现代浏览器去除 quotes 内容
  */
@@ -500,8 +493,8 @@ input {
  * 修正 Firefox 19+ Placeholder 设置了opacity 的问题
  */
 input::-moz-placeholder, textarea::-moz-placeholder {
- color: darkGray !important;
- opacity: 1 !important;
+ color: darkGray;
+ opacity: 1;
 }
 
 /*
@@ -575,4 +568,38 @@ audio:not([controls]) {
  */
 [draggable] {
 	cursor: move;
+}
+
+/*
+ * 居中 HTML5 dialog 元素
+ * Chrome 31 支持，需开启 chrome://flags/#enable-experimental-web-platform-features
+ * ::backdrop 定义遮罩样式
+ * Chrome 28 之前、Firefox 中不支持 height:fit-content; https://src.chromium.org/viewvc/blink?revision=148314&view=revision
+ * Demo: http://jsbin.com/iPACab/1
+ */
+dialog{
+	border:1px solid;
+	padding:0;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+
+	width: -moz-fit-content;
+	width: -webkit-fit-content;
+	width: fit-content;
+	height: -moz-fit-content;
+	height: -webkit-fit-content;
+	height: fit-content;
+}
+
+dialog::backdrop{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, .3);
 }

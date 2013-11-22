@@ -1,0 +1,140 @@
+/* ==========================================================================
+   基础工具
+   *@ Name:        utils.css V1.0.0
+   *@ Author:      一丝
+   *@ Update:      2013-9-30 15:39:57;
+   *@ Copyright:   MIT License
+   ========================================================================== */
+
+/** 闭合浮动
+* @Author: 一丝
+* @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /* IE6-7 触发 hasLayout */
+}
+
+/*
+ *@ Name:       自适应图文混排组件
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 19:23:27
+ *@ Usage:      line 用于不需要溢出显示的模块
+ */
+
+.clearall {
+    overflow: hidden;
+    _overflow: visible;
+    *zoom: 1;
+}
+
+.clearcell {
+    display: table-cell;
+    *zoom: 1;
+}
+
+.clearcell:after {
+    clear: both;
+    display: block;
+    visibility: visible;
+    overflow: hidden;
+    height: 0 !important;
+    line-height: 0;
+    font-size: xx-large;
+    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}
+
+/* 强制不换行 */
+.nowrap {
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+/* 连续字符换行 */
+.wrap {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.hidden, .hide {
+    display: none;
+}
+
+/** 文字溢出显示省略号
+* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
+*/
+
+.ellipsis {
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    -o-text-overflow: ellipsis; /* Opera 9-10.6 */
+    text-overflow: ellipsis;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    max-width: 100%;
+    _width: 100%;
+
+    text-align: left; /* 1 */
+}
+
+
+/* --------------------------------------------------------------------------
+   图片替换
+   -------------------------------------------------------------------------- */
+
+/** 隐藏文字
+* 1.text-indent:-999em 存在性能问题：
+*   http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+*/
+.text-hide {
+    text-indent: 100%; /* 1 */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/**
+ * 裁剪方式隐藏元素
+ * 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
+ * 2. VoiceOver 无法读出宽高为 0 的元素
+ */
+.clip-hide {
+    position: absolute !important; /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); /* 1 */
+    padding: 0 !important;
+    border: 0 none!important;
+    height: 1px !important; /* 2 */
+    width: 1px !important;
+    overflow: hidden;
+}
+
+/* img replace，通过定位方式隐藏内容 */
+.ir {
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.ir-bg {
+    position: relative;
+    z-index: 1;
+}
+
+/** 禁用中文输入法
+* @require: 在需要禁用的地方添加: .ime-disabled
+*/
+.ime-disabled { ime-mode: disabled!important; }
+
+.ime-inactive { ime-mode: inactive!important; }

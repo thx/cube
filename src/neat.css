@@ -34,7 +34,7 @@ thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
 /**
  * 非大面积文字排版网站通常不需要列表项，如果需要可单独设置
  */
-ul, ol{
+ul, ol {
     list-style-type: none;
     list-style-image: none;
 }
@@ -47,7 +47,7 @@ ul, ol{
 /**
  * 去除链接默认的下划线，提高文字可读性
  */
-a{
+a {
     text-decoration: none;
 }
 
@@ -283,7 +283,7 @@ table {
  * 修复 IE 中 th 不能继承 text-align 的问题并统一左对齐
  * http://jsbin.com/evoxif/2/edit
  */
-th{
+th {
     text-align: left;
 }
 
@@ -426,7 +426,8 @@ input[type="search"] {
  * 2.如果需要隐藏清除按钮需要加上
    input[type="search"]::-webkit-search-cancel-button
  */
-input[type="search"]::-webkit-search-decoration /* 1 */ {
+input[type="search"]::-webkit-search-decoration /* 1 */
+{
     -webkit-appearance: none;
 }
     
@@ -463,9 +464,9 @@ option:disabled:checked {
  * 修正 Safari 3+, Chrome 1+ Placeholder 居中问题
  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-input {
-    line-height: normal !important;
-}
+    input {
+        line-height: normal !important;
+    }
 }
 
 /**
@@ -559,8 +560,8 @@ audio:not([controls]) {
  * @demo: http://jsbin.com/iPACab/1
  */
 dialog{
-    border:1px solid;
-    padding:0;
+    border: 1px solid;
+    padding: 0;
     margin: auto;
     position: absolute;
     left: 0;

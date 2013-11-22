@@ -10,12 +10,12 @@ body {
 }
 
 .type a {
-    color:#3187DB;
+    color: #3187DB;
 }
 
 .type a:hover,
 .type ins:hover {
-    color:#333;
+    color: #333;
 }
 
 .type a:hover,

@@ -161,3 +161,12 @@
     text-indent: .01px; /* 3 */
 }
 
+/*
+ * 1. 防止 OS X 中 Webfont 视觉上看起来变粗
+ * 2. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
+ * Demo: http://jsbin.com/iWItiQe/2
+ */
+.antialiased {
+    -webkit-font-smoothing: antialiased; /* 1 */
+    -moz-osx-font-smoothing: grayscale; /* 2 */
+}

@@ -223,25 +223,26 @@ Cube 提供了丰富的三角形效果, 如：
 
 ```html
 <div class="center-box">
-  <div class="center-hack"></div>
-  <div class="center-img">
-    <img width="400" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
-  </div>
-  <div class="center-body">
-    <p>这里若不加 center-body, 会被重置为 font-size: 0 导致字不显示, 这里这样的结构，会导致文字压下去</p>
+  <b class="center-hack"></b>
+  <div class="center-content">
+    <div class="center-img">
+      <img width="100%" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
+    </div>
+    <p>适意行，安心坐，渴时饮饥时餐醉时歌，困来时就向莎茵卧。日月长，天地阔，闲快活！。</p>
   </div>
 </div>
 ```
 将输出：
 
-<div class="center-box" style="height: 500px;background: #f8f8f8;">
-  <div class="center-hack"></div>
-  <div class="center-img">
-    <img width="100%" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
-  </div>
-  <div class="center-body">
+<div class="center-box">
+  <b class="center-hack"></b>
+  <div class="center-content">
+    <div class="center-img">
+      <img width="100%" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
+    </div>
     <p>适意行，安心坐，渴时饮饥时餐醉时歌，困来时就向莎茵卧。日月长，天地阔，闲快活！。</p>
   </div>
 </div>
+
 
 （栅格、常用布局解决方案、如何 Mobile First 等）

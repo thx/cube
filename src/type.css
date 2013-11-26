@@ -184,7 +184,7 @@ th {
     background-color: #f5f5f5;
 }
 
-/** 代码 */
+/* 代码 */
 .type code {
     margin: 0 2px;
     padding: 0 4px;
@@ -201,15 +201,18 @@ th {
     overflow: auto;
     padding: 6px 10px;
     border-radius: 3px;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
-/** pre 下面的 code 重置 */
+/* pre 下面的 code 重置 */
 .type pre code {
     margin: 0;
     padding: 0;
     border: 0 none;
     background: none;
     border-radius: 0;
+    font-size: inherit;
 }
 
 hr {

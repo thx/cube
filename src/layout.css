@@ -60,11 +60,15 @@
     text-align-last: justify;/* IE 8+ */
 }
 
-/* 不支持 text-align-last 的浏览器用伪元素模拟 */
+/**
+ * 不支持 text-align-last 的浏览器用伪元素模拟
+ * 1. margin-left:100% 仅 WebKit 支持
+ */
+
 .justify:after {
     content: "";
     display: inline-block;
-    width: 100%; /* margin-left:100% 仅 WebKit 支持 */
+    width: 100%; /* 1 */
 }
 
 /* 子元素取消两端对齐 */

@@ -44,31 +44,15 @@ layout: default
 该组件依赖于上面的 inline-block 方案，使用时外层加上 justify，内部需要两端对齐的元素都加上 dib, dib 与 justify 不要同时出现：
 
 ```html
-<div class="box-row box-row-large dib-box">
-  <div class="box-title dib">
-    <div class="justify">
-      <span class="dib">C</span>
-      <span class="dib">u</span>
-      <span class="dib">b</span>
-      <span class="dib">e!</span>
-    </div>
-  </div>
-  <div class="box-num dib">¥ xX破曹的檣櫓一時絕，鏖兵的江水猶然熱，好教我情慘切！二十年流不盡的英雄血！</div>
+<div class="justify">
+    <span class="dib">用</span><span class="dib">户</span><span class="dib">名</span>
 </div>
 ```
 
 将输出：
 
-<div class="box-row box-row-large dib-box">
-  <div class="box-title dib">
-    <div class="justify">
-      <span class="dib">C</span>
-      <span class="dib">u</span>
-      <span class="dib">b</span>
-      <span class="dib">e!</span>
-    </div>
-  </div>
-  <div class="box-num dib">¥ xX破曹的檣櫓一時絕，鏖兵的江水猶然熱，好教我情慘切！二十年流不盡的英雄血！</div>
+<div class="justify">
+    <span class="dib">用</span><span class="dib">户</span><span class="dib">名</span>
 </div>
 
 更多示例，[请移步](http://jsbin.com/OsEcOMA/1)
@@ -234,11 +218,11 @@ Cube 提供了丰富的三角形效果, 如：
 ```
 将输出：
 
-<div class="center-box">
+<div class="center-box" style="border:1px solid #ccc;">
   <b class="center-hack"></b>
-  <div class="center-content">
+  <div class="center-body">
     <div class="center-img">
-      <img width="100%" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
+      <img src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me" width="680" height="453">
     </div>
     <p>适意行，安心坐，渴时饮饥时餐醉时歌，困来时就向莎茵卧。日月长，天地阔，闲快活！。</p>
   </div>

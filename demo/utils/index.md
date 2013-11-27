@@ -31,17 +31,17 @@ title: utils.css 基础工具类
 ### 自适应图文混排组件
 
 ```html
-<div class="clearall">
-  <img width="400" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
-  我玩的是梁园月，饮的是东京酒，赏的是洛阳花，攀的是章台柳，美妙意境来自 cyj.me。
+<div class="clearfix">
+  <img style="float:left; width: 30%;" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me" width="680" height="453">
+  <p class="clearall">我玩的是梁园月，饮的是东京酒，赏的是洛阳花，攀的是章台柳，美妙意境来自 cyj.me。</p>
 </div>
 ```
 
 将输出：
 
-<div class="clearall">
-  <img width="400" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me">
-  我玩的是梁园月，饮的是东京酒，赏的是洛阳花，攀的是章台柳，美妙意境来自 cyj.me。
+<div class="clearfix">
+  <img style="float:left; width: 30%;" src="http://cyj.me/assets/img/2013-new-york/IMG_0770.jpg" alt="自由女神像,来自 cyj.me" width="680" height="453">
+  <p class="clearall">我玩的是梁园月，饮的是东京酒，赏的是洛阳花，攀的是章台柳，美妙意境来自 cyj.me。</p>
 </div>
 
 ### 强制不换行

@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         grunt.file.write('package.json', JSON.stringify(pkg, null, '  '))
         grunt.file.write(
           '_config.yml',
-          yml.replace(/version: +\d\.\d.\d/, 'version: ' + pkg.version)
+          yml.replace(/version: +\d+\.\d+\.\d+/, 'version: ' + pkg.version)
         )
         grunt.log.writeln('Updated to ' + pkg.version)
       }

@@ -77,12 +77,14 @@ module.exports = function(grunt) {
         var yml = grunt.file.read('_config.yml')
         pkg.version = semver.inc(versions[0], 'patch')
         grunt.file.write('package.json', JSON.stringify(pkg, null, '  '))
-        grunt.file.write(
-          '_config.yml',
-          yml.replace(/version: +\d+\.\d+\.\d+/, 'version: ' + pkg.version)
-        )
-        grunt.log.writeln('Updated to ' + pkg.version)
       }
+
+      // Sync version no.
+      grunt.file.write(
+        '_config.yml',
+        yml.replace(/^version: +\d+\.\d+\.\d+/, 'version: ' + pkg.version)
+      )
+      grunt.log.writeln('Cube version is ' + pkg.version)
 
       env = env === 'prod' ? env : 'daily'
       if (env === 'daily') {

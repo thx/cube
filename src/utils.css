@@ -28,9 +28,9 @@
 
 /*
  *@ Name:       自适应图文混排组件
- *@ Author:     一丝
  *@ Update:     2013-9-29 19:23:27
- *@ Usage:      line 用于不需要溢出显示的模块
+ *@ Usage:      如果有溢出的内容需要显示请使用 clearcell
+ *@ demo:       http://jsbin.com/EMIvoJohU/1/edit
  */
 
 .clearall {
@@ -73,23 +73,18 @@
 
 /**
 * 文字溢出显示省略号
-* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
+* 1. Opera 9-10.6
+* 2. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
 */
 
 .ellipsis {
+    display: block;
     white-space: nowrap;
     word-wrap: normal;
     overflow: hidden;
-    -o-text-overflow: ellipsis; /* Opera 9-10.6 */
+    -o-text-overflow: ellipsis; /* 1 */
     text-overflow: ellipsis;
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    vertical-align: top;
-    max-width: 100%;
-    _width: 100%;
-
-    text-align: left; /* 1 */
+    text-align: left; /* 2 */
 }
 
 

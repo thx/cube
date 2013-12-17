@@ -280,6 +280,26 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
   }
+
+  #page .stoc {
+    position: static;
+    background: none;
+  }
+  #page .stoc label {
+    cursor: default;
+  }
+  #page .stoc label,
+  #page .stoc a {
+    display: inline;
+    padding: 0;
+  }
+  #page .stoc ol {
+    list-style: disc inside;
+    padding-left: 40px;
+  }
+  #page .stoc a:hover {
+    background: none;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 799px) {
@@ -359,8 +379,24 @@ body {
     margin-top: 30px;
   }
 
+  #page .stoc {
+    top: 130px;
+    left: 50%;
+    right: initial;
+    bottom: initial;
+    overflow: auto;
+    margin-left: 360px;
+  }
+  #page .stoc a {
+    height: auto;
+  }
+  #page .fixed .stoc {
+    top: 80px;
+  }
+
   #footer {
     margin: 40px auto 20px;
   }
 }
+
 

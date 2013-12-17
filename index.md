@@ -1,5 +1,6 @@
 ---
 layout: post
+title: Cube
 ---
 
 ## 缘起

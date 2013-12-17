@@ -5,6 +5,10 @@ body {
   background: #e4e6e5 url(img/bg.jpg);
 }
 
+body a {
+  color: #3187DB;
+}
+
 .highlight {
   background: none;
 }

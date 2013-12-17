@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   var semver = require('semver')
   var async = require('async')
 
-  // 将源文件复制到 build 目录下，这么做似乎听土鳖的，高大上一些的做法：
+  // 将源文件复制到 build 目录下，这么做似乎挺土鳖，高大上一些的做法：
   //
   // 1. 源文件该用 SCSS 或者 Stylus 编写，有个正式的编译步骤
   // 2. CDN 上不提供源文件，有压缩版就够了

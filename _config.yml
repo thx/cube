@@ -3,6 +3,7 @@ safe: true
 lsi: false
 pygments: true
 markdown: redcarpet
+permalink: /:categories/:title
 exclude:
   - CONTRIBUTING.md
   - cube.sublime-*

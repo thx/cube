@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!-- 优先使用IE最新版本和 Chrome -->
+  <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1">
+  <meta name="apple-mobile-web-app-title" content="Cube">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>{% if page.title %}{{ page.title }} - {% endif %} Cube 样式解决方案 - THX</title>
+  <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/thx/cube/1.0.11/??cube.css,type.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/syntax/github.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/base.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/style.css">
+</head>
+<body class="type" bx-app>
+  {{ content }}
+  <script src="http://g.tbcdn.cn/kissy/k/1.4.0/seed-min.js"></script>
+  {% if page.script %}
+  <script src="{{ site.baseurl }}/{{ page.script }}"></script>
+  {% endif %}
+</body>
+</html>

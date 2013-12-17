@@ -4,7 +4,7 @@ title: 模块演示
 ---
 
 <div class="dib-box justify cube-modules">
-  <a class="dib" href="{{ site.baseurl }}/demo/neat"><i class="iconfont">&#434;</i>
+  <a class="dib" href="{{ site.baseurl }}/demo/utils"><i class="iconfont">&#434;</i>
     <span class="name">utils</span>
     <span class="caption">工具类</span>
   </a>

@@ -384,6 +384,7 @@ body {
     left: 50%;
     right: initial;
     bottom: initial;
+    padding: 0;
     overflow: auto;
     margin-left: 360px;
   }

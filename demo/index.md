@@ -1,8 +1,7 @@
 ---
 layout: post
+title: 模块演示
 ---
-
-## 模块演示
 
 <div class="dib-box justify cube-modules">
   <a class="dib" href="{{ site.baseurl }}/demo/neat"><i class="iconfont">&#434;</i>

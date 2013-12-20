@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+//* iconfont 相关 mixin
+//* @file:     _mixin.scss
+
+/**
+ *@ name:        iconfont.css V1.0.0
+ *@ author:      一丝(yisibl)
+ *@ update:      2013-12-20 14:30:55
+ * 1. 防止读屏器读出无意义的图标
+ * 2. 防止 OS X 中图标视觉变粗和细节丢失的问题
+ * 3. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
+ * Demo: http://jsbin.com/iWItiQe/2
+ */
+
+// 定义iconfont的默认样式
+%icon-base-styles {
+    font: {
+        family: "#{$icon-name}";
+        size: 16px;
+        style: normal;
+        weight: normal;
+        variant: normal;
+    }
+    line-height: 1;
+    display: inline-block;
+    /* 1 */speak: none; 
+    /* 2 */-webkit-font-smoothing: antialiased;
+    /* 3 */-moz-osx-font-smoothing: grayscale;
+}
+
+
+/**
+ * 引入 Web font
+ * 注意：使用font-face需要 CSS 线上地址和引用的 font 线上地址同域，否则 IE9  会有 CSS3117 问题
+ * CSS3117: @font-face failed cross-origin request. Resource access is restricted.
+ */
+
+ // 用法
+ // 默认：     @include font-face();
+ // 自定义：   @include font-face("字体路径");
+ // 路径结尾不加「/」
+@mixin font-face($font-src: $icon-src) {
+    @font-face {
+        font: {
+            family: "#{$icon-name}";
+            weight: normal;
+            style: normal;
+        }
+        src: url("#{$font-src}.eot");///* IE9 */
+        src:
+            url("#{$font-src}.eot?#iefix") format("embedded-opentype"), // /* IE6-IE8 */
+            url("#{$font-src}.woff") format("woff"), // /* Chrome、Firefox */
+            url("#{$font-src}.ttf") format("truetype"), // /* Chrome、Firefox、Opera、Safari, Android, iOS 4.2+ */
+            url("#{$font-src}.svg##{$icon-name}") format("svg"); // /* iOS 4.1- */
+    }
+}
+
+
+// 调用字体 mixin
+@function match($haystack, $needle) {
+    @each $item in $haystack {
+        $index: index($item, $needle);
+        @if $index {
+            $return: if($index == 1, 2, $index);
+            @return nth($item, $return);
+        }
+    }
+    @return false;
+}
+
+
+// 默认：     @include icon();
+// 自定义：   @include icon("字体路径");
+// 路径结尾不加「/」
+
+@mixin icon($icon: false, $styles: ture) {
+    @if $icon {
+        &:before{
+            content: match($icon-list, $icon);
+        }
+    }
+    @if $styles {
+        @extend %icon-base-styles;
+    }
+    @content; // 追加新的样式规则
+}
+
+//是否输出全部iconfont编码
+// 默认不输出
+// 输出: @include get-icon(true);
+@mixin get-icon($all-icons: false) {
+    @if $all-icons {
+        @each $icon in $icon-list {
+            $name: nth($icon, 1);
+            .#{$icon-class-prefix}#{$name} {
+                @include icon($name,false);
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@charset "utf-8";
+@import "config";
+@import "data";
+@import "mixin";
+
+
+// 一、使用伪元素生成调用方法
+
+// 1. @include font-face();
+@include font-face();
+
+// 2. 为所有icon前缀开头的class引入字体
+[class^="#{$icon-class-prefix}"]:before,
+[class*="#{$icon-class-prefix}"]:before {
+    @include icon;
+}
+
+//3. 调用指定的图标
+// @include icon("字体名称");
+//  可以追加样式
+.travel{
+    @include icon(travel);
+    font-size: 30px;
+}
+
+//4. 或者生成全部图标
+//@include get-icon(true);
+/**
+ * 生成全部 iconfont    
+ */
+@include get-icon(true);
+
+
+// 二、使用传统的 class 调用方法
+// 1. 直接指定一个class，比如iconfont
+// 2. 引入字体 @include icon();
+.iconfont{
+    @include icon();
+}
+
+
+

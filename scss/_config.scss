@@ -1,0 +1,14 @@
+@charset "utf-8";
+// iconfont 配置
+// @file:     _config.scss
+// @author:   一丝
+// @update:   2013-12-20 17:39:51     
+    
+// 调用 class 的前缀
+$icon-class-prefix: icon- !default;
+
+//给 iconfont 取一个字体名称
+$icon-name: uxiconfont !default;
+
+//iconfont 字体地址 
+$icon-src: "http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont" !default;

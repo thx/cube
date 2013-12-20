@@ -14,7 +14,7 @@
 
 // 2. 为所有icon前缀开头的class引入字体
 [class^="#{$icon-class-prefix}"],
-[class*="#{$icon-class-prefix}"]{
+[class*=" #{$icon-class-prefix}"]{
     @include icon;
 }
 

@@ -35,6 +35,7 @@
     font-size: 12px;
     letter-spacing: normal;
     word-spacing: normal;
+    line-height: initial;
 }
 
 /*
@@ -46,9 +47,15 @@
  *@ Demo:        http://jsbin.com/OsEcOMA/1/
  */
 
-/* 防止行高增大 */
-.justify, .dib-box .justify {
+/**
+ * 防止行高增大
+ * 尽量不要在父元素上设置行高
+ */
+
+.justify,
+.dib-box .justify {
     font-size: 0;
+    line-height: initial;
 }
 
 .justify {

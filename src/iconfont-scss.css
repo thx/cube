@@ -8,8 +8,8 @@
  * 3. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
  * Demo: http://jsbin.com/iWItiQe/2
  */
-[class^="icon-"]:before,
-[class*="icon-"]:before, .travel, .iconfont {
+[class^="icon-"],
+[class*="icon-"], .iconfont {
     font-family: "uxiconfont";
     font-size: 16px;
     font-style: normal;
@@ -38,32 +38,74 @@
     src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#uxiconfont") format("svg");
 }
 
-.travel {
-    font-size: 30px;
-}
-.travel:before {
-    content: "\f043";
+.icon-size:before {
+    content: "\3436";
 }
 
-/**
- * 生成全部 iconfont    
- */
 .icon-travel:before {
-    content: "\f043";
+    content: "\346e";
 }
 
-.icon-music:before {
-    content: "\f04a";
+.icon-the-scorpio:before {
+    content: "\3441";
 }
 
-.icon-search:before {
-    content: "\f0023";
+.icon-gemini:before {
+    content: "\3444";
 }
 
-.icon-heart:before {
-    content: "\f0043";
+.icon-upload:before {
+    content: "\3451";
 }
 
-.icon-star:before {
-    content: "\f0053";
+.icon-recharge:before {
+    content: "\345a";
+}
+
+.icon-insurance:before {
+    content: "\346d";
+}
+
+.icon-movie-tickets:before {
+    content: "\346b";
+}
+
+.icon-novice:before {
+    content: "\3462";
+}
+
+.icon-rolls-of-paper:before {
+    content: "\3487";
+}
+
+.icon-hiking-shoes:before {
+    content: "\34a0";
+}
+
+.icon-pisces:before {
+    content: "\343c";
+}
+
+.icon-aquarius:before {
+    content: "\343b";
+}
+
+.icon-coloring:before {
+    content: "\3432";
+}
+
+.icon-merging:before {
+    content: "\3433";
+}
+
+.icon-closed-to-vehicular-traffic:before {
+    content: "\3434";
+}
+
+.icon-consumer-protection:before {
+    content: "\3461";
+}
+
+.icon-shop:before {
+    content: "\3474";
 }

@@ -24,6 +24,17 @@ body {
     border-bottom: 1px solid;
 }
 
+/**
+ * a 默认使用 border 来模拟下划线会占用盒模型高度，
+ * 如果某些布局的地方不需要这样的下划线，使用该 class 去除。
+ */
+
+.no-underline a:hover,
+.no-underline ins:hover {
+    border: 0 none;
+    text-decoration: underline;
+}
+
 acronym,
 abbr {
     border-bottom: 1px dotted;

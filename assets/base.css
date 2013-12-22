@@ -207,7 +207,6 @@ body a {
  */
 #content {
   min-width: 320px;
-  padding:1em 2em;
   background-color: #fff;
 }
 
@@ -270,6 +269,7 @@ body a {
     width: 199px;
     background: #f4f4f4;
     border-right: 1px solid #d6d6d6;
+    -webkit-transform: translateZ(0);
   }
   #nav .toggler {
     display: inline-block;
@@ -398,6 +398,7 @@ body a {
   #content {
     max-width: 680px;
     margin-top: 130px;
+    padding:1em 2em;
   }
 
   #page .stoc {

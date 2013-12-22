@@ -37,6 +37,7 @@ a {
 .type h1 {
   font-size: 1.8em;
   margin: 0.67em 0;
+  border-bottom: 1px solid #ccc;
 }
 .type > h1 {
   margin-top: 0;

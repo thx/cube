@@ -206,6 +206,8 @@ body a {
  */
 #content {
   min-width: 320px;
+  background-color: #fff;
+  margin-top: 130px;
 }
 
 

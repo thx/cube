@@ -129,6 +129,7 @@ body a {
 #nav .entry {
   display: block;
   height: 100%;
+  line-height: 60px;
   padding: 0 20px;
 }
 #nav .entry:hover {
@@ -206,8 +207,8 @@ body a {
  */
 #content {
   min-width: 320px;
+  padding:1em 2em;
   background-color: #fff;
-  margin-top: 130px;
 }
 
 
@@ -396,8 +397,7 @@ body a {
 
   #content {
     max-width: 680px;
-    padding: 10px;
-    margin-top: 32px;
+    margin-top: 130px;
   }
 
   #page .stoc {

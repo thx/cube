@@ -412,6 +412,7 @@ body a {
   }
   #page .stoc a {
     height: auto;
+    border-bottom: 1px solid #F3F3F3;
   }
   #page .fixed .stoc {
     top: 80px;

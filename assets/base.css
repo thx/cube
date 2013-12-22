@@ -15,6 +15,10 @@ a {
     transition: color .2s linear, background-color .2s linear, border-color .3s linear;
 }
 
+.type a {
+    margin: 0 .25em;
+}
+
 .highlight {
   background: none;
 }

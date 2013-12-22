@@ -5,8 +5,14 @@ body {
   background: #e4e6e5 url(img/bg.jpg);
 }
 
-body a {
-  color: #3187DB;
+/* 全局hover颜色和背景色动画 */
+a {
+    color:#3187DB;
+    -webkit-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
+    -moz-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
+    -o-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
+    -ms-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
+    transition: color .2s linear, background-color .2s linear, border-color .3s linear;
 }
 
 .highlight {

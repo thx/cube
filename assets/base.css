@@ -429,3 +429,18 @@ a {
     top: 80px;
   }
 }
+
+.stoc li a{
+    display: inline-block;
+    padding: 3px 0px !important;
+}
+
+.stoc ol{
+    margin: 0;
+    padding-left: 14px;
+}
+
+.stoc .decimal li:before,
+.stoc .cjk li:before{
+    color: #96B0D8;
+}

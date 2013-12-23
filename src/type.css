@@ -1,7 +1,7 @@
 /**
-*@ Name:        type.css V1.0.1
+*@ Name:        type.css V1.0.2
 *@ Author:      一丝
-*@ Update:      2013-11-22 16:30:07;
+*@ Update:      2013-12-23 9:38:42;
 *@ Copyright:	MIT License
 */
 body {
@@ -9,8 +9,18 @@ body {
     line-height: 1.8;
 }
 
+.type {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**
+ * 1. 正文链接左右一个英文空格留白
+ */
+
 .type a {
     color: #3187DB;
+    margin:0 .25em; /* 1 */
 }
 
 .type a:hover,
@@ -28,31 +38,29 @@ body {
  * a 默认使用 border 来模拟下划线会占用盒模型高度，
  * 如果某些布局的地方不需要这样的下划线，使用该 class 去除。
  */
-
-.no-underline a:hover,
-.no-underline ins:hover {
+.underline-fix a:hover,
+.underline-fix ins:hover {
     border: 0 none;
     text-decoration: underline;
 }
 
-acronym,
-abbr {
+.type acronym,
+.type abbr {
     border-bottom: 1px dotted;
 }
 
 /**
  * 保留 i 标签斜体
-*/
-i {
+ */
+.type i {
     font-style: italic;
 }
 
 /**
- *重置中文斜体
- *cite 书籍或杂志的标题
+ * 重置中文斜体
+ * cite 标签通常用在书籍或杂志的标题
  *
  */
-
 .type cite,
 .type em,
 .type var,
@@ -67,7 +75,7 @@ i {
 
 /**
  *专名号和em
-*/
+ */
 .type u,
 .type em {
     text-decoration: none;
@@ -86,17 +94,17 @@ i {
 
 /**
  * 图片figure，figcaption
-*/
+ */
 .type figure {
     text-align: center;
 }
 
 
 /**
-* 中文小于 12px 可读性很差
-* 1. 统一 IE 6/7 中字体大小
-* 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
-*/
+ * 中文小于 12px 可读性很差
+ * 1. 统一 IE 6/7 中字体大小
+ * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
+ */
 .type p {
     margin-top: 18px;
     margin-bottom: 18px;
@@ -132,6 +140,43 @@ h6 {
     font-size: 12px;
 }
 
+.type {
+    counter-reset: heading-2 heading-3 heading-4;
+}
+
+.type h2:before,
+.type h3:before,
+.type h4:before,
+.type h5:before,
+.type h6:before {
+    margin-right: .75em;
+    font-size: .8em;
+    color: #999;
+}
+
+.type h2 {
+    counter-reset: heading-2 heading-3;
+}
+
+.type h2 {
+  counter-reset: heading-3 heading-4;
+}
+.type h2:before {
+  content: counter(heading-2);
+  counter-increment: heading-2;
+}
+.type h3 {
+  counter-reset: heading-4;
+}
+.type h3:before {
+  content: counter(heading-2) '.' counter(heading-3);
+  counter-increment: heading-3;
+}
+
+.type h4:before {
+  content: counter(heading-2) '.' counter(heading-3) '.' counter(heading-4);
+  counter-increment: heading-4;
+}
 
 .type blockquote {
     margin: 32px 28px;
@@ -142,9 +187,9 @@ h6 {
 
 
 /**
-* 列表项
-* 1. 无序列表默认使用方块
-*/
+ * 列表项
+ * 1. 无序列表默认使用方块
+ */
 .type ul {
     list-style-type: square; /* 1 */
     padding-left: 30px;
@@ -176,11 +221,10 @@ h6 {
 }
 
 /**
-* 表格
-* 1.
-* 2.
-*/
-th {
+ * 表格
+ * 1. 表格隔行换色
+ */
+.type th {
     font-weight: inherit;
 }
 
@@ -191,7 +235,7 @@ th {
 }
 
 .type table tr:nth-child(odd) td {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* 1 */
 }
 
 /* 代码 */
@@ -215,7 +259,9 @@ th {
     word-wrap: break-word;
 }
 
-/* pre 下面的 code 重置 */
+/**
+ * 通常代码高亮 code 标签会嵌套在 pre 标签内部，需要重置样式。
+ */
 .type pre code {
     margin: 0;
     padding: 0;
@@ -225,7 +271,7 @@ th {
     font-size: inherit;
 }
 
-hr {
+.type hr {
     border: 0 none;
     border-bottom: 1px solid #999;
     margin-top: 14px;

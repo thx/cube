@@ -14,12 +14,14 @@ body {
     margin-right: auto;
 }
 
+.type a {
+    color: #3187DB;
+}
+
 /**
  * 1. 正文链接左右一个英文空格留白
  */
-
-.type a {
-    color: #3187DB;
+.type p a {
     margin:0 .25em; /* 1 */
 }
 

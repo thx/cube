@@ -103,11 +103,6 @@ i {
     line-height: 1.8;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-    font-style: normal;
-}
-
 /**
  * 中文小于 12px 可读性很差
  * 1. 统一 IE 6/7 中字体大小

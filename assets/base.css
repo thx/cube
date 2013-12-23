@@ -432,12 +432,12 @@ a {
 
 .stoc li a{
     display: inline-block !important;
-    padding: 3px 0px !important;
+    padding: 3px 1em !important;
 }
 
 .stoc ol{
     margin: 0;
-    padding-left: 14px;
+    padding-left: 14px !important;
 }
 
 .stoc .decimal li:before,

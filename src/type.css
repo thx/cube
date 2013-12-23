@@ -301,21 +301,13 @@ h6 {
 /**
  * 列表嵌套时，去除上下边距
  */
-.type li ul,
+/*.type li ul,
 .type li ol,
 .type ol ol li,
 ol.type ol li {
   margin-top: auto;
   margin-bottom: auto;
-}
-
-/**
- * 一级列表底部增加留白
- */
-.type ol li,
-ol.type li{
-  margin-bottom: 14px;
-}
+}*/
 
 /* --------------------------------------------------------------------------
    列表自动生成编号

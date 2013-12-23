@@ -140,42 +140,118 @@ h6 {
     font-size: 12px;
 }
 
-.type {
-    counter-reset: heading-2 heading-3 heading-4;
-}
+/* ==========================================================================
+   CSS 自动生成标题编号
+   ========================================================================== */
+
+/**
+ * 传统中文排版有『章』『节』『卷』『篇』『辑』『集』『部』等概念，
+ * 在网页排版中，type.css 选取如下规则：
+ * 第1级--------章--------1
+ * 第2级--------节--------1.1
+ * 第3级--------节--------1.1.1
+ * 第4级--------节--------1.1.1.1
+ * -----------------------条--------1.
+ * -----------------------款--------1)
+ * -----------------------项--------(1)
+ * 所有标点均为西文标点
+ * 需要注意的是「条」比「章」后面多了「.」，「章」亦可用汉字代替，例如：「一、」
+ * Firefox 有私有属性分别实现简体和繁体的汉字编号，
+   -moz-simp-chinese-formal(大写)/-moz-simp-chinese-informal(小写)，
+   -moz-trad-chinese-formal(大写)/-moz-trad-chinese-informal(小写)，
+   参照：http://lists.w3.org/Archives/Public/public-html-ig-zh/2010Sep/0011.html
+   生成类似如下格式：
+
+   壹、章
+   ----壹之一、节
+   ----壹之二、节
+
+   贰、章
+   ----贰之一、节
+   ----贰之二、节
+   --------贰之二之一、节
+   --------贰之二之二、节
+
+ * @doc: 《科技文献的章节编号方法》（CY/T35-2001）
+ */
 
 .type h2:before,
 .type h3:before,
 .type h4:before,
 .type h5:before,
 .type h6:before {
-    margin-right: .75em;
-    font-size: .8em;
-    color: #999;
+    margin-right: .5em;
+    color: #888;
 }
 
-.type h2 {
-    counter-reset: heading-2 heading-3;
+.type {
+    counter-reset: chapter section subsection;
 }
 
+/* --------------------------------------------------------------------------
+   标题自动生成编号
+   -------------------------------------------------------------------------- */
+/**
+ * 提供从h2-h4 三个级别的标题序号
+ * 最终生成如下格式编号：
+        1.
+        1.1
+        1.1.1
+ * 或者在容器上加上 class="cjk"
+ * 将生成如下格式编号：
+        一、
+        1.1
+        1.1.1
+ */
+
+/**
+ * 二级标题（章）
+ * 输出 1
+ */
 .type h2 {
-  counter-reset: heading-3 heading-4;
+    counter-reset: section;
 }
+
 .type h2:before {
-  content: counter(heading-2);
-  counter-increment: heading-2;
-}
-.type h3 {
-  counter-reset: heading-4;
-}
-.type h3:before {
-  content: counter(heading-2) '.' counter(heading-3);
-  counter-increment: heading-3;
+    content: counter(chapter);
+    counter-increment: chapter;
 }
 
+/**
+ * 二级标题(汉字)
+ * 输出 一、
+ */
+
+.cjk h2 {
+  counter-increment: section;
+}
+
+.cjk h2:before {
+  content: counter(chapter, cjk-ideographic)'、';
+  content: counter(chapter, cjk-cjk-decimal)'、';
+  margin-right: .25em;
+}
+
+/**
+ * 三级标题（节）
+ * 输出 1.1
+ */
+.type h3 {
+    counter-reset: subsection;
+}
+
+.type h3:before {
+    content: counter(chapter) "." counter(section);
+    counter-increment: section;
+}
+
+/**
+ * 四级标题（子节）
+ * 输出 1.1.1
+ */
 .type h4:before {
-  content: counter(heading-2) '.' counter(heading-3) '.' counter(heading-4);
-  counter-increment: heading-4;
+    content: counter(chapter) "." counter(section) "." counter(subsection);
+    counter-increment: subsection;
 }
 
 .type blockquote {
@@ -213,6 +289,127 @@ h6 {
 .type ol ul ul,
 .type ul ul ul {
     list-style-type: circle;
+}
+
+.type ol ol ol ul,
+.type ol ol ul ul,
+.type ol ul ul ul,
+.type ul ul ul ul {
+    list-style-type: square;
+}
+
+/**
+ * 列表嵌套时，去除上下边距
+ */
+.type li ul,
+.type li ol,
+.type ol ol li,
+ol.type ol li {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/**
+ * 一级列表底部增加留白
+ */
+.type ol li,
+ol.type li{
+  margin-bottom: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   列表自动生成编号
+   -------------------------------------------------------------------------- */
+/**
+ * ol 自动生成编号
+ * 在 ol 或者外层容器上增加 class="decimal"
+ * 最终生成如下格式编号：
+    1
+    1.1
+    1.1.1
+    1.1.1.1
+ */
+
+ol.decimal,
+.decimal ol {
+     counter-reset: list-item;
+}
+
+ol.decimal li,
+.decimal li {
+  counter-increment: list-item;
+}
+
+ol.decimal li:before,
+.decimal li:before {
+     content: counters(list-item,".");
+     margin-right: .5em;
+}
+
+/**
+ * ol 自动生成编号（第一个序号为汉字）
+ * 在 ol 或者外层容器上增加 class="cjk"
+ * 最终生成如下格式编号：
+    一、
+    1.1
+    1.1.1
+    1.1.1.1
+ */
+
+ol.cjk li,
+.cjk li {
+  counter-increment: h1;
+}
+
+ol.cjk li:before,
+.cjk li:before {
+     content: counter(h1,cjk-ideographic)"、";
+     margin-right: .25em;
+}
+
+ol.cjk,
+.cjk ol {
+     counter-reset: list-item;
+}
+
+ol.cjk ol li,
+.cjk ol li {
+  counter-increment: list-item;
+}
+
+ol.cjk ol li:before,
+.cjk ol li:before {
+     content: counters(list-item,".");
+     margin-right: .5em;
+}
+
+/**
+ * 去掉默认的列表项
+ */
+.decimal,
+.cjk,
+.decimal ol,
+.cjk ol,
+.type .decimal,
+.type .cjk,
+.type .decimal ol,
+.type .cjk ol{
+  list-style-type: none;
+  *list-style-type: decimal;
+}
+
+/**
+ * ol 内嵌套的 ul 不生成序号
+ */
+.decimal ul,
+.cjk ul{
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.decimal ul li:before,
+.cjk ul li:before{
+  content: none !important;
 }
 
 .type dt {

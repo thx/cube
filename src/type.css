@@ -317,6 +317,7 @@ ol.type ol li {
 /**
  * ol 自动生成编号
  * 在 ol 或者外层容器上增加 class="decimal"
+ * @demo: http://jsbin.com/aCAliTA/1/edit
  * 最终生成如下格式编号：
     1
     1.1

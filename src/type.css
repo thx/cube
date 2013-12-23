@@ -53,28 +53,33 @@ i {
  *
  */
 
-cite, em, var, address, dfn {
+.type cite,
+.type em,
+.type var,
+.type address,
+.type dfn {
     font-style: inherit;
 }
 
-cite {
+.type cite {
     border-bottom: 3px double;
 }
 
 /**
  *专名号和em
 */
-u, em {
+.type u,
+.type em {
     text-decoration: none;
     padding-bottom: 1px;
-    margin-left: 2px;
+    margin-left: .25em;
 }
 
-u {
+.type u {
     border-bottom: 1px solid;
 }
 
-em {
+.type em {
     border-bottom: 1px dotted;
 }
 
@@ -143,11 +148,10 @@ h6 {
 
 /**
 * 列表项
-* 1.
-* 2.
+* 1. 无序列表默认使用方块
 */
 .type ul {
-    list-style-type: disc;
+    list-style-type: square; /* 1 */
     padding-left: 30px;
     margin-top: 14px;
     margin-bottom: 14px;
@@ -155,7 +159,7 @@ h6 {
 
 .type ul ul,
 .type ul ol ul {
-    list-style-type: square;
+    list-style-type: disc;
 }
 
 .type ol {
@@ -197,8 +201,8 @@ th {
 
 /* 代码 */
 .type code {
-    margin: 0 2px;
-    padding: 0 4px;
+    margin: 0 .25em;
+    padding: 0 .4em;
     border: 1px solid #DDD;
     background-color: #F8F8F8;
     border-radius: 3px;

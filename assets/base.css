@@ -431,7 +431,7 @@ a {
 }
 
 .stoc li a{
-    display: inline-block;
+    display: inline-block !important;
     padding: 3px 0px !important;
 }
 

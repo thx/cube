@@ -225,13 +225,13 @@ h6 {
  */
 
 .cjk h2 {
-  counter-increment: section;
+    counter-increment: section;
 }
 
 .cjk h2:before {
-  content: counter(chapter, cjk-ideographic)'、';
-  content: counter(chapter, cjk-cjk-decimal)'、';
-  margin-right: .25em;
+    content: counter(chapter, cjk-ideographic)'、';
+    content: counter(chapter, cjk-cjk-decimal)'、';
+    margin-right: .25em;
 }
 
 /**
@@ -389,8 +389,8 @@ ol.cjk ol li:before,
 .type .cjk,
 .type .decimal ol,
 .type .cjk ol{
-  list-style-type: none;
-  *list-style-type: decimal;
+    list-style-type: none;
+    *list-style-type: decimal;
 }
 
 /**
@@ -404,7 +404,7 @@ ol.cjk ol li:before,
 
 .decimal ul li:before,
 .cjk ul li:before{
-  content: none !important;
+    content: none !important;
 }
 
 .type dt {

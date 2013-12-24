@@ -5,18 +5,8 @@ body {
   background: #e4e6e5 url(img/bg.jpg);
 }
 
-/* 全局hover颜色和背景色动画 */
-a {
-    color:#3187DB;
-    -webkit-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
-    -moz-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
-    -o-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
-    -ms-transition: color .2s linear, background-color .2s linear, border-color .3s linear;
-    transition: color .2s linear, background-color .2s linear, border-color .3s linear;
-}
-
-.type a {
-    margin: 0 .25em;
+body a {
+  color: #3187DB;
 }
 
 .highlight {
@@ -45,7 +35,6 @@ a {
 .type h2 {
   font-size: 1.5em;
   margin: 0.83em 0;
-  border-bottom: 1px solid #E5E5E5;
 }
 .type h3 {
   font-size: 1.17em;
@@ -109,6 +98,9 @@ a {
 .mi-diamond:before {
   content: '\f005';
 }
+.mi-gaming:before {
+  content: '\007a';
+}
 
 /*
  * Aside styles
@@ -135,13 +127,9 @@ a {
   margin: 0;
   padding: 0;
 }
-
-
 #nav .entry {
-  display: block;
-  height: 100%;
-  line-height: 60px;
-  padding: 0 20px;
+  display: inline-block;
+  padding: 16px 20px;
 }
 #nav .entry:hover {
   background: #d6d6d6;
@@ -218,7 +206,6 @@ a {
  */
 #content {
   min-width: 320px;
-  background-color: #fff;
 }
 
 
@@ -280,7 +267,6 @@ a {
     width: 199px;
     background: #f4f4f4;
     border-right: 1px solid #d6d6d6;
-    -webkit-transform: translateZ(0);
   }
   #nav .toggler {
     display: inline-block;
@@ -373,32 +359,21 @@ a {
     width: 100%;
     height: 60px;
     border-bottom: 1px solid #d6d6d6;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -ms-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
   }
   #nav.fixed {
     position: fixed;
     top: 0;
     background: #f4f4f4;
-    height: 30px;
   }
-
-  #nav.fixed .entry {
-    line-height: 30px;
-  }
-
   #nav .logo {
     float: left;
   }
-  #nav .menu,
+  #nav .menu {
+    float: right;
+  }
   #nav li {
     float: right;
-    height: 100%;
   }
-
   #nav .entry {
     border-right: 1px solid #d6d6d6;
   }
@@ -408,8 +383,8 @@ a {
 
   #content {
     max-width: 680px;
-    margin-top: 130px;
-    padding:1em 2em;
+    padding: 10px;
+    margin-top: 32px;
   }
 
   #page .stoc {
@@ -423,24 +398,9 @@ a {
   }
   #page .stoc a {
     height: auto;
-    border-bottom: 1px solid #F3F3F3;
   }
   #page .fixed .stoc {
     top: 80px;
   }
 }
 
-.stoc li a{
-    display: inline-block !important;
-    padding: 3px 1em !important;
-}
-
-.stoc ol{
-    margin: 0;
-    padding-left: 14px !important;
-}
-
-.stoc .decimal li:before,
-.stoc .cjk li:before{
-    color: #96B0D8;
-}

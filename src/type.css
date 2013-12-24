@@ -370,7 +370,7 @@ h6 {
 /**
  * 1. 为每个ol元素创建新的计数器实例
  * 2. 隐藏默认的列表项
- * @demo: http://jsbin.com/IpIPinu/1/edit?css,output
+ * @demo: http://jsbin.com/IpIPinu/3/edit?css,output
  */
 ol.decimal,
 .decimal ol,
@@ -400,8 +400,8 @@ ol.cjk,
 }
 
 /**
- * 1. 只增加计数器的当前实例
- * 2. 为所有计数器实例增加以“.”分隔的值
+ * 1. 只增加当前计数器(直接设置在 li 上其他列表会影响序号)
+ * 2. 为所有计数器增加以“.”分隔的值
  */
 
 .decimal li:before {
@@ -431,7 +431,7 @@ ol.cjk,
 }
 
 /**
- * ol 内嵌套的 ul 不生成序号
+ * ol 中的 ul 不生成序号
  */
 .decimal ul,
 .cjk ul {

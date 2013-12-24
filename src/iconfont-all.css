@@ -40,3 +40,75 @@
     src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot");
     src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg");
 }
+
+.icon-size {
+    content: "\3436";
+}
+
+.icon-travel {
+    content: "\346e";
+}
+
+.icon-the-scorpio {
+    content: "\3441";
+}
+
+.icon-gemini {
+    content: "\3444";
+}
+
+.icon-upload {
+    content: "\3451";
+}
+
+.icon-recharge {
+    content: "\345a";
+}
+
+.icon-insurance {
+    content: "\346d";
+}
+
+.icon-movie-tickets {
+    content: "\346b";
+}
+
+.icon-novice {
+    content: "\3462";
+}
+
+.icon-rolls-of-paper {
+    content: "\3487";
+}
+
+.icon-hiking-shoes {
+    content: "\34a0";
+}
+
+.icon-pisces {
+    content: "\343c";
+}
+
+.icon-aquarius {
+    content: "\343b";
+}
+
+.icon-coloring {
+    content: "\3432";
+}
+
+.icon-merging {
+    content: "\3433";
+}
+
+.icon-closed-to-vehicular-traffic {
+    content: "\3434";
+}
+
+.icon-consumer-protection {
+    content: "\3461";
+}
+
+.icon-shop {
+    content: "\3474";
+}

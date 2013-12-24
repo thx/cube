@@ -376,7 +376,7 @@ ol.decimal,
 .decimal ol,
 ol.cjk,
 .cjk ol{
-  counter-reset: section;/* 1 */
+  counter-reset: list;/* 1 */
   list-style-type: none !important; /* 2 */
   *list-style-type: decimal;
 }
@@ -405,8 +405,8 @@ ol.cjk,
  */
 
 .decimal li:before {
-  counter-increment: section; /* 1 */
-  content: counters(section, ".")" "; /* 2 */
+  counter-increment: list; /* 1 */
+  content: counters(list, ".")" "; /* 2 */
 }
 
 /**
@@ -421,13 +421,13 @@ ol.cjk,
     ...
  */
 .cjk li:before{
-  counter-increment: section; 
-  content: counters(section, "之",cjk-ideographic) "、"; 
+  counter-increment: list; 
+  content: counters(list, "之",cjk-ideographic) "、"; 
 }
 
 .cjk li li:before{
-  counter-increment: section; 
-  content: counters(section); 
+  counter-increment: list; 
+  content: counters(list); 
 }
 
 /**

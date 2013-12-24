@@ -470,13 +470,3 @@ ol.cjk ol li:before,
     margin-bottom: 14px;
 }
 
-/**
- * 重置字体图标样式
- */
-.type .iconfont {
-    font-weight: normal;
-    font-style: normal;
-    font-variant: normal;
-}
-
-

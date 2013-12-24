@@ -4,9 +4,9 @@
 //* @file:     _mixin.scss
 
 /**
- *@ name:        iconfont.css V1.0.0
- *@ author:      一丝(yisibl)
- *@ update:      2013-12-20 14:30:55
+ *@ name:        iconfont.css V1.1.0
+ *@ author:      一丝
+ *@ update:      2013-12-24 15:28:59
  * 1. 防止读屏器读出无意义的图标
  * 2. 防止 OS X 中图标视觉变粗和细节丢失的问题
  * 3. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
@@ -38,7 +38,7 @@
 
  // 用法
  // 默认：     @include font-face();
- // 自定义：   @include font-face("字体路径");
+ // 自定义：   @include font-face(字体路径);
  // 路径结尾不加「/」
 @mixin font-face($font-src: $icon-src) {
     @font-face {
@@ -57,7 +57,7 @@
 }
 
 
-// 调用字体 mixin
+// match 循环字体数据列表（_data.scss）
 @function match($haystack, $needle) {
     @each $item in $haystack {
         $index: index($item, $needle);
@@ -66,35 +66,39 @@
             @return nth($item, $return);
         }
     }
-    @return false;
+    @return none;
 }
 
 
 // 默认：     @include icon();
-// 自定义：   @include icon("字体路径");
+// 自定义：   @include icon(字体名称);
+// 如果输入一个不存在的 class 名称，则会输出 content: none;
+// 例如  @include icon(test);
+//test:before {
+//    content: none;
+//}
 // 路径结尾不加「/」
 
-@mixin icon($icon: false, $styles: ture) {
+@mixin icon($icon: false) { 
     @if $icon {
-        &:before{
+        &:before {
             content: match($icon-list, $icon);
+            @extend %icon-base-styles;
         }
     }
-    @if $styles {
-        @extend %icon-base-styles;
-    }
-    @content; // 追加新的样式规则
+    @content; // 追加新的样式规则    
 }
 
 //是否输出全部iconfont编码
 // 默认不输出
-// 输出: @include get-icon(true);
+// 输出:   @include get-icon(true);
+// 不输出: @include get-icon(true);
 @mixin get-icon($all-icons: false) {
     @if $all-icons {
         @each $icon in $icon-list {
             $name: nth($icon, 1);
             .#{$icon-class-prefix}#{$name} {
-                @include icon($name,false);
+                content: nth($icon, 2);
             }
         }
     }

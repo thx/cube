@@ -3,54 +3,57 @@
 @import "data";
 @import "mixin";
 
+
 // ==========================================================================
-// 一、使用伪元素生成调用方法
+// 一、使用传统的 class 调用方法
+// ==========================================================================
+
+// 1. 默认为 class 为 iconfont，可以修改全局配置中的 $icon-name
+// 2. 在 html 中直接写编码，例如：
+// ---------------------------------
+// <b class="iconfont">&#x346e;</b>
+// ---------------------------------
+.#{$icon-name},
+.type .#{$icon-name} {
+    @extend %icon-base-styles;
+}
+
+
+// ==========================================================================
+// 二、使用伪元素生成调用方法
 // ==========================================================================
 
 // 1. @include font-face();
 // 或者：@include font-face(字体地址);
 @include font-face();
 
-
 // 2. 为所有icon前缀开头的class引入字体
 [class^="#{$icon-class-prefix}"]:before,
-[class*=" #{$icon-class-prefix}"]:before{
-    @include icon();
+[class*=" #{$icon-class-prefix}"]:before,
+.type [class^="#{$icon-class-prefix}"]:before,
+.type [class*=" #{$icon-class-prefix}"]:before {
+    @extend %icon-base-styles;
 }
 
-
 // 3. 调用指定的图标
-// @include icon("字体名称");
+// @include icon(图标名称);
 // 可以追加样式
 // 只有调用一个图标时，才会生成对应的 content 样式，防止生成冗余代码
 // ----------------------------
-//  .travel{
-//      @include icon(travel);
-//      font-size: 30px;
-//  }
+// .travel {
+//     @include icon(travel);
+//     &:before{
+//         font-size: 30px;
+//     }
+// }
 // ----------------------------
 
 
 // 4. 或者生成全部图标
 // 默认关闭
 // @include get-icon(true);
-//@include get-icon(true);
+// @include get-icon(true);
 
-
-// ==========================================================================
-// 二、使用传统的 class 调用方法
-// ==========================================================================
-
-// 1. 直接指定一个class，比如iconfont
-// 2. 引入字体 @include icon();
-// 3. 在 html 中直接写编码，例如：
-// ---------------------------------
-// <b class="iconfont">&#x346e;</b>
-// ---------------------------------
-// 4. 同样可以追加样式
-.iconfont{
-    @include icon();
-}
 
 
 

@@ -13,15 +13,16 @@
 
 
 // 2. 为所有icon前缀开头的class引入字体
-[class^="#{$icon-class-prefix}"],
-[class*=" #{$icon-class-prefix}"]{
-    @include icon;
+[class^="#{$icon-class-prefix}"]:before,
+[class*=" #{$icon-class-prefix}"]:before{
+    @include icon();
 }
 
 
 // 3. 调用指定的图标
 // @include icon("字体名称");
 // 可以追加样式
+// 只有调用一个图标时，才会生成对应的 content 样式，防止生成冗余代码
 // ----------------------------
 //  .travel{
 //      @include icon(travel);
@@ -31,8 +32,9 @@
 
 
 // 4. 或者生成全部图标
+// 默认关闭
 // @include get-icon(true);
-@include get-icon(true);
+//@include get-icon(true);
 
 
 // ==========================================================================

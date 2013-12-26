@@ -19,7 +19,7 @@ body {
 }
 
 /**
- * 1. 正文链接左右一个英文空格留白
+ * 1. 正文链接左右保持一个英文空格留白
  */
 .type p a {
     margin:0 .25em; /* 1 */
@@ -76,13 +76,14 @@ body {
 }
 
 /**
- *专名号和em
+ * 专名号和em
+ * 1. 保持留白，防止两个连续标签下划线连在一起
  */
 .type u,
 .type em {
     text-decoration: none;
     padding-bottom: 1px;
-    margin-left: .25em;
+    margin-left: .25em; /* 1 */
 }
 
 .type u {
@@ -95,7 +96,7 @@ body {
 
 
 /**
- * 图片figure，figcaption
+ * figure 内图片居中
  */
 .type figure {
     text-align: center;
@@ -115,8 +116,8 @@ body {
 
 /**
  * 中文小于 12px 可读性很差
- * 1. 统一 IE 6/7 中字体大小
- * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
+ * 统一 IE 6/7 中字体大小
+ * 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
  */
 h1 {
     font-size: 36px;

@@ -378,7 +378,7 @@ ol.cjk,
 .cjk ol{
   counter-reset: list;/* 1 */
   list-style-type: none !important; /* 2 */
-  *list-style-type: decimal;
+  *list-style-type: decimal !important;
 }
 
 /**

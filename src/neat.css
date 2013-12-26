@@ -98,7 +98,8 @@ body {
 /**
  * 所有 font-family 小写，存在空格的字体名加单引号
  * @default-font: 'helvetica neue', tahoma, \5B8B\4F53, sans-serif;
- * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, 'wenquanyi micro hei', sans-serif;
+ * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, 
+    \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, 'wenquanyi micro hei', sans-serif;
  * @code-font: monaco, menlo, consolas, monospace;
  */
 
@@ -212,12 +213,12 @@ samp {
 
 /**
  * 增强所有浏览器中 pre 标签中文本的可读性
- * IE 6-7 不支持 pre-wrap
+ * 1. IE 6-7 不支持 pre-wrap
  */
 pre {
-    white-space: pre; /* CSS 2 */
-    white-space: pre-wrap; /* CSS 2.1 */
-    word-wrap: break-word; /* IE 5+ */
+    white-space: pre; 
+    white-space: pre-wrap; /* 1 */
+    word-wrap: break-word; 
 }
 
 /**

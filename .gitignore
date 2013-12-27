@@ -4,3 +4,5 @@ node_modules
 *.sublime-workspace
 _site
 assets/libs
+
+.package

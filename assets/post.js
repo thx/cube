@@ -3,20 +3,13 @@ var duoshuoQuery = {short_name:"thx"};
 KISSY.use('node,event', function(S, Node) {
     S.one('#J_toggler').on('click', function(e) {
         if (Node(e.currentTarget).outerWidth() > 0) {
-            var page = S.one('#page')
-
-            page.css(
-                'left',
-                parseInt(page.css('left'), 10) > 0 ? 0 : S.one('#nav').outerWidth()
-            )
+            S.one('#page').toggleClass('page-dodged')
             e.stopPropagation()
         }
     })
 
     S.one('body').on('click', function() {
-        if (S.one('#J_toggler').outerWidth() > 0) {
-            S.one('#page').css('left', 0)
-        }
+        S.one('#page').removeClass('page-dodged')
     })
 
     S.one(window).on('scroll', function(e) {
@@ -38,9 +31,10 @@ KISSY.use('node,event', function(S, Node) {
 
 KISSY.config('packages', {
     mosaics: {
-        base: 'http://g.tbcdn.cn/thx/m',
+        base: 'http://g.tbcdn.cn/a',
         combine: true,
         debug: false,
+        ignorePackageNameInUri: true,
         tag: '20130905'
     }
 })

@@ -20,7 +20,10 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        separater: '\n'
+        separater: '\n',
+        process: function(src, fpath) {
+          return src.replace(/@charset[^\n]+\n/mg, '')
+        }
       },
       dist: {
         src: [

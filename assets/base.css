@@ -15,8 +15,8 @@ a {
     transition: color .2s linear, background-color .2s linear, border-color .3s linear;
 }
 
-.type a {
-    margin: 0 .25em;
+.iconfont {
+    line-height: 1.8;   /* normal 的具体值似乎不是 1.8 */
 }
 
 .highlight {
@@ -112,6 +112,12 @@ a {
 .mi-gaming:before {
     content: '\007a';
 }
+.mi-canvax:before {
+    content: '\00fb';
+}
+.mi-bisheng:before {
+    content: '\012f';
+}
 
 /*
  * Aside styles
@@ -169,7 +175,6 @@ a {
 #ceiling a {
     float: left;
     display: block;
-    padding: 10px 25px 10px 20px;
 }
 #ceiling a:link,
 #ceiling a:visited {
@@ -223,6 +228,10 @@ a {
 #content {
     min-width: 320px;
     background-color: #fff;
+}
+
+#page .stoc {
+    background: none;
 }
 
 #page .stoc ol {
@@ -372,10 +381,17 @@ a {
     }
 }
 
-
 @media (min-width: 800px) {
     body {
         text-align: center;
+    }
+
+    #ceiling a {
+        padding: 10px;
+    }
+
+    #ceiling .products a {
+        border-right: none;
     }
 
     #page {
@@ -456,6 +472,7 @@ a {
 
     #page .stoc a:hover {
         background: none;
+        color: inherit;
     }
 
     #page .stoc > ol {
@@ -465,11 +482,19 @@ a {
     #page .stoc > ol > li {
         display: inline-block;
         vertical-align: top;
-        margin-right: 1em;
+        margin-right: 2em;
     }
 }
 
 @media (min-width: 1200px) {
+    #ceiling a {
+        padding: 10px 25px 10px 20px;
+    }
+
+    #ceiling .products a {
+        border-right: 1px solid #d6d6d6;
+    }
+
     #page .stoc {
         top: 130px;
         left: 50%;
@@ -482,7 +507,7 @@ a {
     }
     #page .stoc a {
         height: auto;
-        border-bottom: 1px solid #F3F3F3;
+        border-bottom: 1px solid transparent;
         padding: 0 .5em;
         *zoom:1;
         overflow: hidden;
@@ -496,174 +521,4 @@ a {
 #page .stoc .cjk li:before{
     color: #96B0D8;
     float: left;
-}
-
-
-/* ==========================================================================
-   CSS 自动生成标题编号
-   ========================================================================== */
-
-/**
- * @doc: 《科技文献的章节编号方法》（CY/T35-2001）
- */
-
-.type h2:before,
-.type h3:before,
-.type h4:before,
-.type h5:before,
-.type h6:before {
-    margin-right: .5em;
-    color: #888;
-}
-
-.type {
-    counter-reset: chapter section subsection;
-}
-
-/* --------------------------------------------------------------------------
-   标题自动生成编号
-   -------------------------------------------------------------------------- */
-/**
- * 提供从h2-h4 三个级别的标题序号
- * 最终生成如下格式编号：
-        1.
-        1.1
-        1.1.1
- * 或者在容器上加上 class="cjk"
- * 将生成如下格式编号：
-        一、
-        1.1
-        1.1.1
- */
-
-/**
- * 一级标题（章）
- * 输出 1
- */
-.type h2 {
-    counter-reset: section;
-}
-
-.type h2:before {
-    content: counter(chapter);
-    counter-increment: chapter;
-}
-
-/**
- * 一级标题(汉字)
- * 输出 一、
- */
-
-.cjk h2 {
-    counter-increment: section;
-}
-
-.cjk h2:before {
-    content: counter(chapter, cjk-ideographic)'、';
-    content: counter(chapter, cjk-cjk-decimal)'、';
-    margin-right: .25em;
-}
-
-/**
- * 二级标题（节）
- * 输出 1.1
- */
-.type h3 {
-    counter-reset: subsection;
-}
-
-.type h3:before {
-    content: counter(chapter) "." counter(section);
-    counter-increment: section;
-}
-
-/**
- * 三级标题（子节）
- * 输出 1.1.1
- */
-.type h4:before {
-    content: counter(chapter) "." counter(section) "." counter(subsection);
-    counter-increment: subsection;
-}
-
-
-/* --------------------------------------------------------------------------
-   列表自动生成编号
-   -------------------------------------------------------------------------- */
-/**
- * 1. 为每个ol元素创建新的计数器实例
- * 2. 隐藏默认的列表项
- * @demo: http://jsbin.com/IpIPinu/3/edit?css,output
- */
-ol.decimal,
-.decimal ol,
-ol.cjk,
-.cjk ol{
-    counter-reset: list;/* 1 */
-    list-style-type: none !important; /* 2 */
-    *list-style-type: decimal;
-}
-
-/**
- * ol 自动生成数字编号
- * 在 ol 或者外层容器上增加 class="decimal"
- * 兼容 IE 8+
- * 最终生成如下格式编号：
-    1
-    1.1
-    1.1.1
-    1.1.1.1
-    1.1.1.1.1
-    ...
- */
-
-.decimal li:before,
-.cjk li:before{
-   color:#666;
-   margin-right: .5em;
-}
-
-/**
- * 1. 只增加当前计数器(直接设置在 li 上其他列表会影响序号)
- * 2. 为所有计数器增加以“.”分隔的值
- */
-
-.decimal li:before {
-    counter-increment: list; /* 1 */
-    content: counters(list, ".")" "; /* 2 */
-}
-
-/**
- * ol 自动生成汉字编号
- * 在 ol 或者外层容器上增加 class="cjk"
- * 不支持 IE
- * 最终生成如下格式编号：
-    一、
-    一之一、
-    一之一之一、
-    一之一之一之一、
-    ...
- */
-.cjk li:before{
-    counter-increment: list;
-    content: counters(list, "之",cjk-ideographic) "、";
-}
-
-.cjk li li:before{
-    counter-increment: list;
-    content: counters(list);
-}
-
-/**
- * ol 中的 ul 不生成序号
- */
-.decimal ul,
-.cjk ul {
-    list-style-type: square;
-    list-style-position: inside;
-}
-
-.decimal ul li:before,
-.cjk ul li:before {
-    content: none!important;
 }

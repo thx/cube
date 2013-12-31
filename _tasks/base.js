@@ -14,32 +14,16 @@ module.exports = function(grunt) {
     function copy(pattern, options, target) {
       target = target || process.cwd()
       options = options || {}
-      var d = Q.defer()
       var cwd = options.cwd || process.cwd()
 
-      glob(pattern, options, function(err, entries) {
-        if (err) grunt.fail.fatal(err)
+      glob.sync(pattern, options).forEach(function(entry) {
+        var fpath = path.join(target, entry)
 
-        Q.all(entries.map(function(entry) {
-          var fpath = path.join(target, entry)
-          var d = Q.defer()
-
-          if (fs.existsSync(fpath)) {
-            grunt.log.writeln('Updated ' + entry)
-            fs.createReadStream(path.join(cwd, entry))
-              .pipe(fs.createWriteStream(fpath))
-              .on('finish', function() {
-                d.resolve()
-              })
-          }
-
-          return d.promise
-        })).done(function() {
-          d.resolve()
-        })
+        if (fs.existsSync(fpath)) {
+          grunt.log.writeln('Updated ' + entry)
+          grunt.file.write(fpath, grunt.file.read(path.join(cwd, entry)))
+        }
       })
-
-      return d.promise
     }
 
     function pull() {

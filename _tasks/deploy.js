@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   grunt.registerTask('copySrc', 'copy files from src to build', function() {
     var dest = path.resolve(process.cwd(), buildTo)
 
-    grunt.file.expand('src/{cube,neat,type}.css').forEach(function(module) {
+    grunt.file.expand('src/{neat,type}.css').forEach(function(module) {
       grunt.file.copy(module, path.join(dest, module.replace('src', '')))
       grunt.log.writeln('Copyed ' + module + ' to' + buildTo)
     })

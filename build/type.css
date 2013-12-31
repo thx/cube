@@ -1,19 +1,33 @@
-/*
-*@ Name:        type.css V1.0.1
-*@ Author:      一丝(yisibl)
-*@ Update:      2013-9-24 16:55:04
+/**
+*@ Name:        type.css V1.0.2
+*@ Author:      一丝
+*@ Update:      2013-12-23 9:38:42;
 *@ Copyright:	MIT License
 */
-body{
+body {
     font-size: 14px;
     line-height: 1.8;
 }
-.type a {
-    color:#3187DB;
+
+.type {
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.type a {
+    color: #3187DB;
+}
+
+/**
+ * 1. 正文链接左右保持一个英文空格留白
+ */
+.type p a {
+    margin:0 .25em; /* 1 */
+}
+
 .type a:hover,
 .type ins:hover {
-    color:#333;
+    color: #333;
 }
 
 .type a:hover,
@@ -22,168 +36,190 @@ body{
     border-bottom: 1px solid;
 }
 
-acronym, abbr {
+/**
+ * a 默认使用 border 来模拟下划线会占用盒模型高度，
+ * 如果某些布局的地方不需要这样的下划线，使用该 class 去除。
+ */
+.underline-fix a:hover,
+.underline-fix ins:hover {
+    border: 0 none;
+    text-decoration: underline;
+}
+
+.type acronym,
+.type abbr {
     border-bottom: 1px dotted;
 }
 
-/*
+/**
  * 保留 i 标签斜体
-*/
-i{
+ */
+.type i {
     font-style: italic;
 }
-/*
- *重置中文斜体
- *cite 书籍或杂志的标题
+
+/**
+ * 重置中文斜体
+ * cite 标签通常用在书籍或杂志的标题
  *
  */
-cite, em, var, address, dfn {
+.type cite,
+.type em,
+.type var,
+.type address,
+.type dfn {
     font-style: inherit;
 }
 
-cite{
+.type cite {
     border-bottom: 3px double;
 }
 
-/*
- *专名号和em
-*/
-u, em{
+/**
+ * 专名号和em
+ * 1. 保持留白，防止两个连续标签下划线连在一起
+ */
+.type u,
+.type em {
     text-decoration: none;
     padding-bottom: 1px;
-    margin-left: 2px;
+    margin-left: .25em; /* 1 */
 }
 
-u{
+.type u {
     border-bottom: 1px solid;
 }
 
-em{
+.type em {
     border-bottom: 1px dotted;
 }
 
 
-/*
- * 图片figure，figcaption
-*/
-.type figure{
+/**
+ * figure 内图片居中
+ */
+.type figure {
     text-align: center;
 }
 
 
-/*
-* 中文小于 12px 可读性很差
-* 1. 统一 IE 6/7 中字体大小
-* 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
-*/
+/**
+ * 中文小于 12px 可读性很差
+ * 1. 统一 IE 6/7 中字体大小
+ * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
+ */
 .type p {
     margin-top: 18px;
     margin-bottom: 18px;
     line-height: 1.8;
 }
-h1, h2, h3, h4, h5, h6 {
-    font-weight:normal;
-    font-style:normal;
-}
 
-/*
+/**
  * 中文小于 12px 可读性很差
- * 1. 统一 IE 6/7 中字体大小
- * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
+ * 统一 IE 6/7 中字体大小
+ * 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
  */
 h1 {
     font-size: 36px;
-    font-size: 3.6rem;
 }
 
 h2 {
     font-size: 30px;
-    font-size: 3rem;
 }
 
 h3 {
     font-size: 22px;
-    font-size: 2.2rem;
 }
 
 h4 {
     font-size: 18px;
-    font-size: 1.8rem;
 }
 
 h5 {
     font-size: 14px;
-    font-size: 1.4rem;
 }
 
 h6 {
     font-size: 12px;
-    font-size: 1.2rem;
 }
-
 
 .type blockquote {
     margin: 32px 28px;
     padding-left: 14px;
-    border-left:3px solid #CCC;
+    border-left: 3px solid #CCC;
     line-height: 1.7;
 }
 
 
-/*
-* 列表项
-* 1.
-* 2.
-*/
+/**
+ * 列表项
+ * 1. 无序列表默认使用方块
+ */
 .type ul {
-    list-style-type: disc;
-    padding-left:30px;
+    list-style-type: square; /* 1 */
+    padding-left: 30px;
     margin-top: 14px;
     margin-bottom: 14px;
-}
-.type ul ul, .type ul ol ul {
-    list-style-type:square;
-}
-.type ol {
-    list-style:decimal;
-    padding-left:30px;
-    margin-top: 14px;
-    margin-bottom: 14px;
-}
-.type ol ol ul, .type ol ul ul, .type ul ul ul {
-    list-style-type: circle;
-}
-.type dt {
-    font-weight:bold;
-    margin-top: 14px;
-}
-/*
-* 表格
-* 1.
-* 2.
-*/
-th {
-    font-weight:inherit;
 }
 
-.type th, .type td {
-    border:1px solid #CCC;
+.type ul ul,
+.type ul ol ul {
+    list-style-type: disc;
+}
+
+.type ol {
+    list-style: decimal;
+    padding-left: 30px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.type ol ol ul,
+.type ol ul ul,
+.type ul ul ul {
+    list-style-type: circle;
+}
+
+.type ol ol ol ul,
+.type ol ol ul ul,
+.type ol ul ul ul,
+.type ul ul ul ul {
+    list-style-type: square;
+}
+
+.type dt {
+    font-weight: bold;
+    margin-top: 14px;
+}
+
+/**
+ * 表格
+ * 1. 表格隔行换色
+ */
+.type th {
+    font-weight: inherit;
+}
+
+.type th,
+.type td {
+    border: 1px solid #CCC;
     padding: 5px 10px;
 }
+
 .type table tr:nth-child(odd) td {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* 1 */
 }
 
 /* 代码 */
 .type code {
-    margin: 0 2px;
-    padding: 0 4px;
+    margin: 0 .25em;
+    padding: 0 .4em;
     border: 1px solid #DDD;
     background-color: #F8F8F8;
     border-radius: 3px;
 }
 
-.type pre{
+.type pre {
     background-color: #F8F8F8;
     border: 1px solid #DDD;
     font-size: 12px;
@@ -191,23 +227,225 @@ th {
     overflow: auto;
     padding: 6px 10px;
     border-radius: 3px;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
-/* pre 下面的 code 重置 */
-.type pre code{
+/**
+ * 通常代码高亮 code 标签会嵌套在 pre 标签内部，需要重置样式。
+ */
+.type pre code {
     margin: 0;
     padding: 0;
     border: 0 none;
     background: none;
     border-radius: 0;
+    font-size: inherit;
 }
 
-hr{
-    border:0 none;
+.type hr {
+    border: 0 none;
     border-bottom: 1px solid #999;
     margin-top: 14px;
     margin-bottom: 14px;
 }
+
+/* ==========================================================================
+   CSS 自动生成标题编号
+   ========================================================================== */
+
+/**
+ * 传统中文排版有『章』『节』『卷』『篇』『辑』『集』『部』等概念，
+ * 在网页排版中，type.css 选取如下规则：
+ * 第1级--------章--------1
+ * 第2级--------节--------1.1
+ * 第3级--------节--------1.1.1
+ * 第4级--------节--------1.1.1.1
+ * -----------------------条--------1.
+ * -----------------------款--------1)
+ * -----------------------项--------(1)
+ * 所有标点均为西文标点
+ * 需要注意的是「条」比「章」后面多了「.」，「章」亦可用汉字代替，例如：「一、」
+ * Firefox 有私有属性分别实现简体和繁体的汉字编号，
+   -moz-simp-chinese-formal(大写)/-moz-simp-chinese-informal(小写)，
+   -moz-trad-chinese-formal(大写)/-moz-trad-chinese-informal(小写)，
+   参照：http://lists.w3.org/Archives/Public/public-html-ig-zh/2010Sep/0011.html
+   生成类似如下格式：
+
+   壹、章
+   ----壹之一、节
+   ----壹之二、节
+
+   贰、章
+   ----贰之一、节
+   ----贰之二、节
+   --------贰之二之一、节
+   --------贰之二之二、节
+
+ * @doc: 《科技文献的章节编号方法》（CY/T35-2001）
+ */
+
+.type h2:before,
+.type h3:before,
+.type h4:before,
+.type h5:before,
+.type h6:before {
+    margin-right: .5em;
+    color: #888;
+}
+
+.type {
+    counter-reset: chapter section subsection;
+}
+
+/* --------------------------------------------------------------------------
+   标题自动生成编号
+   -------------------------------------------------------------------------- */
+/**
+ * 提供从h2-h4 三个级别的标题序号
+ * 最终生成如下格式编号：
+        1.
+        1.1
+        1.1.1
+ * 或者在容器上加上 class="cjk"
+ * 将生成如下格式编号：
+        一、
+        1.1
+        1.1.1
+ */
+
+/**
+ * 一级标题（章）
+ * 输出 1
+ */
+.type h2 {
+    counter-reset: section;
+}
+
+.type h2:before {
+    content: counter(chapter);
+    counter-increment: chapter;
+}
+
+/**
+ * 一级标题(汉字)
+ * 输出 一、
+ */
+
+.cjk h2 {
+    counter-increment: section;
+}
+
+.cjk h2:before {
+    content: counter(chapter, cjk-ideographic)'、';
+    content: counter(chapter, cjk-cjk-decimal)'、';
+    margin-right: .25em;
+}
+
+/**
+ * 二级标题（节）
+ * 输出 1.1
+ */
+.type h3 {
+    counter-reset: subsection;
+}
+
+.type h3:before {
+    content: counter(chapter) "." counter(section);
+    counter-increment: section;
+}
+
+/**
+ * 三级标题（子节）
+ * 输出 1.1.1
+ */
+.type h4:before {
+    content: counter(chapter) "." counter(section) "." counter(subsection);
+    counter-increment: subsection;
+}
+
+
+/* --------------------------------------------------------------------------
+   列表自动生成编号
+   -------------------------------------------------------------------------- */
+/**
+ * 1. 为每个ol元素创建新的计数器实例
+ * 2. 隐藏默认的列表项
+ * @demo: http://jsbin.com/IpIPinu/3/edit?css,output
+ */
+ol.decimal,
+.decimal ol,
+ol.cjk,
+.cjk ol{
+    counter-reset: list;/* 1 */
+    list-style-type: none !important; /* 2 */
+    *list-style-type: decimal !important;
+}
+
+/**
+ * ol 自动生成数字编号
+ * 在 ol 或者外层容器上增加 class="decimal"
+ * 兼容 IE 8+
+ * 最终生成如下格式编号：
+    1
+    1.1
+    1.1.1
+    1.1.1.1
+    1.1.1.1.1
+    ...
+ */
+
+.decimal li:before,
+.cjk li:before{
+    color:#666;
+}
+
+/**
+ * 1. 只增加当前计数器(直接设置在 li 上其他列表会影响序号)
+ * 2. 为所有计数器增加以“.”分隔的值
+ */
+
+.decimal li:before {
+    counter-increment: list; /* 1 */
+    content: counters(list, ".")" "; /* 2 */
+}
+
+/**
+ * ol 自动生成汉字编号
+ * 在 ol 或者外层容器上增加 class="cjk"
+ * 不支持 IE
+ * 最终生成如下格式编号：
+    一、
+    一之一、
+    一之一之一、
+    一之一之一之一、
+    ...
+ */
+.cjk li:before{
+    counter-increment: list; 
+    content: counters(list, "之",cjk-ideographic) "、"; 
+}
+
+.cjk li li:before{
+    counter-increment: list; 
+    content: counters(list); 
+}
+
+/**
+ * ol 中的 ul 不生成序号
+ */
+.decimal ul,
+.cjk ul {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.decimal ul li:before,
+.cjk ul li:before {
+    content: none!important;
+}
+
+
 
 
 

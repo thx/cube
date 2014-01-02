@@ -39,6 +39,14 @@ Cube <i class="iconfont">&#444;</i> 取自电影
 <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/thx/cube/{{ site.version }}/??cube-min.css,type-min.css">
 ```
 
+## Who's Using
+
+<ul class="whos-using">
+{% for user in site.data.users %}
+  <li><a href="{{ user.homepage }}">{{ user.name }}</a></li>
+{% endfor %}
+</ul>
+
 ## 贡献代码
 
 请阅读 <https://github.com/thx/cube/blob/gh-pages/CONTRIBUTING.md>。

@@ -445,6 +445,15 @@ ol.cjk,
     content: none!important;
 }
 
+/**
+ * 统一用双线显示人民币符号(￥)
+ */
+.rmb,
+.yuan {
+    font-family: arial, tahoma;
+    font-style: normal;
+}
+
 
 
 

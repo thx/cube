@@ -165,3 +165,12 @@
     -webkit-font-smoothing: antialiased; /* 1 */
     -moz-osx-font-smoothing: grayscale; /* 2 */
 }
+
+/**
+ * 统一用双线显示人民币符号(￥)
+ */
+.rmb,
+.yuan {
+    font-family: arial, tahoma;
+    font-style: normal;
+}

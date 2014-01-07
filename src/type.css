@@ -16,14 +16,10 @@ body {
 
 .type a {
     color: #3187DB;
+    border-bottom: 1px solid transparent;
+    _border-bottom: 0 none;
 }
 
-/**
- * 1. 正文链接左右保持一个英文空格留白
- */
-.type p a {
-    margin:0 .25em; /* 1 */
-}
 
 .type a:hover,
 .type ins:hover {
@@ -68,7 +64,7 @@ body {
 .type var,
 .type address,
 .type dfn {
-    font-style: inherit;
+    font-style: normal;
 }
 
 .type cite {

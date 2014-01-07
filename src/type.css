@@ -78,7 +78,13 @@ body {
 .type u,
 .type em {
     text-decoration: none;
-    padding-bottom: 1px;
+    padding-bottom: .05em;
+}
+
+.type u + u,
+.type u + em,
+.type em + em,
+.type em + u {
     margin-left: .25em; /* 1 */
 }
 

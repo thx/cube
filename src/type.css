@@ -1,5 +1,5 @@
 /**
-*@ Name:        type.css V1.0.2
+*@ Name:        type.css V1.1.0
 *@ Author:      一丝
 *@ Update:      2013-12-23 9:38:42;
 *@ Copyright:	MIT License
@@ -239,7 +239,7 @@ h6 {
    ========================================================================== */
 
 /**
- * 传统中文排版有『章』『节』『卷』『篇』『辑』『集』『部』等概念，
+ * 传统中文排版有「章」「节」「卷」「篇」「辑」「集」「部」等概念，
  * 在网页排版中，type.css 选取如下规则：
  * 第1级--------章--------1
  * 第2级--------节--------1.1
@@ -429,13 +429,157 @@ ol.cjk,
     content: none!important;
 }
 
+
+/* ==========================================================================
+   修正汉字标点显示问题
+   ========================================================================== */
+
 /**
- * 统一用双线显示人民币符号(￥)
+ * 1. 在 Unicode 中，一些标点并未区分半角和全角，所以中文与西文会公用一个字符。
+ * 如果网页中 font-family 的设置是西文字体在前、中文字体在后的顺序，那么这些标
+ * 点会 fallback 到西文字体，导致间隔号·，弯引号“”‘’等标点宽度小于一个汉字
+ * 的宽度；省略号在垂直方向沉底……以及破折号——从中间断开。通常这些都是不符合
+ * 中文排版习惯的。
+ * 
+ * 2. Chrome Windows 版在使用中易宋体（SimSun）的时候，会导致逗号（U+FF0C）、句
+ * 号（U+3002 ）、顿号（U+3001） 在垂直方向居中（通常是左下角显示），需要单独修正。
+
+ * @demo: http://jsbin.com/uCenOFaf/4/edit
+ 
+ * 这些标点通常包括：
+ 
+标点名称        |标点字形     |Unicode   |排版要求                     |英文名称
+--------------- | :---------: | -------- | --------------------------- | -------
+左弯单引号      |‘           |U+2018    |占一个汉字宽度，紧靠内容     |LEFT SINGLE QUOTATION MARK
+右弯单引号      |’           |U+2019    |占一个汉字宽度，紧靠内容     |RIGHT SINGLE QUOTATION MARK
+左弯双引号      |“           |U+201C    |占一个汉字宽度，紧靠内容     |LEFT DOUBLE QUOTATION MARK
+右弯双引号      |”           |U+201D    |占一个汉字宽度，紧靠内容     |RIGHT DOUBLE QUOTATION MARK
+间隔号          |·           |U+00B7    |占一个汉字宽度，水平垂直居中 |MIDDLE DOT
+破折号          |——         |U+2014    |连在一起无间隔               |EM DASH
+省略号          |……         |U+2026    |垂直居中，六个点             |HORIZONTAL ELLIPSIS
+逗号            |，           |U+FF0C    |左下角（日文中只使用U+3001） |FULLWIDTH COMMA
+句号            |。           |U+3002    |左下角                       |IDEOGRAPHIC FULL STOP
+顿号            |、           |U+3001    |左下角                       |IDEOGRAPHIC COMMA
+分号            |；           |U+FF1B    |占一个汉字宽度，水平垂直居中 |FULLWIDTH SEMICOLON
+冒号            |：           |U+FF1A    |占一个汉字宽度，水平垂直居中 |FULLWIDTH COLON
+人民币符号      |￥           |U+00A5    |半角，通常紧靠数字           |YEN SIGN
+
  */
-.rmb,
-.yuan {
-    font-family: arial, tahoma;
-    font-style: normal;
+
+
+/* --------------------------------------------------------------------------
+   间隔号「·」（Middle dot）
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "type";
+    unicode-range: U+00B7;
+    src:
+        local('Hiragino GB'),
+        local('Heiti SC'),
+        local(STHeiti),
+        local(SimSun);
+}
+
+/* --------------------------------------------------------------------------
+   破折号「——」（EM dash）
+   -------------------------------------------------------------------------- */
+
+
+@font-face {
+    font-family: "type";
+    unicode-range: U+2014;
+    src:
+        local('Hiragino Sans GB'),
+        local('Hiragino Kaku Gothic ProN'),
+        local('Hiragino Kaku Gothic Pro'),
+        local('Microsoft Yahei'),
+        local(SimSun);
+}
+
+/* --------------------------------------------------------------------------
+   省略号「……」（Ellipsis）
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "type";
+    unicode-range: U+2026;
+    src:
+        local('Hiragino Sans GB'),
+        local('Hiragino Kaku Gothic ProN'),
+        local('Hiragino Kaku Gothic Pro'),
+        local(Meiryo),
+        local('MS Gothic'),
+        local(SimSun),
+        local(PMingLiU);
+}
+
+/* --------------------------------------------------------------------------
+   弯引号「“‘’”」（Curve quotes）
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "type";
+    unicode-range: U+201C-201D, U+2018-2019;
+    src:
+        local('Hiragino Sans GB'),
+        local('Heiti SC'),
+        local(STHeiti),
+        local(SimSun),
+        local(PMingLiU);
+}
+
+/* --------------------------------------------------------------------------
+   逗号、句号、冒号、分号「，。；：」
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "type";
+    unicode-range: U+FF0C, U+3002, U+FF1B, U+FF1A;
+    src:
+        local('Hiragino Kaku Gothic ProN'),
+        local('Hiragino Kaku Gothic Pro'),
+        local('MS Gothic'),
+        local('SimSun');
+}
+
+/* --------------------------------------------------------------------------
+   顿号「、」
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "type";
+    unicode-range: U+3001;
+    src:
+        local('Hiragino Kaku Gothic ProN'),
+        local('Hiragino Kaku Gothic Pro'),
+        local('SimSun'),
+        local('MS Mincho'),
+        local('PMingLiU');
+}
+
+/* --------------------------------------------------------------------------
+   人民币符号「￥」（Yen）
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "type";
+    unicode-range: U+00A5;
+    src: local(arial);
+}
+
+/* --------------------------------------------------------------------------
+   修复 Firefox 不支持 unicode-range 导致样式失效的问题
+   -------------------------------------------------------------------------- */
+
+/**
+ * @bug: https://bugzilla.mozilla.org/show_bug.cgi?id=unicode-range
+ * @doc: http://newhtml.net/custom-font-stacks-with-unicode-range/
+ */
+@font-face {
+    font-family: "type";
+    src: local('Fix Firefox');
+    unicode-range: U+270C;
 }
 
 

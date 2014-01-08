@@ -167,10 +167,10 @@
 }
 
 /**
- * 统一用双线显示人民币符号(￥)
+ * 统一用双线显示人民币符号「&yen;(￥)」
  */
 .rmb,
 .yuan {
-    font-family: arial, tahoma;
+    font-family: arial;
     font-style: normal;
 }

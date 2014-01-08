@@ -449,14 +449,14 @@ ol.cjk,
  * 这些标点通常包括：
  
 标点名称        |标点字形     |Unicode   |排版要求                     |英文名称
---------------- | :---------: | -------- | --------------------------- | -------
-左弯单引号      |‘           |U+2018    |占一个汉字宽度，紧靠内容     |LEFT SINGLE QUOTATION MARK
-右弯单引号      |’           |U+2019    |占一个汉字宽度，紧靠内容     |RIGHT SINGLE QUOTATION MARK
-左弯双引号      |“           |U+201C    |占一个汉字宽度，紧靠内容     |LEFT DOUBLE QUOTATION MARK
-右弯双引号      |”           |U+201D    |占一个汉字宽度，紧靠内容     |RIGHT DOUBLE QUOTATION MARK
-间隔号          |·           |U+00B7    |占一个汉字宽度，水平垂直居中 |MIDDLE DOT
-破折号          |——         |U+2014    |连在一起无间隔               |EM DASH
-省略号          |……         |U+2026    |垂直居中，六个点             |HORIZONTAL ELLIPSIS
+--------------- | :------- -: | -------- | --------------------------- | -------
+左弯单引号      |‘            |U+2018    |占一个汉字宽度，紧靠内容     |LEFT SINGLE QUOTATION MARK
+右弯单引号      |’            |U+2019    |占一个汉字宽度，紧靠内容     |RIGHT SINGLE QUOTATION MARK
+左弯双引号      |“            |U+201C    |占一个汉字宽度，紧靠内容     |LEFT DOUBLE QUOTATION MARK
+右弯双引号      |”            |U+201D    |占一个汉字宽度，紧靠内容     |RIGHT DOUBLE QUOTATION MARK
+间隔号          |·            |U+00B7    |占一个汉字宽度，水平垂直居中 |MIDDLE DOT
+破折号          |——           |U+2014    |连在一起无间隔               |EM DASH
+省略号          |……           |U+2026    |垂直居中，六个点             |HORIZONTAL ELLIPSIS
 逗号            |，           |U+FF0C    |左下角（日文中只使用U+3001） |FULLWIDTH COMMA
 句号            |。           |U+3002    |左下角                       |IDEOGRAPHIC FULL STOP
 顿号            |、           |U+3001    |左下角                       |IDEOGRAPHIC COMMA

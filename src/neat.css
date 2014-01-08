@@ -287,6 +287,24 @@ th {
     text-align: left;
 }
 
+/**
+ * 单元格添加边框
+ */
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+}
+
+/**
+ * 表头底部边框
+ */
+table th {
+    font-weight: inherit;
+    border-bottom-width: 2px;
+    border-bottom-color: #ccc;
+}
+
 /* ==========================================================================
    嵌入元素
    ========================================================================== */

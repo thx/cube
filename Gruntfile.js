@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'src/neat.css', 'src/layout.css', 'src/utils.css',
-          'src/iconfont.css', 'src/button.css'
+          'src/iconfont.css', 'src/button.css', 'src/table.css'
           // 展开需要合并的样式模块，确保模块的合并顺序
           // type.css 是相对独立的，不合并到 cube.css
         ],

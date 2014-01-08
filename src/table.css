@@ -46,7 +46,7 @@
         width: 100%;
         overflow-x: scroll;
         overflow-y: hidden;
-        border: 1px solid #ddd;
+        border-right: 1px solid #ddd;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         -webkit-overflow-scrolling: touch;
     }

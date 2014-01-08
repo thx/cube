@@ -42,6 +42,18 @@
  * 响应式表格
  */
 @media (max-width: 767px) {
+    .table-responsive table th,
+    .table-responsive table td {
+        border: 0 none; 
+    }
+
+    .table-responsive table th {
+        border-bottom: 2px solid #ccc;
+    }
+
+    .table-responsive table td {
+        border-top: 1px solid #ddd;
+    }
     .table-responsive {
         width: 100%;
         overflow-x: scroll;

@@ -9,26 +9,83 @@ body {
     line-height: 1.8;
 }
 
-.type {
-    margin-left: auto;
-    margin-right: auto;
+/**
+ * 在 IE 中开启中英文混排(表意文字与非表意文字之间)自动增加间距的功能，
+   IE 低版本在 table 中不支持。
+ * ideograph-alpha：      在表意文字与非表意文字（如，基于拉丁文的文字、
+                          西里尔文字、希腊文字、阿拉伯文字或希伯来文字）
+                          的行文之间创建额外的间距。
+ * ideograph-numeric：    在表意文字与数字字符的行文之间创建额外的间距。
+ * ideograph-parenthesis：在普通(非宽)括号与表意文字之间创建额外的间距。
+ */
+body,
+button,
+input,
+select,
+textarea {
+    -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis;
+    text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis;
 }
+
+
+.type {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.type-box {
+    max-width: 50em;
+    *width: 50em;
+    margin:32px 0;
+    padding: 1em 2em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+/* ==========================================================================
+   链接
+   ========================================================================== */
 
 .type a {
     color: #3187DB;
-    border-bottom: 1px solid transparent;
-    _border-bottom: 0 none;
+    text-decoration: none;
 }
 
 
 .type a:hover,
 .type ins:hover {
     color: #333;
+    text-decoration: underline;
+    -moz-text-underline-position: under;
+    -webkit-text-underline-position: under;
+    text-underline-position: under;
 }
 
-.type a:hover,
-.type ins:hover {
+/* 下划线用边框模拟 */
+.type li a,
+.type h1 a,
+.type h2 a,
+.type h3 a,
+.type h4 a,
+.type h5 a,
+.type h6 a {
+    border-bottom: 1px solid transparent;
+    _border-bottom: 1px none;
+}
+
+.type li a:hover,
+.type h1 a:hover,
+.type h2 a:hover,
+.type h3 a:hover,
+.type h4 a:hover,
+.type h5 a:hover,
+.type h6 a:hover {
     text-decoration: none;
+    border-bottom: 1px solid;
+}
+
+.type a:hover code {
     border-bottom: 1px solid;
 }
 
@@ -40,6 +97,23 @@ body {
 .underline-fix ins:hover {
     border: 0 none;
     text-decoration: underline;
+}
+
+/**
+ * 防止 a>img hover 时下划线位置错位
+ * 如果 img 不需要下划线可以直接：
+ a img {
+    float: left;
+ }
+
+ * 或者：
+ a img {
+    display: block;
+ }
+ */
+
+.type a img {
+    vertical-align: baseline;
 }
 
 .type acronym,
@@ -77,14 +151,15 @@ body {
  */
 .type u,
 .type em {
+    margin-right: .25em; /* 1 */
     text-decoration: none;
-    padding-bottom: .05em;
 }
 
 .type u + u,
 .type u + em,
 .type em + em,
-.type em + u {
+.type em + u,
+.type a + a {
     margin-left: .25em; /* 1 */
 }
 
@@ -113,8 +188,11 @@ body {
 .type p {
     margin-top: 18px;
     margin-bottom: 18px;
-    line-height: 1.8;
 }
+
+/* ==========================================================================
+   标题
+   ========================================================================== */
 
 /**
  * 中文小于 12px 可读性很差
@@ -122,15 +200,15 @@ body {
  * 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
  */
 h1 {
-    font-size: 36px;
-}
-
-h2 {
     font-size: 30px;
 }
 
+h2 {
+    font-size: 26px;
+}
+
 h3 {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 h4 {
@@ -138,30 +216,37 @@ h4 {
 }
 
 h5 {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 h6 {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .type blockquote {
     margin: 32px 28px;
     padding-left: 14px;
     border-left: 3px solid #CCC;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 
+/* ==========================================================================
+   列表
+   ========================================================================== */
+
+ .type ul,
+ .type ol {
+    margin-bottom: 14px;
+ }
+
 /**
- * 列表项
  * 1. 无序列表默认使用方块
  */
 .type ul {
     list-style-type: square; /* 1 */
     padding-left: 30px;
     margin-top: 14px;
-    margin-bottom: 14px;
 }
 
 .type ul ul,
@@ -172,8 +257,6 @@ h6 {
 .type ol {
     list-style: decimal;
     padding-left: 30px;
-    margin-top: 14px;
-    margin-bottom: 14px;
 }
 
 .type ol ol ul,
@@ -194,7 +277,9 @@ h6 {
     margin-top: 14px;
 }
 
-/* 代码 */
+/* ==========================================================================
+   代码
+   ========================================================================== */
 .type code {
     display: inline-block;
     *display: inline;
@@ -233,18 +318,23 @@ h6 {
 
 .type hr {
     border: 0 none;
-    border-bottom: 1px solid #999;
-    margin-top: 14px;
-    margin-bottom: 14px;
+    border-bottom: 2px solid #999;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 /* ==========================================================================
    CSS 自动生成标题编号
    ========================================================================== */
 
+
+/* --------------------------------------------------------------------------
+   标题自动生成编号
+   -------------------------------------------------------------------------- */
+
 /**
  * 传统中文排版有「章」「节」「卷」「篇」「辑」「集」「部」等概念，
- * 在网页排版中，type.css 选取如下规则：
+ * 在网页排版中，type.css 选取如下规则作为标题编号：
  * 第1级--------章--------1
  * 第2级--------节--------1.1
  * 第3级--------节--------1.1.1
@@ -275,36 +365,27 @@ h6 {
 
 .type h2:before,
 .type h3:before,
-.type h4:before,
-.type h5:before,
-.type h6:before {
+.type h4:before {
     margin-right: .5em;
     color: #888;
 }
+
 
 .type {
     counter-reset: chapter section subsection;
 }
 
-/* --------------------------------------------------------------------------
-   标题自动生成编号
-   -------------------------------------------------------------------------- */
 /**
- * 提供从h2-h4 三个级别的标题序号
- * 最终生成如下格式编号：
-        1.
-        1.1
-        1.1.1
- * 或者在容器上加上 class="cjk"
- * 将生成如下格式编号：
-        一、
-        1.1
-        1.1.1
+ * 标题生成阿拉伯数字编号（默认）
+HTML 结构         | 生成编号
+----------------- | -------
+`<h2>章</h2>`      | 1. 章
+`<h3>节</h3>`      | 1.1 节
+`<h4>小结</h4>`    | 1.1.1 小结
  */
 
 /**
  * 一级标题（章）
- * 输出 1
  */
 .type h2 {
     counter-reset: section;
@@ -316,18 +397,22 @@ h6 {
 }
 
 /**
- * 一级标题(汉字)
- * 输出 一、
+ * 一级标题生成汉字编号
+ * 在容器上加上 class="type-title"
+HTML 结构         | 生成编号
+----------------- | -------
+`<h2>章</h2>`      | 一、章
+`<h3>节</h3>`      | 1.1 节
+`<h4>小结</h4>`    | 1.1.1 小结
  */
 
-.cjk h2 {
+.type-title h2 {
     counter-increment: section;
 }
 
-.cjk h2:before {
-    content: counter(chapter, cjk-ideographic)'、';
-    content: counter(chapter, cjk-cjk-decimal)'、';
-    margin-right: .25em;
+.type-title h2:before {
+    content: counter(chapter, cjk-ideographic) "\3001";
+    margin-right: .2em;
 }
 
 /**
@@ -344,7 +429,7 @@ h6 {
 }
 
 /**
- * 三级标题（子节）
+ * 三级标题（小结）
  * 输出 1.1.1
  */
 .type h4:before {
@@ -354,88 +439,158 @@ h6 {
 
 
 /* --------------------------------------------------------------------------
-   列表自动生成编号
+   ol 自动生成编号
    -------------------------------------------------------------------------- */
+      
 /**
- * 1. 为每个ol元素创建新的计数器实例
- * 2. 隐藏默认的列表项
+ * 数字编号，兼容 IE8+
+ * 通常用来生成一个目录，为了更好的语义，只支持 ol。
  * @demo: http://jsbin.com/IpIPinu/3/edit?css,output
+ * 使用方法：
+ <ol class="type-toc">...</ol>
+ * 将会生成如下格式编号：
+        1.
+        1.1
+        1.1.1
+        ...
+
+ * 1. 为每个 ol 元素创建新的计数器实例
+ * 2. 隐藏默认的列表项
  */
-ol.decimal,
-.decimal ol,
-ol.cjk,
-.cjk ol{
-    counter-reset: list;/* 1 */
-    list-style-type: none !important; /* 2 */
-    *list-style-type: decimal !important;
+.type-toc {
+    margin: 16px auto;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #EAEAEA;
+    /*border-bottom: 1px solid #EAEAEA;*/
 }
 
-/**
- * ol 自动生成数字编号
- * 在 ol 或者外层容器上增加 class="decimal"
- * 兼容 IE 8+
- * 最终生成如下格式编号：
-    1
-    1.1
-    1.1.1
-    1.1.1.1
-    1.1.1.1.1
-    ...
- */
 
-.decimal li:before,
-.cjk li:before{
-    color:#666;
+.type-toc li {
+    overflow: hidden;
+    margin-top: 1px;
+    white-space: nowrap;
+}
+
+.type-toc li a {
+    display: block;
+    padding-left: .5em;
+    overflow: hidden;
+    /*border: 0 none;*/
+    color: #666;
+    /*background-color: #ccc;*/
+}
+
+.type-toc li a:hover {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #E6E6E6;
+    border-radius: 0 0 3px 3px;
+    color: #3187DB;
+}
+
+.type-toc h2 {
+    border-right: 1px solid #eee;
+    margin-bottom: 16px;
+    float: left;
+    background: #FBFBFB;
+    padding: 0 22px;
+    width: 1em;
+    line-height: normal;
+    padding-top: 16px;
+}
+
+.type-toc h2 {
+    padding-bottom: 999em;
+    margin-bottom: -999em;
+    color: #666;
+}
+
+.type-toc > ol {
+    overflow: hidden;
+    *zoom: 1;
+    margin: 0;
+    padding: 16px 20px;
+}
+
+.type-toc.fixed {
+    position: fixed;
+    left: 100px;
+    top: 20px;
+}
+
+.type-toc.fixed h2 {
+    font-size: 18px;
+    float: none;
+    width: 100%;
+    padding: 6px 16px;
+    margin: 0;
+}
+
+.type-toc.fixed h2 + ol {
+    padding-left: 0;
+}
+
+/*.type-toc > ol > li {
+    display: inline-block;
+    vertical-align: top;
+}*/
+
+ol.type-toc,
+.type-toc ol {
+    counter-reset: list;/* 1 */
+    list-style-type: none !important; /* 2 */
+    *list-style-type: type-toc !important;
+}
+
+.type-toc li:before {
+    color: #666;
+    margin-right: .25em;
+    padding-left: .5em;
+    float: left;
 }
 
 /**
  * 1. 只增加当前计数器(直接设置在 li 上其他列表会影响序号)
- * 2. 为所有计数器增加以“.”分隔的值
+ * 2. 所有计数器中间以“.”分隔的值
  */
-
-.decimal li:before {
+.type-toc li:before {
     counter-increment: list; /* 1 */
     content: counters(list, ".")" "; /* 2 */
 }
 
 /**
- * ol 自动生成汉字编号
- * 在 ol 或者外层容器上增加 class="cjk"
- * 不支持 IE
- * 最终生成如下格式编号：
-    一、
-    一之一、
-    一之一之一、
-    一之一之一之一、
-    ...
- */
-.cjk li:before{
-    counter-increment: list; 
-    content: counters(list, "之",cjk-ideographic) "、"; 
-}
-
-.cjk li li:before{
-    counter-increment: list; 
-    content: counters(list); 
-}
-
-/**
  * ol 中的 ul 不生成序号
  */
-.decimal ul,
-.cjk ul {
+.type-toc ul {
     list-style-type: square;
     list-style-position: inside;
 }
 
-.decimal ul li:before,
-.cjk ul li:before {
-    content: none!important;
+.type-toc ul li:before {
+    content: none !important;
 }
+
+/**
+ * 避免目录中的标题影响正文编号
+ */
+.type .type-toc h2:before,
+.type .type-toc h3:before,
+.type .type-toc h4:before {
+    content: none;
+}
+
+/**
+ * 去除上下间距
+ */
+.type-toc ol,
+.type-toc ul {
+    margin-top: 0;
+    margin-bottom: 8px;
+} 
 
 
 /* ==========================================================================
-   修正汉字标点显示问题
+   汉字标点修正
    ========================================================================== */
 
 /**

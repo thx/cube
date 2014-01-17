@@ -748,45 +748,92 @@ ol.type-toc,
  * 锚点高亮
  */
 @-webkit-keyframes highlight {
-  0% { background-color: #FFAD00;}
-  33% { background-color: transparent;}
-  66% { background-color: #FFAD00;  }
-  100% { background-color: transparent; }
+    0% { background-color: #FFAD00;}
+    33% { background-color: transparent;}
+    66% { background-color: #FFAD00;  }
+    100% { background-color: transparent; }
 }
 
 @-moz-keyframes highlight {
-  0% { background-color: #FFAD00;}
-  33% { background-color: transparent;}
-  66% { background-color: #FFAD00;  }
-  100% { background-color: transparent; }
+    0% { background-color: #FFAD00;}
+    33% { background-color: transparent;}
+    66% { background-color: #FFAD00;  }
+    100% { background-color: transparent; }
 }
 
 @-ms-keyframes highlight {
-  0% { background-color: #FFAD00;}
-  33% { background-color: transparent;}
-  66% { background-color: #FFAD00;  }
-  100% { background-color: transparent; }
+    0% { background-color: #FFAD00;}
+    33% { background-color: transparent;}
+    66% { background-color: #FFAD00;  }
+    100% { background-color: transparent; }
 }
 
 @keyframes highlight {
-  0% { background-color: #FFAD00;}
-  33% { background-color: transparent;}
-  66% { background-color: #FFAD00;  }
-  100% { background-color: transparent; }
+    0% { background-color: #FFAD00;}
+    33% { background-color: transparent;}
+    66% { background-color: #FFAD00;  }
+    100% { background-color: transparent; }
 }
 
-:target{
-  -webkit-animation: highlight 1.6s ease;
-  -moz-animation: highlight 1.6s ease;
-  -ms-animation: highlight 1.6s ease;
-  -o-animation: highlight 1.6s ease;
-  animation: highlight 1.6s ease;
+:target {
+    -webkit-animation: highlight 1.6s ease;
+    -moz-animation: highlight 1.6s ease;
+    -ms-animation: highlight 1.6s ease;
+    -o-animation: highlight 1.6s ease;
+    animation: highlight 1.6s ease;
 }
 
-h2,h3,h4,h5,h6{
-  -webkit-background-clip: padding-box !important;
-  -moz-background-clip: padding !important;
-  background-clip: padding-box !important;
-  border-top: 50px solid transparent;
-  margin-top: -50px;
+
+
+h2,h3,h3,h5,h6 {
+    position: relative;
+    -webkit-background-clip:padding-box;
+    -moz-background-clip:padding;
+    background-clip:padding-box;
+    border-top: 80px solid transparent;
+    margin-top: -80px;
+}
+
+
+/**
+ * 生成行内锚点链接符号
+ * http://www.fileformat.info/info/unicode/char/a7/index.htm
+ */
+.anchor-link{
+    visibility: hidden;
+    position: absolute;
+    left: -1.5em;
+    z-index: 9;
+    width: 1.5em;
+    /*padding: 0 2px 0 5px;*/
+    text-align: center;
+    /*background-color:red;*/
+}
+
+.anchor-link:hover {
+    border: 0 none !important;
+    text-decoration: none;
+}
+
+/**
+ * 生成章节号
+ */
+
+.anchor-link:before {
+    content: "\00A7";
+}
+
+
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h5:hover .anchor-link {
+    visibility: visible;
+}
+
+.anchor {
+    position: absolute;
+    top: -90px;
+    overflow: hidden;
 }

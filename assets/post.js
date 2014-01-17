@@ -80,7 +80,7 @@ KISSY.use('brix/app,node', function(S, app, Node) {
         S.all('article').all('h1,h2,h3').each(function(heading) {
             var id = heading.attr('id')
             heading.prepend('<a name="' + id + '" class="anchor"></a>')
-            heading.prepend('<a name="' + id + '" class="anchor-link" href="#' + id + '">#</a>')
+            heading.prepend('<a class="anchor-link" href="#' + id + '"></a>')
         })
     }
 })

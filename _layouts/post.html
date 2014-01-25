@@ -4,6 +4,7 @@ script: assets/post.js
 ---
 
 <div id="page">
+  {% include settings.html %}
   <div id="content">
     <div id="content-wrap">
       {% include ceiling.html %}
@@ -27,7 +28,7 @@ script: assets/post.js
     <a href="javascript:void(0)" class="toggler" id="J_toggler">
       <i class="iconfont">&#271;</i> 导航
     </a>
-    <a href="{{ site.baseurl }}/" class="logo"><i class="iconfont mi-cube"></i> Cube</a>
+    <a href="{{ site.baseurl }}/" class="logo"><i class="iconlogo mi-cube"></i> Cube</a>
     <ul class="menu">
     {% for category in site.categories %}
       <li>

@@ -172,9 +172,12 @@ a {
     line-height: 30px;
 }
 
+#nav .logo .dib {
+    vertical-align: middle;
+}
+
 #nav .iconlogo {
     color: #fff;
-    display: block;
     /*width: 130px;*/
     font-size: 56px;
 }
@@ -182,6 +185,7 @@ a {
 #nav .logo-text {
     color: #fff;
     font-size: 32px;
+    margin-left: 10px;
 }
 
 #nav.fixed .iconlogo {
@@ -447,7 +451,7 @@ a {
         padding-bottom: 5px;
     }
 
-    #nav .iconlogo {
+    #nav .logo {
         width: 100%;
     }
 

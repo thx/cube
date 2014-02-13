@@ -893,13 +893,15 @@ ol.type-toc,
 
 
 h2, h3, h4, h5, h6 {
+    padding-left: 1em;
     position: relative;
+    z-index: -1; /* 防止盖住上面的内容 */
     -webkit-background-clip:padding-box;
     -moz-background-clip:padding;
     background-clip:padding-box;
     border-top: 80px solid transparent;
     margin-top: -80px;
-    padding-left: 1em;
+    
 }
 
 /* 防止标题上边距导致 */
@@ -966,13 +968,10 @@ h5:hover .anchor-link {
 .type-set-label {
     display: block;
     vertical-align: middle;
-    position: relative;
-    z-index: 9999;
     height: 36px;
     line-height: 36px;
     border: 0 none;
     text-align: right;
-    pointer-events: none;
     overflow: hidden;
 }
 
@@ -1108,17 +1107,27 @@ h5:hover .anchor-link {
     border-color: #555 !important;
 }
 
+/* 代码 */
 .body-night .type pre,
 .body-night .type code {
     background-color: #3F3F3F;
-    border-color: #555;
 }
 
+/* 多说评论框 */
 .body-night #ds-thread #ds-reset .ds-textarea-wrapper textarea {
-    background-color: #2F2F2F !important;
-    color: #CACCD1 !important;
+    background-color: #2F2F2F;
+    color: #CACCD1;
 }
 
 .body-night #ds-thread #ds-reset .ds-textarea-wrapper textarea:focus {
-    color: #CACCD1 !important;
+    color: #CACCD1;
+}
+
+
+.body-night #ds-reset .ds-gradient-bg {
+    background: none;
+}
+
+.body-night #ds-thread a:hover {
+    color: #fff !important;
 }

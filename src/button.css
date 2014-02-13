@@ -275,10 +275,6 @@
     font-size: 14px;
 }
 
-.btn-large .iconfont {
-    font-size: 14px!important;
-}
-
 .btn-medium {
     height: 28px;
     line-height: 28px;
@@ -304,7 +300,13 @@
 }
 
 .btn .iconfont {
-    font-size: 12px !important;
+    font-size: 12px;
     font-weight: normal;
     margin-right: 5px;
 }
+
+.btn-medium .iconfont,
+.btn-large .iconfont {
+    font-size: 16px;
+}
+

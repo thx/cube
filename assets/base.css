@@ -1136,7 +1136,7 @@ h5:hover .anchor-link {
    代码示例
    ========================================================================== */
 
-.cube-demo {
+.type-demo {
     padding: 45px 16px 16px;
     margin-top: 16px;
     position: relative;
@@ -1145,7 +1145,7 @@ h5:hover .anchor-link {
     border-radius: 3px 3px 0 0; 
 }
 
-.cube-demo:after {
+.type-demo:after {
     content: "演示";
     position: absolute;
     top: 12px;
@@ -1155,7 +1155,11 @@ h5:hover .anchor-link {
     letter-spacing: 1px;
 }
 
-.cube-demo + .highlight pre {
+.type-demo + .highlight pre {
     border-radius: 0 0 3px 3px;
+}
+
+.type-demo a + a {
+    margin: 0;
 }
 

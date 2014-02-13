@@ -1155,6 +1155,13 @@ h5:hover .anchor-link {
     letter-spacing: 1px;
 }
 
+.type-demo .well {
+    padding: 16px;
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 6px;
+}
+
 .type-demo + .highlight pre {
     border-radius: 0 0 3px 3px;
 }

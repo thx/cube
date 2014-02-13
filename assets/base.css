@@ -980,7 +980,7 @@ h5:hover .anchor-link {
     position: absolute;
     right: 0;
     top: 46px;
-    z-index: 1000;
+    z-index: 1024;
     height: 0;
     overflow: hidden;
     -webkit-transition: .32s ease;

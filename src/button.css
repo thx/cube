@@ -305,6 +305,10 @@
     margin-right: 5px;
 }
 
+.btn-small .iconfont {
+    font-size: 14px;
+}
+
 .btn-medium .iconfont,
 .btn-large .iconfont {
     font-size: 16px;

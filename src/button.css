@@ -256,12 +256,6 @@
 /* ==========================================================================
    按钮尺寸
    ========================================================================== */
-.btn-block {
-    display: block;
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-}
 
 .btn-xlarge {
     padding: 0 20px;
@@ -300,6 +294,13 @@
 .btn-xsmall {
     height: 23px;
     line-height: 23px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .btn .iconfont {

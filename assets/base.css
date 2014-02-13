@@ -1139,6 +1139,7 @@ h5:hover .anchor-link {
 .cube-demo {
     padding: 45px 16px 16px;
     margin-top: 16px;
+    position: relative;
     border: 1px solid #ddd;
     border-bottom: 0 none;
     border-radius: 3px 3px 0 0; 

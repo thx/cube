@@ -1,3 +1,4 @@
+/* 默认按钮样式 */
 .btn {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -63,37 +64,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e6e6', endColorstr='#f2f2f2', GradientType=0);
 }
 
-.btn .iconfont {
-    font-size: 12px!important;
-    font-weight: normal;
-}
 
-/*group btn*/
-.btn-group{
-    overflow: hidden;
-}
-.btn-group .btn {
-    float: left;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    border-left-width: 0;
-}
-
-.btn-group .btn:first-child {
-    border-left-width: 1px;
-    -webkit-border-radius: 2px 0 0 2px;
-    -moz-border-radius: 2px 0 0 2px;
-    border-radius: 2px 0 0 2px;
-}
-
-.btn-group .btn:last-child {
-    -webkit-border-radius: 0 2px 2px 0;
-    -moz-border-radius: 0 2px 2px 0;
-    border-radius: 0 2px 2px 0;
-}
-
-.btn-red {
+/* 错误 */
+.btn-error {
     border-color: transparent;
     border-bottom-color: #c21b1b !important;
     background-color: #ff3636;
@@ -107,13 +80,13 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4444', endColorstr='#ff2222', GradientType=0);
 }
 
-.btn-red,
-.btn-red:hover,
-.btn-red:visited {
+.btn-error,
+.btn-error:hover,
+.btn-error:visited {
     color: #FFF!important;
 }
 
-.btn-red:hover {
+.btn-error:hover {
     background-color: #e41b1b;
     background-image: -moz-linear-gradient(top, #ee2020, #d51314);
     background-image: -ms-linear-gradient(top, #ee2020, #d51314);
@@ -125,7 +98,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee2020', endColorstr='#d51314', GradientType=0);
 }
 
-.btn-red:active {
+.btn-error:active {
     background-color: #df1819;
     background-image: -moz-linear-gradient(top, #d51314, #ee2020);
     background-image: -ms-linear-gradient(top, #d51314, #ee2020);
@@ -137,7 +110,8 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d51314', endColorstr='#ee2020', GradientType=0);
 }
 
-.btn-orange {
+/* 警告 */
+.btn-warning {
     border-color: transparent;
     border-bottom-color: #cf370c !important;
     background-color: #ff4e00;
@@ -151,13 +125,13 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5500', endColorstr='#ff4400', GradientType=0);
 }
 
-.btn-orange,
-.btn-orange:hover,
-.btn-orange:visited {
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:visited {
     color: #FFF!important;
 }
 
-.btn-orange:hover {
+.btn-warning:hover {
     background-color: #ef4000;
     background-image: -moz-linear-gradient(top, #ff4400, #d73900);
     background-image: -ms-linear-gradient(top, #ff4400, #d73900);
@@ -169,7 +143,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4400', endColorstr='#d73900', GradientType=0);
 }
 
-.btn-orange:active {
+.btn-warning:active {
     background-color: #e73d00;
     background-image: -moz-linear-gradient(top, #d73900, #ff4400);
     background-image: -ms-linear-gradient(top, #d73900, #ff4400);
@@ -181,7 +155,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d73900', endColorstr='#ff4400', GradientType=0);
 }
 
-.btn-blue {
+
+/* 主要 */
+.btn-primary {
     border-color: transparent;
     border-bottom-color: #0960ab !important;
     background-color: #4288c5;
@@ -195,13 +171,13 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#488fcd', endColorstr='#3a7db8', GradientType=0);
 }
 
-.btn-blue,
-.btn-blue:hover,
-.btn-blue:visited {
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:visited {
     color: #FFF!important;
 }
 
-.btn-blue:hover {
+.btn-primary:hover {
     background-color: #3579b5;
     background-image: -moz-linear-gradient(top, #4087c6, #25659c);
     background-image: -ms-linear-gradient(top, #4087c6, #25659c);
@@ -213,7 +189,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4087c6', endColorstr='#25659c', GradientType=0);
 }
 
-.btn-blue:active {
+.btn-primary:active {
     background-color: #3073ad;
     background-image: -moz-linear-gradient(top, #25659c, #4087c6);
     background-image: -ms-linear-gradient(top, #25659c, #4087c6);
@@ -246,7 +222,47 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#e6e6e6', GradientType=0);
 }
 
-.btn-size45,
+/* ==========================================================================
+   按钮组合
+   ========================================================================== */
+
+.btn-group{
+    overflow: hidden;
+}
+.btn-group .btn {
+    float: left;
+    margin: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-left-width: 0;
+}
+
+.btn-group .btn:first-child {
+    border-left-width: 1px;
+    -webkit-border-radius: 2px 0 0 2px;
+    -moz-border-radius: 2px 0 0 2px;
+    border-radius: 2px 0 0 2px;
+}
+
+.btn-group .btn:last-child {
+    -webkit-border-radius: 0 2px 2px 0;
+    -moz-border-radius: 0 2px 2px 0;
+    border-radius: 0 2px 2px 0;
+}
+
+
+
+/* ==========================================================================
+   按钮尺寸
+   ========================================================================== */
+.btn-block {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
 .btn-xlarge {
     padding: 0 20px;
     height: 43px;
@@ -254,12 +270,10 @@
     font-size: 18px;
 }
 
-.btn-size45 .iconfont,
 .btn-xlarge .iconfont {
     font-size: 18px!important;
 }
 
-.btn-size40,
 .btn-large {
     padding: 0 20px;
     height: 38px;
@@ -267,27 +281,28 @@
     font-size: 14px;
 }
 
-.btn-size40 .iconfont,
 .btn-large .iconfont {
     font-size: 14px!important;
 }
 
-.btn-size30,
 .btn-medium {
     height: 28px;
     line-height: 28px;
     padding: 0 20px;
 }
 
-.btn-size28,
 .btn-small {
     height: 26px;
     line-height: 26px;
     padding: 0 20px;
 }
 
-.btn-size25,
 .btn-xsmall {
     height: 23px;
     line-height: 23px;
+}
+
+.btn .iconfont {
+    font-size: 12px !important;
+    font-weight: normal;
 }

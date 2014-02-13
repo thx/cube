@@ -1101,3 +1101,18 @@ h5:hover .anchor-link {
 .body-night .projects .project-table .banner {
     border-color: #555 !important;
 }
+
+
+/* ==========================================================================
+   代码示例
+   ========================================================================== */
+
+.bs-example:after {
+    content: "演示";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 14px;
+    color: #BBB;
+    letter-spacing: 1px;
+}

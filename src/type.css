@@ -314,6 +314,7 @@ h6 {
     background: none;
     border-radius: 0;
     font-size: inherit;
+    line-height: 1.5;
 }
 
 .type hr {

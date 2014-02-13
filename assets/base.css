@@ -1137,23 +1137,18 @@ h5:hover .anchor-link {
    ========================================================================== */
 
 .cube-demo {
-    padding: 32px 16px 16px;
+    padding: 45px 16px 16px;
     margin-top: 16px;
     border: 1px solid #ddd;
     border-bottom: 0 none;
     border-radius: 3px 3px 0 0; 
 }
 
-.cube-demo * {
-    margin: 0;
-    padding: 0;
-}
-
 .cube-demo:after {
     content: "演示";
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 12px;
+    left: 16px;
     font-size: 14px;
     color: #BBB;
     letter-spacing: 1px;

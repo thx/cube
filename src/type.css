@@ -490,13 +490,12 @@ HTML 结构         | 生成编号
 
 .type-toc h2 {
     border-right: 1px solid #eee;
-    margin-bottom: 16px;
-    float: left;
-    background: #FBFBFB;
     padding: 0 22px;
-    width: 1em;
+    margin-bottom: 16px;
+    /*float: left;*/
+    /*background: #FBFBFB;*/
+    /*width: 1em;*/
     line-height: normal;
-    padding-top: 16px;
 }
 
 .type-toc h2 {

@@ -157,6 +157,7 @@ a {
     overflow: hidden;
     text-align: center;
     line-height: 60px;
+    height: 60px;
     vertical-align: middle;
     background-color: #ed4242;
     margin-top: 0;
@@ -169,6 +170,7 @@ a {
 }
 
 #nav.fixed .logo {
+    height: 30px;
     line-height: 30px;
 }
 
@@ -201,29 +203,29 @@ a {
  */
 
 /* 首页 */
-.skin-index #nav .iconlogo {
+.skin-home #nav .iconlogo {
     font-size: 80px;
 }
 
-.skin-index #nav.fixed .iconlogo {
+.skin-home #nav.fixed .iconlogo {
     font-size: 50px;
 }
 
 
 .skin-magix #nav a.logo {
-    color: #da1e38;
+    background-color: #da1e38;
 }
 
 .skin-cube #nav a.logo {
-    color: #0e76bc;
+    background-color: #0e76bc;
 }
 
 .skin-brix-core #nav a.logo {
-    color: #0e76bc;
+    background-color: #0e76bc;
 }
 
 .skin-crox #nav a.logo {
-    color: #0e76bc;
+    background-color: #22a478;
 }
 
 
@@ -293,6 +295,10 @@ a {
 #ceiling .bd {
     height: 45px;
     line-height: 45px;
+}
+
+#ceiling .dib {
+    vertical-align: top;
 }
 
 .ds-thread {
@@ -390,7 +396,7 @@ a {
         /*overflow: hidden;*/
     }
     #ceiling .products a {
-        padding: 0 4px;
+        padding: 0 3px;
         border-right: none;
     }
     #ceiling .products .name {
@@ -887,13 +893,15 @@ ol.type-toc,
 
 
 h2, h3, h4, h5, h6 {
+    padding-left: 1em;
     position: relative;
+    z-index: -1; /* 防止盖住上面的内容 */
     -webkit-background-clip:padding-box;
     -moz-background-clip:padding;
     background-clip:padding-box;
     border-top: 80px solid transparent;
     margin-top: -80px;
-    padding-left: 1em;
+    
 }
 
 /* 防止标题上边距导致 */
@@ -960,13 +968,10 @@ h5:hover .anchor-link {
 .type-set-label {
     display: block;
     vertical-align: middle;
-    position: relative;
-    z-index: 9999;
     height: 36px;
     line-height: 36px;
     border: 0 none;
     text-align: right;
-    pointer-events: none;
     overflow: hidden;
 }
 
@@ -974,7 +979,7 @@ h5:hover .anchor-link {
     position: absolute;
     right: 0;
     top: 46px;
-    z-index: 1000;
+    z-index: 1024;
     height: 0;
     overflow: hidden;
     -webkit-transition: .32s ease;
@@ -1102,6 +1107,30 @@ h5:hover .anchor-link {
     border-color: #555 !important;
 }
 
+/* 代码 */
+.body-night .type pre,
+.body-night .type code {
+    background-color: #3F3F3F;
+}
+
+/* 多说评论框 */
+.body-night #ds-thread #ds-reset .ds-textarea-wrapper textarea {
+    background-color: #2F2F2F;
+    color: #CACCD1;
+}
+
+.body-night #ds-thread #ds-reset .ds-textarea-wrapper textarea:focus {
+    color: #CACCD1;
+}
+
+
+.body-night #ds-reset .ds-gradient-bg {
+    background: none;
+}
+
+.body-night #ds-thread a:hover {
+    color: #fff !important;
+}
 
 /* ==========================================================================
    代码示例

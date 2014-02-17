@@ -464,13 +464,11 @@ input::-moz-focus-inner {
 
 /**
  * 1. 移除 IE6-11 中默认的垂直滚动条
- * 2. 统一所有浏览器中的垂直对齐以及增强文字可读性
- * 3. 禁止水平拖动，防止破坏布局
+ * 2. 禁止水平拖动，防止破坏布局
  */
 textarea {
     overflow: auto; /* 1 */
-    vertical-align: top; /* 2 */
-    resize: vertical; /* 3 */
+    resize: vertical; /* 2 */
 }
 
 /**

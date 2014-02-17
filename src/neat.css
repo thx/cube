@@ -216,11 +216,13 @@ samp {
 /**
  * 增强所有浏览器中 pre 标签中文本的可读性
  * 1. IE 6-7 不支持 pre-wrap
+ * 2. pre 标签应当包含滚溢出
  */
 pre {
     white-space: pre; 
     white-space: pre-wrap; /* 1 */
-    word-wrap: break-word; 
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 /**

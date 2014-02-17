@@ -463,6 +463,17 @@ input::-moz-focus-inner {
 }
 
 /**
+ * 修正 Chrome 中 input [type="number"] 在特定高度和 font-size 时,
+ * 下面一个箭头光标变成「cursor: text」
+ * @demo: http://jsfiddle.net/FFXEc/
+ * 动画演示：http://gtms04.alicdn.com/tps/i4/T18kd8FCtaXXc_FhcF-330-350.gif
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
  * 1. 移除 IE6-11 中默认的垂直滚动条
  * 2. 禁止水平拖动，防止破坏布局
  */

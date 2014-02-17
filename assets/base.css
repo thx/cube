@@ -45,6 +45,7 @@ a {
 }
 .type h3 {
     font-size: 1.17em;
+    margin: 1em 0;
 }
 .type h4,
 .type h5,
@@ -896,7 +897,11 @@ ol.type-toc,
 }
 
 /* 修复顶部带有Fixed导航锚点定位不准确问题 */
-h2, h3, h4, h5, h6 {
+.type h2,
+.type h3,
+.type h4,
+.type h5,
+.type h6 {
     padding-left: 1em;
     position: relative;
     z-index: -1; /* 防止盖住上面的内容 */
@@ -904,7 +909,7 @@ h2, h3, h4, h5, h6 {
     -moz-background-clip:padding;
     background-clip:padding-box;
     border-top: 80px solid transparent;
-    margin-top: -80px;  
+    margin-top: -60px; 
 }
 
 /* 防止标题上边距导致 */
@@ -1117,6 +1122,10 @@ h5:hover .anchor-link {
     border-color: #555;
 }
 
+.body-night .type-demo {
+    border-color: #555;
+}
+
 /* 多说评论框 */
 .body-night #ds-thread #ds-reset .ds-textarea-wrapper textarea {
     background-color: #2F2F2F;
@@ -1134,4 +1143,47 @@ h5:hover .anchor-link {
 
 .body-night #ds-thread a:hover {
     color: #fff !important;
+}
+
+/* ==========================================================================
+   代码示例
+   ========================================================================== */
+
+.type-demo {
+    padding: 45px 16px 16px;
+    margin-top: 16px;
+    position: relative;
+    border: 1px solid #ddd;
+    margin-bottom: -1px;
+    border-radius: 3px 3px 0 0; 
+}
+
+.type-demo:after {
+    content: "演示";
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 14px;
+    color: #BBB;
+    letter-spacing: 1px;
+}
+
+.type-demo .well {
+    padding: 16px;
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 6px;
+}
+
+.type-demo + .highlight pre {
+    border-radius: 0 0 3px 3px;
+}
+
+.type-demo a + a {
+    margin: 0;
+}
+
+.type-demo .btn {
+    margin-top: 6px;
+    margin-bottom: 6px;
 }

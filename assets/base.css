@@ -5,6 +5,10 @@ body {
     background: #e4e6e5;
 }
 
+.justify, .dib-box .justify {
+    line-height: inherit;
+}
+
 /* 全局hover颜色和背景色动画 */
 a {
     color: #3187DB;
@@ -272,6 +276,8 @@ a {
     width: 100%;
     top: 0;
     left: 0;
+    height: 45px;
+    line-height: 45px;
     background: #f4f4f4;
     border-bottom: 1px solid #d6d6d6;
     color: #aaa;
@@ -298,13 +304,8 @@ a {
     /*float: right;*/
 }
 
-#ceiling .bd {
-    height: 45px;
-    line-height: 45px;
-}
-
 #ceiling .dib {
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .ds-thread {
@@ -387,7 +388,7 @@ a {
         overflow: hidden;
     }
 
-    #ceiling .bd {
+    #ceiling {
         height: 40px;
         line-height: 40px;
     }
@@ -479,8 +480,7 @@ a {
     }
 
     #ceiling .bd {
-        height: 45px;
-        line-height: 45px;
+        line-height: inherit;
     }
 
     #ceiling a {
@@ -904,12 +904,36 @@ ol.type-toc,
 .type h6 {
     padding-left: 1em;
     position: relative;
-    z-index: -1; /* 防止盖住上面的内容 */
     -webkit-background-clip:padding-box;
     -moz-background-clip:padding;
     background-clip:padding-box;
     border-top: 80px solid transparent;
-    margin-top: -60px; 
+    margin-top: -70px; 
+}
+
+/**
+ * 防止遮挡住上面的内容，导致无法选中
+ * 每个 z-index 递减，防止 h2+h3 这样的结构导致 h2 无法选中
+ */
+
+.type h2 {
+    z-index: -2;
+}
+
+.type h3 {
+    z-index: -3;
+}
+
+.type h4 {
+    z-index: -4;
+}
+
+.type h5 {
+    z-index: -5;
+}
+
+.type h6 {
+    z-index: -6;
 }
 
 /* 防止标题上边距导致 */

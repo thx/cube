@@ -538,12 +538,15 @@ summary {
 }
 
 /**
- * 修正未定义为「inline-block」的元素
+ * 1. 修正未定义为「inline-block」的元素
+ * 2. 修正 Chrome、Firefox、Opera 中 「progress」元素 vertical-align 默认值不一致
  */
 audio,
 canvas,
-video {
-    display: inline-block;
+video,
+progress {
+    display: inline-block; /* 1 */
+    vertical-align: baseline; /* 2 */
 }
 
 /**

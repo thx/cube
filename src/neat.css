@@ -22,7 +22,7 @@
 body, dl, dd, /* dt, 默认没边距 */
 ul, ol, /*li, 默认没边距 */
 h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
-form, fieldset, legend, input, textarea,
+form, fieldset, legend, input, textarea, optgroup,
 p, blockquote, figure, hr, menu, dir,
 thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
 {

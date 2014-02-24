@@ -896,6 +896,16 @@ ol.type-toc,
     animation: highlight 1.6s ease;
 }
 
+
+.anchor:target ~ .anchor-link {
+    visibility: visible;
+    -webkit-animation: highlight 1.6s ease;
+    -moz-animation: highlight 1.6s ease;
+    -ms-animation: highlight 1.6s ease;
+    -o-animation: highlight 1.6s ease;
+    animation: highlight 1.6s ease;
+}
+
 /* 修复顶部带有Fixed导航锚点定位不准确问题 */
 .type h2,
 .type h3,
@@ -904,11 +914,11 @@ ol.type-toc,
 .type h6 {
     padding-left: 1em;
     position: relative;
-    -webkit-background-clip:padding-box;
+/*    -webkit-background-clip:padding-box;
     -moz-background-clip:padding;
     background-clip:padding-box;
     border-top: 80px solid transparent;
-    margin-top: -70px; 
+    margin-top: -70px; */
 }
 
 /**
@@ -916,7 +926,7 @@ ol.type-toc,
  * 每个 z-index 递减，防止 h2+h3 这样的结构导致 h2 无法选中
  */
 
-.type h2 {
+/*.type h2 {
     z-index: -2;
 }
 
@@ -934,9 +944,7 @@ ol.type-toc,
 
 .type h6 {
     z-index: -6;
-}
-
-/* 防止标题上边距导致 */
+}*/
 .type {
     position: relative;
     z-index: 1;
@@ -947,22 +955,36 @@ ol.type-toc,
  * 生成行内锚点链接符号
  * http://www.fileformat.info/info/unicode/char/a7/index.htm
  */
-.anchor-link{
+.anchor-link {
     visibility: hidden;
     position: absolute;
     left: -.5em;
+    padding-left: .5em;
     top: -3px;
     z-index: 9;
-    width: 1.5em;
+    width: 2em;
+    /*text-indent: .5em;*/
     /*padding: 0 2px 0 5px;*/
-    text-align: center;
-    /*background-color:red;*/
+    /*background: rgba(255, 0, 0, 0.2);*/
 }
 
 .anchor-link:hover {
     border: 0 none !important;
     text-decoration: none;
 }
+
+h2 .anchor-link {
+    width: 2em;
+}
+
+h3 .anchor-link {
+    width: 2.5em;
+}
+
+h4 .anchor-link {
+    width: 3.5em;
+}
+
 
 /**
  * 生成章节号
@@ -975,15 +997,13 @@ ol.type-toc,
 
 h2:hover .anchor-link,
 h3:hover .anchor-link,
-h4:hover .anchor-link,
-h5:hover .anchor-link,
-h5:hover .anchor-link {
+h4:hover .anchor-link {
     visibility: visible;
 }
 
 .anchor {
     position: absolute;
-    top: -90px;
+    top: -50px;
     overflow: hidden;
 }
 

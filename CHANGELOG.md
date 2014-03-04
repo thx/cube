@@ -1,5 +1,11 @@
 # Changelog
 
+# V1.2.1
+
+* \+ 更新文档
+* \+ neat 更新到 v1.1.0，同步 normalize 3.0 部分更新
+* \+ pre 标签默认有滚动条，为移动端增加平滑滚动
+
 # V1.2.0
 
 * \+ 增加 iconfont SCSS 版本

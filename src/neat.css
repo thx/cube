@@ -593,7 +593,7 @@ audio:not([controls]) {
  * ::backdrop 定义遮罩样式
  * @demo: http://jsbin.com/iPACab/1
  */
-dialog{
+dialog {
     border: 1px solid;
     padding: 0;
     margin: auto;
@@ -611,7 +611,7 @@ dialog{
     height: fit-content;
 }
 
-dialog::backdrop{
+dialog::backdrop {
     position: fixed;
     top: 0;
     bottom: 0;

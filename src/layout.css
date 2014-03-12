@@ -35,7 +35,7 @@
     font-size: 12px;
     letter-spacing: normal;
     word-spacing: normal;
-    line-height: initial;
+    line-height: inherit;
 }
 
 /*
@@ -55,7 +55,7 @@
 .justify,
 .dib-box .justify {
     font-size: 0;
-    line-height: initial;
+    line-height: inherit;
 }
 
 .justify {
@@ -101,7 +101,6 @@
     width: 0;
     height: 0;
     line-height: 0;
-    overflow: hidden;
     display: inline-block;
     *display:inline;
     *zoom:1;

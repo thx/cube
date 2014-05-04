@@ -402,7 +402,7 @@ a {
         /*overflow: hidden;*/
     }
     #ceiling .products a {
-        padding: 0 3px;
+        padding: 0 2px;
         border-right: none;
     }
     #ceiling .products .name {

@@ -149,6 +149,9 @@ a {
     content: '\013e';
 }
 
+.mi-activity:before{
+    content: "\123"
+}
 /*
  * Aside styles
  */

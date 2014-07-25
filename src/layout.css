@@ -267,6 +267,7 @@
     vertical-align: middle;
     padding: 0 !important; /* 防止设置边距导致居中失效 */
     margin: 0 !important;
+    font-size:0;
 }
 
 .center-box img {

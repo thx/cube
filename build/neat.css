@@ -1,5 +1,5 @@
-﻿/**
- * @file:      Neat.css V1.0.4
+/**
+ * @file:      Neat.css V1.1.0
  * @author:    一丝
  * @update:    2013-11-22 14:55:29;
  * @copyright: 基于 normalize.css | MIT License     
@@ -22,7 +22,7 @@
 body, dl, dd, /* dt, 默认没边距 */
 ul, ol, /*li, 默认没边距 */
 h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
-form, fieldset, legend, input, textarea,
+form, fieldset, legend, input, textarea, optgroup,
 p, blockquote, figure, hr, menu, dir,
 thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
 {
@@ -118,6 +118,8 @@ select, /* 1 */
 textarea  /* 1 */
 {
     font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+    -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis; /* 5 */
+    text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis; /* 5 */
 }
 
 /**
@@ -214,11 +216,13 @@ samp {
 /**
  * 增强所有浏览器中 pre 标签中文本的可读性
  * 1. IE 6-7 不支持 pre-wrap
+ * 2. pre 标签应当包含滚溢出
  */
 pre {
     white-space: pre; 
     white-space: pre-wrap; /* 1 */
-    word-wrap: break-word; 
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 /**
@@ -285,6 +289,24 @@ table {
  */
 th {
     text-align: left;
+}
+
+/**
+ * 单元格添加边框
+ */
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+}
+
+/**
+ * 表头底部边框
+ */
+table th {
+    font-weight: inherit;
+    border-bottom-width: 2px;
+    border-bottom-color: #ccc;
 }
 
 /* ==========================================================================
@@ -441,14 +463,23 @@ input::-moz-focus-inner {
 }
 
 /**
+ * 修正 Chrome 中 input [type="number"] 在特定高度和 font-size 时,
+ * 下面一个箭头光标变成「cursor: text」
+ * @demo: http://jsfiddle.net/FFXEc/
+ * 动画演示：http://gtms04.alicdn.com/tps/i4/T18kd8FCtaXXc_FhcF-330-350.gif
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
  * 1. 移除 IE6-11 中默认的垂直滚动条
- * 2. 统一所有浏览器中的垂直对齐以及增强文字可读性
- * 3. 禁止水平拖动，防止破坏布局
+ * 2. 禁止水平拖动，防止破坏布局
  */
 textarea {
     overflow: auto; /* 1 */
-    vertical-align: top; /* 2 */
-    resize: vertical; /* 3 */
+    resize: vertical; /* 2 */
 }
 
 /**
@@ -518,12 +549,15 @@ summary {
 }
 
 /**
- * 修正未定义为「inline-block」的元素
+ * 1. 修正未定义为「inline-block」的元素
+ * 2. 修正 Chrome、Firefox、Opera 中 「progress」元素 vertical-align 默认值不一致
  */
 audio,
 canvas,
-video {
-    display: inline-block;
+video,
+progress {
+    display: inline-block; /* 1 */
+    vertical-align: baseline; /* 2 */
 }
 
 /**
@@ -559,7 +593,7 @@ audio:not([controls]) {
  * ::backdrop 定义遮罩样式
  * @demo: http://jsbin.com/iPACab/1
  */
-dialog{
+dialog {
     border: 1px solid;
     padding: 0;
     margin: auto;
@@ -577,7 +611,7 @@ dialog{
     height: fit-content;
 }
 
-dialog::backdrop{
+dialog::backdrop {
     position: fixed;
     top: 0;
     bottom: 0;

@@ -1,5 +1,10 @@
 # Changelog
 
+# V1.2.2
+
+* \+ CDN 引用地址增加 https 版本
+* \* 打包方式由 Grunt 改为 Gulp 
+
 # V1.2.1
 
 * \+ 更新文档

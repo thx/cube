@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  *@ name:        iconfont.css V1.1.0
  *@ author:      一丝
@@ -12,19 +13,18 @@
 [class*=" icon-"]:before,
 .type [class^="icon-"]:before,
 .type [class*=" icon-"]:before {
-    font-family: "iconfont";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    display: inline-block;
-    /* 1 */
-    speak: none;
-    /* 2 */
-    -webkit-font-smoothing: antialiased;
-    /* 3 */
-    -moz-osx-font-smoothing: grayscale;
-}
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  display: inline-block;
+  /* 1 */
+  speak: none;
+  /* 2 */
+  -webkit-font-smoothing: antialiased;
+  /* 3 */
+  -moz-osx-font-smoothing: grayscale; }
 
 /**
  * 引入 Web font
@@ -32,9 +32,8 @@
  * CSS3117: @font-face failed cross-origin request. Resource access is restricted.
  */
 @font-face {
-    font-family: "iconfont";
-    font-weight: normal;
-    font-style: normal;
-    src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot");
-    src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg");
-}
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot");
+  src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg"); }

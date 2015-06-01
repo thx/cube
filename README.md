@@ -1,4 +1,4 @@
 # Cube
 
-The brix style revised. <http://thx.alibaba-inc.com/cube>
+The brix style revised. <http://thx.github.io/cube>
 

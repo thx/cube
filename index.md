@@ -36,7 +36,7 @@ Cube <i class="iconfont">&#444;</i> 取自电影
 个人博客中，我们推荐一次加载 cube.css 与 type.css：
 
 ```html
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/thx/cube/{{ site.version }}/??cube-min.css,type-min.css">
+<link rel="stylesheet" type="text/css" href="http://g.alicdn.com/thx/cube/{{ site.version }}/??cube-min.css,type-min.css">
 ```
 
 ## Who's Using

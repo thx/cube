@@ -35,7 +35,7 @@
     font-size: 12px;
     letter-spacing: normal;
     word-spacing: normal;
-    line-height: initial;
+    line-height: inherit;
 }
 
 /*
@@ -55,7 +55,7 @@
 .justify,
 .dib-box .justify {
     font-size: 0;
-    line-height: initial;
+    line-height: inherit;
 }
 
 .justify {
@@ -101,7 +101,6 @@
     width: 0;
     height: 0;
     line-height: 0;
-    overflow: hidden;
     display: inline-block;
     *display:inline;
     *zoom:1;
@@ -268,6 +267,7 @@
     vertical-align: middle;
     padding: 0 !important; /* 防止设置边距导致居中失效 */
     margin: 0 !important;
+    font-size:0;
 }
 
 .center-box img {

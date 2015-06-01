@@ -1,6 +1,6 @@
 {
   "name": "cube",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "devDependencies": {
     "semver": "~2.1.0",

@@ -149,6 +149,9 @@ a {
     content: '\013e';
 }
 
+.mi-activity:before{
+    content: "\123"
+}
 /*
  * Aside styles
  */
@@ -341,7 +344,6 @@ a {
  */
 #content {
     min-width: 320px;
-    background-color: #fff;
 }
 
 #page .stoc ol {
@@ -403,7 +405,7 @@ a {
         /*overflow: hidden;*/
     }
     #ceiling .products a {
-        padding: 0 3px;
+        padding: 0 2px;
         border-right: none;
     }
     #ceiling .products .name {
@@ -912,7 +914,6 @@ ol.type-toc,
 .type h4,
 .type h5,
 .type h6 {
-    padding-left: 1em;
     position: relative;
 /*    -webkit-background-clip:padding-box;
     -moz-background-clip:padding;
@@ -958,9 +959,9 @@ ol.type-toc,
 .anchor-link {
     visibility: hidden;
     position: absolute;
-    left: -.5em;
+    left: -1.4em;
     padding-left: .5em;
-    top: -3px;
+    top: 0px;
     z-index: 9;
     width: 2em;
     /*text-indent: .5em;*/

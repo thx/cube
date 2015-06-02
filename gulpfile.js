@@ -14,13 +14,13 @@ gulp.task('sass', function() {
 
 gulp.task('http', ['sass'], function() {
   gulp.src('src/iconfont.css')
-    .pipe(replace(/https:\/\/assets.alicdn.com/g, 'http://t.tbcdn.cn'))
+    .pipe(replace(/(https:)?\/\/assets.alicdn.com/g, 'http://t.tbcdn.cn'))
     .pipe(gulp.dest('src'))
 })
 
 gulp.task('https', ['sass'], function() {
   gulp.src('src/iconfont.css')
-    .pipe(replace(/http:\/\/t.tbcdn.cn/g, 'https://assets.alicdn.com'))
+    .pipe(replace(/http:\/\/t.tbcdn.cn/g, '//assets.alicdn.com'))
     .pipe(gulp.dest('src'))
 })
 

@@ -1109,8 +1109,8 @@ dialog::backdrop {
   font-family: "iconfont";
   font-weight: normal;
   font-style: normal;
-  src: url("https://assets.alicdn.com/apps/e/brix/fonts/uxiconfont.eot");
-  src: url("https://assets.alicdn.com/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("https://assets.alicdn.com/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("https://assets.alicdn.com/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("https://assets.alicdn.com/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg"); }
+  src: url("//assets.alicdn.com/apps/e/brix/fonts/uxiconfont.eot");
+  src: url("//assets.alicdn.com/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("//assets.alicdn.com/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("//assets.alicdn.com/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("//assets.alicdn.com/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg"); }
 
 /* 默认按钮样式 */
 .btn {

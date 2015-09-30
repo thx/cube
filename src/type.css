@@ -318,12 +318,16 @@ h6 {
     line-height: 1.5;
 }
 
+/* ==========================================================================
+   快捷键 <kbd>
+   ========================================================================== */
+
 .type kbd {
     display: inline-block;
-    padding: 3px 5px 2px;
+    padding: .25em .5em .2em;
     margin-left: .25em;
     margin-right: .25em;
-    font: 80%/1 monaco, menlo, consolas, 'courier new', courier, monospace;
+    font: 75%/1 monaco, menlo, consolas, 'courier new', courier, monospace;
     border: solid 1px #ccc;
     border-bottom-color: #bbb;
     border-radius: 3px;
@@ -337,8 +341,9 @@ h6 {
     box-shadow: 0px 2px 0px #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
 }
 
+.type .dark kbd,
 .type kbd.dark {
-    color: #fff;
+    color: #fdfdfd;
     text-shadow: 0 -1px 0 #000;
     border-color: #000;
     background-color: #4d4c4c;
@@ -351,6 +356,64 @@ h6 {
     font-size: 100%;
     font-weight: bold;
     box-shadow: none;
+}
+
+/**
+ * Mac 修饰键符号
+   https://support.apple.com/kb/PH10564?locale=zh_CN
+   [Mac——如何输入⌘、⌥、⇧、⌃、⎋等特殊字符](http://softu.cn/447)
+ */
+
+.type kbd[data-key]:after {
+    font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+}
+
+.type kbd[data-key="command"]:after {
+    content: ' ⌘';
+}
+
+.type kbd[data-key="shift"]:after {
+    content: ' ⇧';
+}
+
+.type kbd[data-key="control"]:after {
+    content: ' ⌃';
+}
+
+.type kbd[data-key="option"]:after {
+    content: ' ⌥';
+}
+
+.type kbd[data-key="capslock"]:after {
+    content: ' ⇪';
+}
+
+.type kbd[data-key="caps lock"]:after {
+    content: ' ⇪';
+}
+
+.type kbd[data-key="escape"]:after {
+    content: ' ⎋';
+}
+
+.type kbd[data-key="esc"]:after {
+    content: ' ⎋';
+}
+
+.type kbd[data-key="return"]:after {
+    content: ' ↩';
+}
+
+.type kbd[data-key="enter"]:after {
+    content: ' ↩';
+}
+
+.type kbd[data-key="delete"]:after {
+    content: ' ⌫';
+}
+
+.type kbd[data-key="eject"]:after {
+    content: ' ⏏';
 }
 
 .type hr {

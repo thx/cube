@@ -318,6 +318,41 @@ h6 {
     line-height: 1.5;
 }
 
+.type kbd {
+    display: inline-block;
+    padding: 3px 5px 2px;
+    margin-left: .25em;
+    margin-right: .25em;
+    font: 80%/1 monaco, menlo, consolas, 'courier new', courier, monospace;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-transform: capitalize; /* 首字母大写 */
+
+    color: #555;
+    background-color: #fefefe;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+    box-shadow: 0px 2px 0px #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
+}
+
+.type kbd.dark {
+    color: #fff;
+    text-shadow: 0 -1px 0 #000;
+    border-color: #000;
+    background-color: #4d4c4c;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0));
+    box-shadow: 0px 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
+}
+
+.type kbd kbd {
+    padding: 0;
+    font-size: 100%;
+    font-weight: bold;
+    box-shadow: none;
+}
+
 .type hr {
     border: 0 none;
     border-bottom: 2px solid #999;
@@ -443,7 +478,7 @@ HTML 结构         | 生成编号
 /* --------------------------------------------------------------------------
    ol 自动生成编号
    -------------------------------------------------------------------------- */
-      
+
 /**
  * 数字编号，兼容 IE8+
  * 通常用来生成一个目录，为了更好的语义，只支持 ol。
@@ -587,7 +622,7 @@ ol.type-toc,
 .type-toc ul {
     margin-top: 0;
     margin-bottom: 8px;
-} 
+}
 
 
 /* ==========================================================================
@@ -600,14 +635,14 @@ ol.type-toc,
  * 点会 fallback 到西文字体，导致间隔号·，弯引号“”‘’等标点宽度小于一个汉字
  * 的宽度；省略号在垂直方向沉底……以及破折号——从中间断开。通常这些都是不符合
  * 中文排版习惯的。
- * 
+ *
  * 2. Chrome Windows 版在使用中易宋体（SimSun）的时候，会导致逗号（U+FF0C）、句
  * 号（U+3002 ）、顿号（U+3001） 在垂直方向居中（通常是左下角显示），需要单独修正。
 
  * @demo: http://jsbin.com/uCenOFaf/4/edit
- 
+
  * 这些标点通常包括：
- 
+
 标点名称        |标点字形     |Unicode   |排版要求                     |英文名称
 --------------- | :------- -: | -------- | --------------------------- | -------
 左弯单引号      |‘           |U+2018    |占一个汉字宽度，紧靠内容     |LEFT SINGLE QUOTATION MARK

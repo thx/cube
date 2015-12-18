@@ -1,0 +1,79 @@
+/**
+* 打印样式
+* @file:     print.css v1.0.0
+* @author:   一丝
+* @update:   2013-11-26 11:35:12;
+* @doc:      https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css#L207
+*/
+
+@media print {
+  /**
+   * 1. 禁用所有背景色和阴影
+   * 2. 黑色打印更快
+   * @doc: h5bp.com/s
+   */
+
+  * {
+    background-color: transparent !important; /* 1 */
+    box-shadow: none !important; /* 1 */
+    text-shadow: none !important; /* 1 */
+    color: #000 !important; /* 2 */
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: "("attr(href)")";
+  }
+
+  abbr[title]:after {
+    content: "("attr(title)")";
+  }
+
+  /**
+   * 空链接不显示链接文字
+   */
+
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group; /* h5bp.com/t */
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

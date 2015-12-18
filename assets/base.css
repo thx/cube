@@ -62,6 +62,45 @@ a {
 }
 
 /**
+ *@ name:        iconfont.css V1.1.0
+ *@ author:      一丝
+ *@ update:      2013-12-24 15:28:59
+ * 1. 防止读屏器读出无意义的图标
+ * 2. 防止 OS X 中图标视觉变粗和细节丢失的问题
+ * 3. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
+ * Demo: http://jsbin.com/iWItiQe/2
+ */
+.iconfont,
+.type .iconfont, [class^="icon-"]:before,
+[class*=" icon-"]:before,
+.type [class^="icon-"]:before,
+.type [class*=" icon-"]:before {
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  display: inline-block; /* 1 */
+  speak: none; /* 2 */
+  -webkit-font-smoothing: antialiased; /* 3 */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * 引入 Web font
+ * 注意：使用font-face需要 CSS 线上地址和引用的 font 线上地址同域，否则 IE9  会有 CSS3117 问题
+ * CSS3117: @font-face failed cross-origin request. Resource access is restricted.
+ */
+@font-face {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot");
+  src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg");
+}
+
+
+/**
  * 引入Logo字体图标
  */
 @font-face {
@@ -1200,7 +1239,7 @@ h4:hover .anchor-link {
     position: relative;
     border: 1px solid #ddd;
     margin-bottom: -1px;
-    border-radius: 3px 3px 0 0; 
+    border-radius: 3px 3px 0 0;
 }
 
 .type-demo:after {

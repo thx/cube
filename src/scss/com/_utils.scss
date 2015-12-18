@@ -1,0 +1,174 @@
+/* ==========================================================================
+ 基础工具
+ *@ Name:        utils.css V1.0.0
+ *@ Author:      一丝
+ *@ Update:      2013-9-30 15:39:57;
+ *@ Copyright:   MIT License
+ ========================================================================== */
+
+/**
+* 闭合浮动
+* @Author: 一丝
+* @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1; /* IE6-7 触发 hasLayout */
+}
+
+/*
+*@ Name:       自适应图文混排组件
+*@ Update:     2013-9-29 19:23:27
+*@ Usage:      如果有溢出的内容需要显示请使用 clearcell
+*@ demo:       http://jsbin.com/EMIvoJohU/1/edit
+*/
+
+.clearall {
+  overflow: hidden;
+  _overflow: visible;
+  *zoom: 1;
+}
+
+.clearcell {
+  display: table-cell;
+  *zoom: 1;
+}
+
+.clearcell:after {
+  clear: both;
+  display: block;
+  visibility: visible;
+  overflow: hidden;
+  height: 0 !important;
+  line-height: 0;
+  font-size: xx-large;
+  content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}
+
+/* 强制不换行 */
+.nowrap {
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+/* 连续字符换行 */
+.wrap {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.hidden, .hide {
+  display: none;
+}
+
+/**
+* 文字溢出显示省略号
+* 1. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
+*/
+
+.ellipsis {
+  display: block;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left; /* 2 */
+}
+
+
+/* --------------------------------------------------------------------------
+ 图片替换
+ -------------------------------------------------------------------------- */
+
+/** 隐藏文字
+* 1.text-indent:-999em 存在性能问题：
+*   http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+*/
+.text-hide {
+  text-indent: 100%; /* 1 */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/**
+* 裁剪方式隐藏元素
+* 1. IE6-8 有严重漏洞，请勿使用 https://www.hkcert.org/my_url/zh/101104_ms_ie_css_tagparsing_vuln
+* 2. VoiceOver 无法读出宽高为 0 的元素
+*/
+.clip-hide {
+  position: absolute !important; /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); /* 1 */
+  padding: 0 !important;
+  border: 0 none!important;
+  height: 1px !important; /* 2 */
+  width: 1px !important;
+  overflow: hidden;
+}
+
+/* img replace，通过定位方式隐藏内容 */
+.ir {
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.ir-bg {
+  position: relative;
+  z-index: 1;
+}
+
+/**
+* 禁用中文输入法
+* 1. 默认关闭输入法，但用户还可以手动开启，Firefox Linux 版不支持。
+* @note: 仅 IE 5+，Firefox 3+ 支持
+* @doc:  https://developer.mozilla.org/en-US/docs/Web/CSS/ime-mode
+*/
+.ime-inactive {
+  ime-mode: inactive !important; /* 1 */
+}
+
+/**
+* 隐藏<select>元素的下拉箭头
+* 1. 隐藏 WebKit 中的下拉箭头
+* 2. Firefox 存在bug，该属性不完全生效，
+    https://bugzilla.mozilla.org/show_bug.cgi?id=649849
+* 3. 实验数值，Firefox for Android text-indent 需要设置大于 5px
+* @doc: https://gist.github.com/joaocunha/6273016
+* @demo: http://jsbin.com/EdiZuvO/1/edit
+*/
+.select-no-appearance{
+  -webkit-appearance: none; /* 1 */
+  -moz-appearance: none; /* 2 */
+  appearance: none;
+  text-overflow:""; /* 3 */
+  text-indent: .01px; /* 3 */
+}
+
+/*
+* 1. 防止 OS X 中 Webfont 视觉上看起来变粗
+* 2. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
+* Demo: http://jsbin.com/iWItiQe/2
+*/
+.antialiased {
+  -webkit-font-smoothing: antialiased; /* 1 */
+  -moz-osx-font-smoothing: grayscale; /* 2 */
+}
+
+/**
+* 统一用双线显示人民币符号「&yen;(￥)」
+*/
+.rmb,
+.yuan {
+  font-family: arial;
+  font-style: normal;
+}

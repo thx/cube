@@ -1,0 +1,209 @@
+/* 默认按钮样式 */
+
+.btn {
+  box-sizing: content-box;
+  display: inline-block;
+  border: 1px solid #ddd;
+  *border: 0 none;
+  border-radius: 2px;
+  *margin-right: .3em;
+  margin-bottom: 0;
+  padding: 0 10px;
+  *padding: 1px 10px;
+  width: auto;
+  height: 21px;
+  line-height: 21px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom-color: #bbb !important;
+  background-color: #f4f4f4;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #f8f8f8, #eeeeee);
+}
+
+.btn,
+.btn:hover,
+.btn:visited {
+  color: #333!important;
+}
+
+.btn:hover {
+  box-shadow: none;
+  background-color: #ededed;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
+}
+
+.btn:active {
+  background-color: #ebebeb;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #e6e6e6, #f2f2f2);
+}
+
+
+/* 错误 */
+
+.btn-error {
+  border-color: transparent;
+  border-bottom-color: #c21b1b !important;
+  background-color: #ff3636;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #ff4444, #ff2222);
+}
+
+.btn-error,
+.btn-error:hover,
+.btn-error:visited {
+  color: #FFF!important;
+}
+
+.btn-error:hover {
+  background-color: #e41b1b;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #ee2020, #d51314);
+}
+
+.btn-error:active {
+  background-color: #df1819;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #d51314, #ee2020);
+}
+
+
+/* 警告 */
+
+.btn-warning {
+  border-color: transparent;
+  border-bottom-color: #cf370c !important;
+  background-color: #ff4e00;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #ff5500, #ff4400);
+}
+
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:visited {
+  color: #FFF!important;
+}
+
+.btn-warning:hover {
+  background-color: #ef4000;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #ff4400, #d73900);
+}
+
+.btn-warning:active {
+  background-color: #e73d00;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #d73900, #ff4400);
+}
+
+
+/* 主要 */
+
+.btn-primary {
+  border-color: transparent;
+  border-bottom-color: #0960ab !important;
+  background-color: #4288c5;
+  background-image: linear-gradient(to bottom, #488fcd, #3a7db8);
+  background-repeat: repeat-x;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:visited {
+  color: #FFF!important;
+}
+
+.btn-primary:hover {
+  background-color: #3579b5;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #4087c6, #25659c);
+}
+
+.btn-primary:active {
+  background-color: #3073ad;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #25659c, #4087c6);
+}
+
+.btn-disabled {
+  border: 1px solid #e0e0e0;
+  border-bottom-color: #ccc !important;
+  cursor: default;
+}
+
+.btn-disabled,
+.btn-disabled:hover,
+.btn-disabled:visited {
+  color: #ccc !important;
+  background-color: #ededed;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
+}
+
+
+/* ==========================================================================
+ 按钮组合
+ ========================================================================== */
+
+.btn-group {
+  overflow: hidden;
+  .btn {
+    float: left;
+    margin: 0;
+    border-radius: 0;
+    border-left-width: 0;
+  }
+  .btn-group .btn:first-child {
+    border-left-width: 1px;
+    border-radius: 2px 0 0 2px;
+  }
+  .btn:last-child {
+    border-radius: 0 2px 2px 0;
+  }
+}
+
+/* ==========================================================================
+ 按钮尺寸
+ ========================================================================== */
+
+.btn-xlarge {
+  padding: 0 20px;
+  height: 43px;
+  line-height: 43px;
+  font-size: 18px;
+}
+
+
+.btn-large {
+  padding: 0 20px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 14px;
+}
+
+.btn-medium {
+  height: 28px;
+  line-height: 28px;
+  padding: 0 20px;
+}
+
+.btn-small {
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px;
+}
+
+.btn-xsmall {
+  height: 23px;
+  line-height: 23px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}

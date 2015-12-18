@@ -8,5 +8,5 @@ The brix style revised. Doc: <http://thx.github.io/cube>
 ```bash
 $ npm install darko -g
 $ cd cube   # cd into a jekyll site.
-$ darko serve
+$ darko serve --watch
 ```

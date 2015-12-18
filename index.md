@@ -27,16 +27,15 @@ Cube <i class="iconfont">&#444;</i> 取自电影
 需要注意的是 cube.css 中将包含：
 
 - [neat.css]({{ site.baseurl }}/doc/neat)
-- [iconfont.css]({{ site.baseurl }}/doc/iconfont)
-- layout.css
+- [layout.css]({{ site.baseurl }}/doc/layout)
+- [button.css]({{ site.baseurl }}/doc/button)
 - utils.css
-- button.css
 
 但**不包含** [type.css]({{ site.baseurl }}/doc/type)。因此在需要版式设计的网站，例如
 个人博客中，我们推荐一次加载 cube.css 与 type.css：
 
 ```html
-<link rel="stylesheet" type="text/css" href="http://g.alicdn.com/thx/cube/{{ site.version }}/??cube-min.css,type-min.css">
+<link rel="stylesheet" href="//g.alicdn.com/thx/cube/{{ site.version }}/??cube-min.css,type-min.css">
 ```
 
 ## Who's Using

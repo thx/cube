@@ -1,0 +1,66 @@
+/*
+* 表格
+* @ name:        table.css V1.0.0
+* @ author:      一丝
+* @ update:      2014-1-8 19:34:24;
+*/
+
+/**
+* 只显示水平边框
+* .table
+*/
+.table th,
+.table table th{
+  border: 0 none;
+  border-bottom: 2px solid #ccc;
+}
+
+.table td,
+.table table td{
+  border: 0 none;
+  border-top: 1px solid #ddd;
+}
+
+/**
+* 隔行换色
+* .table-striped
+*/
+.table-striped tbody tr:nth-child(odd) td {
+  background-color: #fafafa;
+}
+
+/**
+* 鼠标 hover 时换色
+* .table-hover
+*/
+.type .table-hover tbody tr:hover td,
+.type .table-hover thead tr:hover th {
+  background-color: #f6f6f6;
+}
+
+/**
+* 响应式表格
+*/
+@media (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border-right: 1px solid #ddd;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-responsive  table {
+    margin: 0;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    white-space: nowrap;
+  }
+
+  .table-responsive .table {
+    border: 0 none;
+  }
+}

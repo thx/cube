@@ -1,83 +1,91 @@
-var gulp     = require('gulp')
-var concat   = require('gulp-concat')
-var rename   = require('gulp-rename')
-var cssmin   = require('gulp-minify-css')
-var sass     = require('gulp-sass')
-var replace  = require('gulp-replace')
+var gulp           = require('gulp')
+var del            = require('del')
+var size           = require('gulp-size')
+var sass           = require('gulp-sass')
+var nano           = require('gulp-cssnano')
+var concat         = require('gulp-concat')
+var rename         = require('gulp-rename')
+var postcss        = require('gulp-postcss')
+var runSequence    = require('run-sequence')
+var autoprefixer   = require('autoprefixer')
+var sourcemaps     = require('gulp-sourcemaps')
+var filterGradient = require('postcss-filter-gradient')
 
 
-gulp.task('sass', function() {
-  gulp.src('scss/iconfont.scss')
-    .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('src'))
-})
-
-gulp.task('http', ['sass'], function() {
-  gulp.src('src/iconfont.css')
-    .pipe(replace(/(https:)?\/\/assets.alicdn.com/g, 'http://t.tbcdn.cn'))
-    .pipe(gulp.dest('src'))
-})
-
-gulp.task('https', ['sass'], function() {
-  gulp.src('src/iconfont.css')
-    .pipe(replace(/http:\/\/t.tbcdn.cn/g, '//assets.alicdn.com'))
-    .pipe(gulp.dest('src'))
-})
-
-//打包 neat.css
-gulp.task('neat', function() {
-  gulp.src('src/neat.css')
-    .pipe(concat('neat.css'))
-    .pipe(gulp.dest('build'))
-    .pipe(cssmin())
-    .pipe(rename('neat-min.css'))
-    .pipe(gulp.dest('build'))
-})
-
-//打包 type.css
-gulp.task('type', function() {
-  gulp.src('src/type.css')
-    .pipe(concat('type.css'))
-    .pipe(gulp.dest('build'))
-    .pipe(cssmin())
-    .pipe(rename('type-min.css'))
-    .pipe(gulp.dest('build'))
-})
-
-//打包 cube http 版本
-gulp.task('cube-http', ['http'], function() {
-  // 展开需要合并的样式模块，确保模块的合并顺序
-  // type.css 是相对独立的，不合并到 cube.css
-  var src = [
-    'src/neat.css', 'src/layout.css', 'src/utils.css',
-    'src/iconfont.css', 'src/button.css', 'src/table.css'
+var browserOptions = {
+  browsers: [
+    'last 3 versions',
+    'ie >= 6',
+    'firefox >= 30',
+    'chrome >= 34',
+    'safari >= 6',
+    'opera >= 12.1',
+    'ios >= 6',
+    'android >= 2.3',
+    'and_uc 9.9',
   ]
-  gulp.src(src)
-    .pipe(concat('cube.css'))
-    .pipe(replace(/@charset[^\n]+\n/mgi, ''))
-    .pipe(gulp.dest('build'))
-    .pipe(cssmin())
-    .pipe(rename('cube-min.css'))
-    .pipe(gulp.dest('build'))
+}
+
+// Sass(libsass)
+// sourcemaps: http://www.sitepoint.com/using-source-maps-debug-sass-chrome/
+gulp.task('css', function() {
+  return gulp.src(['src/scss/**/*.scss'])
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe(postcss([
+      filterGradient(),
+      autoprefixer(browserOptions)
+    ]))
+    .pipe(sourcemaps.write('.', {
+      //推荐开启(默认)，如果关闭，则需要开启 sourceRoot 中的 SCSS 文件所在的相对路径
+      includeContent: true,
+      // sourceRoot: '../scss/'
+    }))
+    .pipe(gulp.dest('src/css'))
 })
 
-//打包 cube https 版本
-gulp.task('cube-https', ['https'], function() {
-  // 展开需要合并的样式模块，确保模块的合并顺序
-  // type.css 是相对独立的，不合并到 cube.css
-  var src = [
-    'src/neat.css', 'src/layout.css', 'src/utils.css',
-    'src/iconfont.css', 'src/button.css', 'src/table.css'
-  ]
-  gulp.src(src)
-    .pipe(concat('cube-https.css'))
-    .pipe(replace(/@charset[^\n]+\n/mgi, ''))
+// CSS minify
+gulp.task('minify-css', function() {
+  return gulp.src(['src/css/**/*.css'])
     .pipe(gulp.dest('build'))
-    .pipe(cssmin())
-    .pipe(rename('cube-https-min.css'))
+    .pipe(nano())
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulp.dest('build'))
+    .pipe(size({
+      title: 'CSS 压缩完成',
+      showFiles: true
+    }))
+})
+
+// Clean file
+gulp.task('clean', function() {
+  del.sync(['build/*'])
 })
 
 
-gulp.task('default', ['cube-http', 'neat', 'type'])
-gulp.watch(['src/*.css', 'scss/*.scss'], ['default'])
+// watch
+gulp.task('watch', function() {
+  gulp.watch(['src/scss/**/*.scss'], ['css'])
+    .on('change', function(event) {
+      console.log('File ' + event.path + ' was ' + event.type)
+    })
+})
+
+gulp.task('default', function(callback) {
+  runSequence(
+    'css',
+    'watch',
+    callback)
+})
+
+// build file
+gulp.task('build', function(callback) {
+  runSequence(
+    'clean',
+    'minify-css',
+    callback)
+})

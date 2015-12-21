@@ -1,5 +1,9 @@
 # Changelog
 
+# V1.3.1
+
+* 更新 postcss-filter-gradient 到 0.2.0[#](https://github.com/yuezk/postcss-filter-gradient/issues/2)，IE filter 变为小写
+
 # V1.3.0
 
 * 全面转移到 PostCSS + Sass 平台

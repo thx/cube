@@ -85,6 +85,7 @@ gulp.task('default', function(callback) {
 // build file
 gulp.task('build', function(callback) {
   runSequence(
+    'css',
     'clean',
     'minify-css',
     callback)

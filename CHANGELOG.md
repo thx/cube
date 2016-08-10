@@ -2,11 +2,12 @@
 
 # V1.3.2
 
-* 新增：stylelint 检测 CSS 语法。
+* 新增：stylelint 检测 CSS 语法（所有16进制颜色改为小写等）。
 * 新增：NPM 包，使用 `npm install --save cube.css` 即可。
 * 删除：neat 中的  `dialog` 元素相关的默认样式。
 * 修改：neat 中 `a:active { background-color: transparent; }` 重置权重过高, 改为`a { background-color: transparent; }`。
 * 修改：为了减少影响，所有重置属性都改为非简写。比如 `border: none` 改为 `border-style: none`。
+* 修复：type.css 中 `unicode-range` 值编译错误（删除了 `+` 号）。
 
 # V1.3.1
 

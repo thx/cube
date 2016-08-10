@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /**
-* @file:      Neat.css V1.1.0
+* @file:      Neat.css V1.1.1
 * @author:    一丝
-* @update:    2013-11-22 14:55:29;
+* @update:    2016年08月10日15:08:19
 * @copyright: 基于 normalize.css | MIT License
 * @doc:
 */
@@ -18,7 +18,10 @@
 /* ==========================================================================
  有即是无，无即是有
  ========================================================================== */
-body, dl, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, textarea, optgroup,
+body, dl, dd,
+ul, ol,
+h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, legend, input, textarea, optgroup,
 p, blockquote, figure, hr, menu, dir,
 thead, tbody, tfoot, th, td {
   margin: 0;
@@ -37,17 +40,14 @@ ul, ol {
  链接
  ========================================================================== */
 /**
-* 去除链接默认的下划线，提高文字可读性
+* 1. 去除链接默认的下划线，提高文字可读性
+* 2. 去掉 IE 10+ 点击链接时的灰色背景
 */
 a {
   text-decoration: none;
-}
-
-/**
-* 去掉 IE 10+ 点击链接时的灰色背景
-*/
-a:active {
+  /* 1 */
   background-color: transparent;
+  /* 2 */
 }
 
 /**
@@ -55,7 +55,7 @@ a:active {
 */
 a:active,
 a:hover {
-  outline: 0 none;
+  outline-width: 0;
 }
 
 /**
@@ -104,8 +104,11 @@ body {
 * 4. 微软雅黑「\5FAE\8F6F\96C5\9ED1」,中易宋体「\5B8B\4F53」
 */
 body,
-button, input, select, textarea {
-  font-family: 'helvetica neue',arial,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+button,
+input,
+select,
+textarea {
+  font-family: 'helvetica neue', arial, 'hiragino sans gb', stheiti, 'wenquanyi micro hei', \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
   -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis;
   /* 5 */
   text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis;
@@ -186,7 +189,7 @@ hr {
 * 修正 IE6-11 中没有样式的问题
 */
 mark {
-  background-color: #D2E5FF;
+  background-color: #d2e5ff;
   color: #000;
 }
 
@@ -257,11 +260,11 @@ sup {
 }
 
 sup {
-  top: -0.5em;
+  top: -.5em;
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }
 
 /* ==========================================================================
@@ -314,7 +317,7 @@ table th {
 * 6. 修复 IE7 图片缩放失真
 */
 img {
-  border: 0 none;
+  border-style: none;
   /* 1 */
   width: auto\9;
   /* 2 */
@@ -344,7 +347,7 @@ svg:not(:root) {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  padding: .35em .625em .75em;
 }
 
 /**
@@ -353,7 +356,7 @@ fieldset {
 * 3. 修正 IE6-7 中怪异的对齐方式
 */
 legend {
-  border: 0 none;
+  border-style: none;
   /* 1 */
   white-space: normal;
   /* 2 */
@@ -408,7 +411,8 @@ select {
 * 3. 统一其他类型的「input」的光标样式
 */
 button,
-html input[type="button"], input[type="reset"],
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
@@ -467,7 +471,7 @@ input[type="search"]::-webkit-search-decoration {
 */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  border: 0;
+  border-style: none;
   padding: 0;
 }
 
@@ -499,7 +503,7 @@ textarea {
 */
 select:disabled option:checked,
 option:disabled:checked {
-  color: #D2D2D2;
+  color: #d2d2d2;
 }
 
 /**
@@ -533,7 +537,7 @@ label {
 select[size],
 select[multiple],
 select[size][multiple] {
-  border: 1px solid #AAA;
+  border: 1px solid #aaa;
   padding: 0;
 }
 
@@ -597,49 +601,6 @@ audio:not([controls]) {
 */
 [draggable] {
   cursor: move;
-}
-
-/**
-* 居中 HTML5 dialog 元素
-* Chrome 31 支持，需开启 chrome://flags/#enable-experimental-web-platform-features
-* Chrome 28 之前、Firefox 中不支持 height:fit-content;
- https://src.chromium.org/viewvc/blink?revision=148314&view=revision
-* ::backdrop 定义遮罩样式
-* @demo: http://jsbin.com/iPACab/1
-*/
-dialog {
-  border: 1px solid;
-  padding: 0;
-  margin: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
-dialog::-webkit-backdrop {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-dialog::backdrop {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /*

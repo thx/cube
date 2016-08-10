@@ -27,7 +27,6 @@ textarea {
   text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis;
 }
 
-
 .type {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -36,7 +35,7 @@ textarea {
 .type-box {
   max-width: 50em;
   *width: 50em;
-  margin:32px 0;
+  margin: 32px 0;
   padding: 1em 2em;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -48,10 +47,9 @@ textarea {
  ========================================================================== */
 
 .type a {
-  color: #3187DB;
+  color: #3187db;
   text-decoration: none;
 }
-
 
 .type a:hover,
 .type ins:hover {
@@ -169,14 +167,12 @@ a img {
   border-bottom: 1px dotted;
 }
 
-
 /**
 * figure 内图片居中
 */
 .type figure {
   text-align: center;
 }
-
 
 /**
 * 中文小于 12px 可读性很差
@@ -224,10 +220,9 @@ h6 {
 .type blockquote {
   margin: 32px 28px;
   padding-left: 14px;
-  border-left: 3px solid #CCC;
+  border-left: 3px solid #ccc;
   line-height: 1.6;
 }
-
 
 /* ==========================================================================
  列表
@@ -285,14 +280,14 @@ h6 {
   line-height: normal;
   margin: 0 .25em;
   padding: 0 .4em;
-  border: 1px solid #DDD;
-  background-color: #F8F8F8;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
   border-radius: 3px;
 }
 
 .type pre {
-  background-color: #F8F8F8;
-  border: 1px solid #DDD;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
   font-size: 12px;
   line-height: 18px;
   overflow: auto;
@@ -335,8 +330,8 @@ h6 {
 
   color: #555;
   background-color: #fefefe;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
-  box-shadow: 0px 2px 0px #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .05), rgba(0, 0, 0, 0));
+  box-shadow: 0 2px 0 #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
 }
 
 .type .dark kbd,
@@ -345,8 +340,8 @@ h6 {
   text-shadow: 0 -1px 0 #000;
   border-color: #000;
   background-color: #4d4c4c;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0));
-  box-shadow: 0px 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0));
+  box-shadow: 0 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
 }
 
 .type kbd kbd {
@@ -363,7 +358,7 @@ h6 {
 */
 
 .type kbd[data-key]:after {
-  font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-family: "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
 }
 
 .type kbd[data-key="command"]:after {
@@ -429,7 +424,6 @@ h6 {
  CSS 自动生成标题编号
  ========================================================================== */
 
-
 /* --------------------------------------------------------------------------
  标题自动生成编号
  -------------------------------------------------------------------------- */
@@ -471,7 +465,6 @@ h6 {
   margin-right: .5em;
   color: #888;
 }
-
 
 .type {
   counter-reset: chapter section subsection;
@@ -539,7 +532,6 @@ HTML 结构         | 生成编号
   counter-increment: subsection;
 }
 
-
 /* --------------------------------------------------------------------------
  ol 自动生成编号
  -------------------------------------------------------------------------- */
@@ -563,10 +555,9 @@ HTML 结构         | 生成编号
   margin: 16px auto;
   overflow: hidden;
   background-color: #fff;
-  border: 1px solid #EAEAEA;
-  /*border-bottom: 1px solid #EAEAEA;*/
+  border: 1px solid #eaeaea;
+  // border-bottom: 1px solid #eaeaea;
 }
-
 
 .type-toc li {
   overflow: hidden;
@@ -578,25 +569,25 @@ HTML 结构         | 生成编号
   display: block;
   padding-left: .5em;
   overflow: hidden;
-  /*border: 0 none;*/
+  // border: 0 none;
   color: #666;
-  /*background-color: #ccc;*/
+  // background-color: #ccc;
 }
 
 .type-toc li a:hover {
   background-color: #f5f5f5;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #e6e6e6;
   border-radius: 0 0 3px 3px;
-  color: #3187DB;
+  color: #3187db;
 }
 
 .type-toc h2 {
   border-right: 1px solid #eee;
   padding: 0 22px;
   margin-bottom: 16px;
-  /*float: left;*/
-  /*background: #FBFBFB;*/
-  /*width: 1em;*/
+  // float: left;
+  // background: #fbfbfb;
+  // width: 1em;
   line-height: normal;
 }
 
@@ -631,10 +622,10 @@ HTML 结构         | 生成编号
   padding-left: 0;
 }
 
-/*.type-toc > ol > li {
+/* .type-toc > ol > li {
   display: inline-block;
   vertical-align: top;
-}*/
+} */
 
 ol.type-toc,
 .type-toc ol {
@@ -656,7 +647,7 @@ ol.type-toc,
 */
 .type-toc li:before {
   counter-increment: list; /* 1 */
-  content: counters(list, ".")" "; /* 2 */
+  content: counters(list, ".") " "; /* 2 */
 }
 
 /**
@@ -688,7 +679,6 @@ ol.type-toc,
   margin-top: 0;
   margin-bottom: 8px;
 }
-
 
 /* ==========================================================================
  汉字标点修正
@@ -726,7 +716,6 @@ ol.type-toc,
 
 */
 
-
 /* --------------------------------------------------------------------------
  间隔号「·」（Middle dot）
  -------------------------------------------------------------------------- */
@@ -744,7 +733,6 @@ ol.type-toc,
 /* --------------------------------------------------------------------------
  破折号「——」（EM dash）
  -------------------------------------------------------------------------- */
-
 
 @font-face {
   font-family: "type";
@@ -841,8 +829,3 @@ ol.type-toc,
   src: local('Fix Firefox');
   unicode-range: U+270C;
 }
-
-
-
-
-

@@ -35,7 +35,9 @@
 
 .clearall {
   overflow: hidden;
+  /* stylelint-disable */
   _overflow: visible;
+  /* stylelint-enable */
   *zoom: 1;
 }
 
@@ -85,7 +87,6 @@
   text-align: left; /* 2 */
 }
 
-
 /* --------------------------------------------------------------------------
  图片替换
  -------------------------------------------------------------------------- */
@@ -106,10 +107,10 @@
 * 2. VoiceOver 无法读出宽高为 0 的元素
 */
 .clip-hide {
-  position: absolute !important; /*clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  position: absolute !important; /* clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px); /* 1 */
   padding: 0 !important;
-  border: 0 none!important;
+  border: 0 none !important;
   height: 1px !important; /* 2 */
   width: 1px !important;
   overflow: hidden;
@@ -150,7 +151,7 @@
   -webkit-appearance: none; /* 1 */
   -moz-appearance: none; /* 2 */
   appearance: none;
-  text-overflow:""; /* 3 */
+  text-overflow: ""; /* 3 */
   text-indent: .01px; /* 3 */
 }
 

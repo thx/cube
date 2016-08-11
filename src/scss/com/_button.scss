@@ -19,13 +19,13 @@
   border-bottom-color: #bbb !important;
   background-color: #f4f4f4;
   background-repeat: repeat-x;
-  background-image: linear-gradient(to bottom, #f8f8f8, #eeeeee);
+  background-image: linear-gradient(to bottom, #f8f8f8, #eee);
 }
 
 .btn,
 .btn:hover,
 .btn:visited {
-  color: #333!important;
+  color: #333 !important;
 }
 
 .btn:hover {
@@ -41,21 +41,19 @@
   background-image: linear-gradient(to bottom, #e6e6e6, #f2f2f2);
 }
 
-
 /* 错误 */
-
 .btn-error {
   border-color: transparent;
   border-bottom-color: #c21b1b !important;
   background-color: #ff3636;
   background-repeat: repeat-x;
-  background-image: linear-gradient(to bottom, #ff4444, #ff2222);
+  background-image: linear-gradient(to bottom, #f44, #f22);
 }
 
 .btn-error,
 .btn-error:hover,
 .btn-error:visited {
-  color: #FFF!important;
+  color: #fff !important;
 }
 
 .btn-error:hover {
@@ -70,38 +68,34 @@
   background-image: linear-gradient(to bottom, #d51314, #ee2020);
 }
 
-
 /* 警告 */
-
 .btn-warning {
   border-color: transparent;
   border-bottom-color: #cf370c !important;
   background-color: #ff4e00;
   background-repeat: repeat-x;
-  background-image: linear-gradient(to bottom, #ff5500, #ff4400);
+  background-image: linear-gradient(to bottom, #f50, #f40);
 }
 
 .btn-warning,
 .btn-warning:hover,
 .btn-warning:visited {
-  color: #FFF!important;
+  color: #fff !important;
 }
 
 .btn-warning:hover {
   background-color: #ef4000;
   background-repeat: repeat-x;
-  background-image: linear-gradient(to bottom, #ff4400, #d73900);
+  background-image: linear-gradient(to bottom, #f40, #d73900);
 }
 
 .btn-warning:active {
   background-color: #e73d00;
   background-repeat: repeat-x;
-  background-image: linear-gradient(to bottom, #d73900, #ff4400);
+  background-image: linear-gradient(to bottom, #d73900, #f40);
 }
 
-
 /* 主要 */
-
 .btn-primary {
   border-color: transparent;
   border-bottom-color: #0960ab !important;
@@ -113,7 +107,7 @@
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:visited {
-  color: #FFF!important;
+  color: #fff !important;
 }
 
 .btn-primary:hover {
@@ -143,23 +137,25 @@
   background-image: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
 }
 
-
 /* ==========================================================================
  按钮组合
  ========================================================================== */
 
 .btn-group {
   overflow: hidden;
+
   .btn {
     float: left;
     margin: 0;
     border-radius: 0;
     border-left-width: 0;
   }
+
   .btn-group .btn:first-child {
     border-left-width: 1px;
     border-radius: 2px 0 0 2px;
   }
+
   .btn:last-child {
     border-radius: 0 2px 2px 0;
   }
@@ -175,7 +171,6 @@
   line-height: 43px;
   font-size: 18px;
 }
-
 
 .btn-large {
   padding: 0 20px;

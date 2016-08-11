@@ -24,9 +24,9 @@
   *word-spacing: -1px; /* IE6/7 */
 }
 
-@media (-webkit-min-device-pixel-ratio:0) {
-.dib-box {
-    letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+@media (-webkit-min-device-pixel-ratio: 0) {
+  .dib-box {
+    letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器 */
   }
 }
 
@@ -98,8 +98,8 @@
   height: 0;
   line-height: 0;
   display: inline-block;
-  *display:inline;
-  *zoom:1;
+  *display: inline;
+  *zoom: 1;
   vertical-align: -2px;
   border: 0 dashed transparent;
   border-width: 6px;
@@ -107,49 +107,49 @@
 
 .arrow-top {
   border-bottom-style: solid;
-  border-bottom-color: #2AB2DF;
+  border-bottom-color: #2ab2df;
 }
 
 .arrow-bottom {
   border-top-style: solid;
-  border-top-color: #2AB2DF;
+  border-top-color: #2ab2df;
 }
 
 .arrow-left {
   border-right-style: solid;
-  border-right-color: #2AB2DF;
+  border-right-color: #2ab2df;
 }
 
 .arrow-right {
   border-left-style: solid;
-  border-left-color: #2AB2DF;
+  border-left-color: #2ab2df;
 }
 
 /* ◤左上角 */
 .arrow-left-top {
   border-top-style: solid;
-  border-top-color: #2AB2DF;
+  border-top-color: #2ab2df;
   border-left-width: 0 !important;
 }
 
 /* ◥右上角 */
 .arrow-right-top {
   border-top-style: solid;
-  border-top-color: #2AB2DF;
+  border-top-color: #2ab2df;
   border-right-width: 0 !important;
 }
 
 /* ◣左下角 */
 .arrow-left-bottom {
   border-bottom-style: solid;
-  border-bottom-color: #2AB2DF;
+  border-bottom-color: #2ab2df;
   border-left-width: 0 !important;
 }
 
 /* ◢右下角 */
 .arrow-right-bottom {
   border-bottom-style: solid;
-  border-bottom-color: #2AB2DF;
+  border-bottom-color: #2ab2df;
   border-right-width: 0 !important;
 }
 
@@ -174,7 +174,7 @@
   width: 100%;
   height: 100%;
   left: 0;
-  top: 0
+  top: 0;
 }
 
 /* 常见的视频比例 */
@@ -222,8 +222,8 @@
 }
 
 /* 修复 Safari 5- inline-block 的空隙 */
-@media (-webkit-min-device-pixel-ratio:0) {
-.center-box {
+@media (-webkit-min-device-pixel-ratio: 0) {
+  .center-box {
     letter-spacing: -5px;
   }
 }
@@ -263,7 +263,7 @@
   vertical-align: middle;
   padding: 0 !important; /* 防止设置边距导致居中失效 */
   margin: 0 !important;
-  font-size:0;
+  font-size: 0;
 }
 
 .center-box img {

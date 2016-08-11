@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /**
-*@ Name:        type.css V1.1.0
+*@ Name:        type.css
 *@ Author:      一丝
-*@ Update:      2013-12-23 9:38:42;
-*@ Copyright:	MIT License
+*@ Update:      2016年08月10日22:04:30
+*@ Copyright:  	MIT License
 */
 body {
   font-size: 14px;
@@ -47,7 +47,7 @@ textarea {
  链接
  ========================================================================== */
 .type a {
-  color: #3187DB;
+  color: #3187db;
   text-decoration: none;
 }
 
@@ -220,7 +220,7 @@ h6 {
 .type blockquote {
   margin: 32px 28px;
   padding-left: 14px;
-  border-left: 3px solid #CCC;
+  border-left: 3px solid #ccc;
   line-height: 1.6;
 }
 
@@ -278,16 +278,16 @@ h6 {
   *display: inline;
   *zoom: 1;
   line-height: normal;
-  margin: 0 0.25em;
-  padding: 0 0.4em;
-  border: 1px solid #DDD;
-  background-color: #F8F8F8;
+  margin: 0 .25em;
+  padding: 0 .4em;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
   border-radius: 3px;
 }
 
 .type pre {
-  background-color: #F8F8F8;
-  border: 1px solid #DDD;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
   font-size: 12px;
   line-height: 18px;
   overflow: auto;
@@ -316,7 +316,7 @@ h6 {
  ========================================================================== */
 .type kbd {
   display: inline-block;
-  padding: 0.25em 0.5em 0.2em;
+  padding: .25em .5em .2em;
   margin-left: .25em;
   margin-right: .25em;
   font: 75%/1 monaco, menlo, consolas, 'courier new', courier, monospace;
@@ -333,8 +333,8 @@ h6 {
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), transparent);
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), transparent);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d000000', endColorstr='#00000000', GradientType=0);
-  -webkit-box-shadow: 0px 2px 0px #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
-          box-shadow: 0px 2px 0px #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
+  -webkit-box-shadow: 0 2px 0 #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
+          box-shadow: 0 2px 0 #ccc, 0 3px 1px #999, inset 0 1px 1px #fff;
 }
 
 .type .dark kbd,
@@ -347,8 +347,8 @@ h6 {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), transparent 80%, transparent);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), transparent 80%, transparent);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=0);
-  -webkit-box-shadow: 0px 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
-          box-shadow: 0px 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
+  -webkit-box-shadow: 0 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
+          box-shadow: 0 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
 }
 
 .type kbd kbd {
@@ -365,7 +365,7 @@ h6 {
  [Mac——如何输入⌘、⌥、⇧、⌃、⎋等特殊字符](http://softu.cn/447)
 */
 .type kbd[data-key]:after {
-  font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-family: "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
 }
 
 .type kbd[data-key="command"]:after {
@@ -556,8 +556,7 @@ HTML 结构         | 生成编号
   margin: 16px auto;
   overflow: hidden;
   background-color: #fff;
-  border: 1px solid #EAEAEA;
-  /*border-bottom: 1px solid #EAEAEA;*/
+  border: 1px solid #eaeaea;
 }
 
 .type-toc li {
@@ -570,25 +569,20 @@ HTML 结构         | 生成编号
   display: block;
   padding-left: .5em;
   overflow: hidden;
-  /*border: 0 none;*/
   color: #666;
-  /*background-color: #ccc;*/
 }
 
 .type-toc li a:hover {
   background-color: #f5f5f5;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #e6e6e6;
   border-radius: 0 0 3px 3px;
-  color: #3187DB;
+  color: #3187db;
 }
 
 .type-toc h2 {
   border-right: 1px solid #eee;
   padding: 0 22px;
   margin-bottom: 16px;
-  /*float: left;*/
-  /*background: #FBFBFB;*/
-  /*width: 1em;*/
   line-height: normal;
 }
 
@@ -623,10 +617,10 @@ HTML 结构         | 生成编号
   padding-left: 0;
 }
 
-/*.type-toc > ol > li {
+/* .type-toc > ol > li {
   display: inline-block;
   vertical-align: top;
-}*/
+} */
 ol.type-toc,
 .type-toc ol {
   counter-reset: list;
@@ -723,7 +717,7 @@ ol.type-toc,
  -------------------------------------------------------------------------- */
 @font-face {
   font-family: "type";
-  unicode-range: U0B 7;
+  unicode-range: U+00B7;
   src: local("Hiragino GB"), local("Heiti SC"), local(STHeiti), local(SimSun);
 }
 
@@ -732,7 +726,7 @@ ol.type-toc,
  -------------------------------------------------------------------------- */
 @font-face {
   font-family: "type";
-  unicode-range: U2014;
+  unicode-range: U+2014;
   src: local("Hiragino Sans GB"), local("Hiragino Kaku Gothic ProN"), local("Hiragino Kaku Gothic Pro"), local("Microsoft Yahei"), local(SimSun);
 }
 
@@ -741,7 +735,7 @@ ol.type-toc,
  -------------------------------------------------------------------------- */
 @font-face {
   font-family: "type";
-  unicode-range: U2026;
+  unicode-range: U+2026;
   src: local("Hiragino Sans GB"), local("Hiragino Kaku Gothic ProN"), local("Hiragino Kaku Gothic Pro"), local(Meiryo), local("MS Gothic"), local(SimSun), local(PMingLiU);
 }
 
@@ -750,7 +744,7 @@ ol.type-toc,
  -------------------------------------------------------------------------- */
 @font-face {
   font-family: "type";
-  unicode-range: U201C-201D, U2018-2019;
+  unicode-range: U+201C-201D, U+2018-2019;
   src: local("Hiragino Sans GB"), local("Heiti SC"), local(STHeiti), local(SimSun), local(PMingLiU);
 }
 
@@ -759,7 +753,7 @@ ol.type-toc,
  -------------------------------------------------------------------------- */
 @font-face {
   font-family: "type";
-  unicode-range: UFF0C, U3002, UFF1B, UFF1A;
+  unicode-range: U+FF0C, U+3002, U+FF1B, U+FF1A;
   src: local("Hiragino Kaku Gothic ProN"), local("Hiragino Kaku Gothic Pro"), local("MS Gothic"), local("SimSun");
 }
 
@@ -768,7 +762,7 @@ ol.type-toc,
  -------------------------------------------------------------------------- */
 @font-face {
   font-family: "type";
-  unicode-range: U3001;
+  unicode-range: U+3001;
   src: local("Hiragino Kaku Gothic ProN"), local("Hiragino Kaku Gothic Pro"), local("SimSun"), local("MS Mincho"), local("PMingLiU");
 }
 
@@ -777,7 +771,7 @@ ol.type-toc,
  -------------------------------------------------------------------------- */
 @font-face {
   font-family: "type";
-  unicode-range: U0A 5;
+  unicode-range: U+00A5;
   src: local(arial);
 }
 
@@ -791,7 +785,7 @@ ol.type-toc,
 @font-face {
   font-family: "type";
   src: local("Fix Firefox");
-  unicode-range: U270C;
+  unicode-range: U+270C;
 }
 
 /*# sourceMappingURL=type.css.map */

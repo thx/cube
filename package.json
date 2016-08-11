@@ -25,7 +25,7 @@
     "unzip": "~0.1.9"
   },
   "scripts": {
-    "test": "stylelint src/scss/*.scss"
+    "test": "stylelint src/scss/*.scss src/scss/**/*.scss"
   },
   "keywords": [
     "css",

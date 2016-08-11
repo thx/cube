@@ -67,7 +67,9 @@ textarea {
 .type h5 a,
 .type h6 a {
   border-bottom: 1px solid transparent;
+  /* stylelint-disable */
   _border-bottom: 1px none;
+  /* stylelint-enable */
 }
 
 .type li a:hover,

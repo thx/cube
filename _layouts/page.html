@@ -1,16 +1,14 @@
 <!doctype html>
-<html lang="zh-cn">
+<html>
 <head>
   <meta charset="utf-8">
 {% include meta.html %}
-  <title>{% if page.title %}{{ page.title }} - {% endif %} Cube 样式解决方案 - THX</title>
-  <link rel="stylesheet"  href="{{ site.baseurl }}/src/css/cube.css">
-  <link rel="stylesheet"  href="{{ site.baseurl }}/src/css/type.css">
-  <link rel="stylesheet"  href="{{ site.baseurl }}/assets/syntax/github.css">
-  <link rel="stylesheet"  href="{{ site.baseurl }}/assets/base.css">
-  <link rel="stylesheet"  href="{{ site.baseurl }}/assets/style.css">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}THX</title>
+{% include styles.html %}
+{% include extra-styles.html %}
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.xml">
 </head>
-<body bx-app class="skin-cube">
+<body bx-app class="{% if site.baseurl %}skin-{{ site.baseurl | remove_first: '/' }} {% else %}skin-home {% endif %}">
   {{ content }}
   {% include scripts.html %}
 </body>

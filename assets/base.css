@@ -62,59 +62,22 @@ a {
 }
 
 /**
- *@ name:        iconfont.css V1.1.0
- *@ author:      一丝
- *@ update:      2013-12-24 15:28:59
- * 1. 防止读屏器读出无意义的图标
- * 2. 防止 OS X 中图标视觉变粗和细节丢失的问题
- * 3. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
- * Demo: http://jsbin.com/iWItiQe/2
- */
-.iconfont,
-.type .iconfont, [class^="icon-"]:before,
-[class*=" icon-"]:before,
-.type [class^="icon-"]:before,
-.type [class*=" icon-"]:before {
-  font-family: "iconfont";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  display: inline-block; /* 1 */
-  speak: none; /* 2 */
-  -webkit-font-smoothing: antialiased; /* 3 */
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/**
- * 引入 Web font
- * 注意：使用font-face需要 CSS 线上地址和引用的 font 线上地址同域，否则 IE9  会有 CSS3117 问题
- * CSS3117: @font-face failed cross-origin request. Resource access is restricted.
- */
-@font-face {
-  font-family: "iconfont";
-  font-weight: normal;
-  font-style: normal;
-  src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot");
-  src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg");
-}
-
-
-/**
  * 引入Logo字体图标
  */
 @font-face {
-    font-family: 'logo';
-    src: url('http://at.alicdn.com/t/font_1390195988_9420388.eot'); /* IE9*/
-    src: url('http://at.alicdn.com/t/font_1390195988_9420388.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('http://at.alicdn.com/t/font_1390195989_0386753.woff') format('woff'), /* chrome、firefox */
-    url('http://at.alicdn.com/t/font_1390195988_7969282.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url('http://at.alicdn.com/t/font_1390195989_0668917.svg#svgFontName') format('svg'); /* iOS 4.1- */
+  font-family: 'iconfont';  /* project id："497" */
+  src: url('//at.alicdn.com/t/font_xxqssmnmc7rjm7vi.eot');
+  src: url('//at.alicdn.com/t/font_xxqssmnmc7rjm7vi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_xxqssmnmc7rjm7vi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_xxqssmnmc7rjm7vi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_xxqssmnmc7rjm7vi.svg#iconfont') format('svg');
 }
 
+.iconfont,
 .iconlogo,
-.type .iconlogo {
-    font-family: "logo";
+.type .iconlogo,
+.type .iconfont {
+    font-family: iconfont;
     font-size: 20px;
     font-style: normal;
     font-weight: normal;
@@ -125,72 +88,159 @@ a {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.iconfont,
+.type .iconfont {
+    font-size: 16px;
+}
+
+
 /*
  * icons
  */
+.mi-thx:before,
+.mi-base:before {
+    content: '\343b';
+}
+
 .mi-projects:before {
-    content: '\f082';
+    content: '\e603';
 }
+
 .mi-mobile:before {
-    content: '\f086';
+    content: '\e60a';
 }
+
 .mi-brix:before {
     content: '\3433';
 }
+
 .mi-rap:before {
     content: '\3434';
 }
+
 .mi-magix:before {
     content: '\3432';
 }
+
 .mi-mock:before {
     content: '\3435';
 }
+
 .mi-crox:before {
     content: '\3436';
 }
+
 .mi-cube:before {
     content: '\3439';
 }
+
 .mi-iconfont:before {
     content: '\343a';
 }
+
 .mi-canvax:before {
+    content: '\e600';
+}
+
+.mi-chartx:before {
     content: '\3437';
 }
+
 .mi-bisheng:before {
     content: '\3438';
 }
+
 .mi-releases:before {
-    content: '\0030';
+    content: '\e611';
 }
-.mi-tutorial:before {
-    content: '\016b';
+
+.mi-demo:before,
+.mi-demos:before,
+.mi-tutorial:before,
+.mi-tutorials:before {
+    content: '\e610';
 }
+
 .mi-whos-using:before {
-    content: '\00fa';
+    content: '\e612';
 }
+
+.mi-doc:before,
 .mi-articles:before {
-    content: '\0123';
+    content: '\e60f';
 }
+
+.mi-faq:before {
+    content: '\e613';
+}
+
+.mi-resources:before {
+    content: '\e60d';
+}
+
+.mi-list:before {
+    content: '\e614';
+}
+
+.mi-github:before {
+    content: '\e609';
+}
+
+.mi-type:before,
+.mi-apis:before {
+    content: '\e60c';
+}
+
 .mi-products:before {
-    content: '\0199';
+    content: '\e608';
 }
 
 .mi-diamond:before {
     content: '\f005';
 }
+
 .mi-gaming:before {
-    content: '\007a';
+    content: '\e602';
 }
 
 .mi-services:before {
-    content: '\013e';
+    content: '\e605';
 }
 
-.mi-activity:before{
-    content: "\123"
+.mi-activity:before {
+    content: "\e604";
 }
+
+.mi-pat:before {
+    content: "\e601";
+    font-size: 16px;
+}
+
+.mi-tadpole:before {
+    content: "\e615";
+}
+
+.mi-like:before {
+    content: "\e62f";
+}
+
+.mi-layout:before {
+    content: "\e60e";
+}
+
+.mi-source:before {
+    content: "\e616";
+}
+
+.mi-zip:before {
+    content: "\e620";
+}
+
+.mi-tool:before {
+    content: "\e640";
+}
+
+
 /*
  * Aside styles
  */
@@ -234,6 +284,7 @@ a {
     color: #fff;
     /*width: 130px;*/
     font-size: 56px;
+    margin-top: -0.15em;    /* to cope with the new baseline of iconfont.cn */
 }
 
 #nav .logo-text {

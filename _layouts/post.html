@@ -1,6 +1,5 @@
 ---
 layout: page
-script: assets/post.js
 ---
 
 <div id="page">
@@ -20,29 +19,28 @@ script: assets/post.js
         </div>
         {{ content }}
       </article>
-      {% include duoshuo.html %}
       {% include footer.html %}
     </div>
   </div>
-  <div id="nav" class="clearfix">
+  <div id="nav">
     <a href="javascript:void(0)" class="toggler" id="J_toggler">
-      <i class="iconfont">&#271;</i><span class="label">导航</span>
+      <i class="iconfont">&#xe60b;</i>
+      <span class="label">导航</span>
     </a>
-    <a href="{{ site.baseurl }}/" class="logo dib-box"><i class="iconlogo mi-cube dib"></i><span class="logo-text dib">Cube</span></a>
-    <ul class="menu">
+    <a href="{{ site.baseurl }}/" class="logo dib-box">
+      <i class="iconlogo dib mi-{{ site.title | downcase }}"></i>
+      <span class="logo-text dib">{{ site.title }}</span>
+    </a>
+    <ul class="categories menu">
     {% for category in site.categories %}
       <li>
         <a href="{{ site.baseurl }}/{{ category[0] }}" class="entry">
           <i class="iconfont mi-{{ category[0] }}"></i>
-          {{ category[0] | capitalize }}
+          {% if category[0] == 'apis' %}API{% else %}{{ category[0] | capitalize }}{% endif %}
         </a>
       </li>
     {% endfor %}
-      <li>
-        <a href="https://github.com/thx/cube" class="entry">
-          <i class="iconfont">&#61464;</i> Github
-        </a>
-      </li>
+      {% include extra-nav.html %}
     </ul>
   </div>
 </div>

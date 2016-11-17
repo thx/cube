@@ -80,13 +80,13 @@ KISSY.use('node,event', function(S, Node) {
     })
 
     S.ready(function() {
-        S.getScript('http://static.duoshuo.com/embed.js')
+        S.getScript('https://static.duoshuo.com/embed.js')
     })
 })
 
 KISSY.config('packages', {
     mosaics: {
-        base: 'http://g.tbcdn.cn/a',
+        base: 'https://g.alicdn.com/a',
         combine: true,
         debug: false,
         ignorePackageNameInUri: true,

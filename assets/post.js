@@ -1,5 +1,4 @@
 /*jshint asi: true */
-var duoshuoQuery = {short_name: 'thx'}
 
 KISSY.use('node,event', function(S, Node) {
 
@@ -77,10 +76,6 @@ KISSY.use('node,event', function(S, Node) {
             S.one('#nav').removeClass('fixed')
             S.one('#stoc').removeClass('fixed')
         }
-    })
-
-    S.ready(function() {
-        S.getScript('https://static.duoshuo.com/embed.js')
     })
 })
 

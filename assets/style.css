@@ -49,13 +49,9 @@
     font-size: 14px;
     color: #999;
 }
-.cube-modules .iconfont {
+.cube-modules .iconfont:before {
     font-size: 30px;
 }
-
-.mi-doc:before {
-    content: '\0123';
-}
-.mi-demo:before {
-    content: '\f082';
+.cube-modules a:hover {
+  text-decoration: none;
 }

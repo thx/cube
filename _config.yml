@@ -1,8 +1,5 @@
 baseurl: /cube
 safe: true
-lsi: false
-pygments: true
-markdown: redcarpet
 permalink: /:categories/:title
 encoding: utf-8
 exclude:
@@ -12,5 +9,10 @@ exclude:
   - package.json
   - README.md
 
+title: Cube
+url: https://thx.github.io/cube
 version: 1.3.2
 
+gems:
+  - jekyll-feed
+  - jekyll-sitemap

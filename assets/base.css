@@ -240,6 +240,10 @@ a {
     content: "\e640";
 }
 
+.mi-nav:before {
+    content: '\e60b';
+}
+
 
 /*
  * Aside styles

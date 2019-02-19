@@ -55,8 +55,9 @@
       "selector-list-comma-newline-after": null,
       "block-opening-brace-space-before": null,
       "selector-pseudo-element-colon-notation": "single",
-      "number-leading-zero": "never",
-      "declaration-block-no-ignored-properties": null
+      "number-leading-zero": null,
+      "declaration-block-no-ignored-properties": null,
+      "selector-pseudo-class-no-unknown": null
     }
   }
 }

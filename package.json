@@ -17,7 +17,6 @@
     "gulp-sourcemaps": "~1.6.0",
     "postcss-filter-gradient": "^0.2.0",
     "q": "~0.9.7",
-    "request": "~2.27.0",
     "run-sequence": "~1.1.5",
     "semver": "~2.1.0",
     "stylelint": "^7.1.0",
